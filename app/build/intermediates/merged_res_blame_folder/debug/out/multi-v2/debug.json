@@ -1,0 +1,114 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\19088\\.gradle\\daemon\\7.5\\com.zebra.android.devdemo.app-merged_res-5:\\values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\\ZSDK_DevDemos_Combined\\app\\src\\main\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
+                    },
+                    "to": {
+                        "startLines": "36,37",
+                        "startColumns": "4,4",
+                        "startOffsets": "765,823",
+                        "endColumns": "57,55",
+                        "endOffsets": "818,874"
+                    }
+                },
+                {
+                    "source": "C:\\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\\ZSDK_DevDemos_Combined\\app\\src\\main\\res\\values\\array.xml",
+                    "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
+                    },
+                    "to": {
+                        "startLines": "26",
+                        "startColumns": "4",
+                        "startOffsets": "446",
+                        "endLines": "34",
+                        "endColumns": "19",
+                        "endOffsets": "722"
+                    }
+                },
+                {
+                    "source": "C:\\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\\ZSDK_DevDemos_Combined\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "5,-1,-1,-1,-1,-1",
+                        "startColumns": "4,-1,-1,-1,-1,-1",
+                        "startOffsets": "115,-1,-1,-1,-1,-1",
+                        "endLines": "20,-1,-1,-1,-1,-1",
+                        "endColumns": "23,-1,-1,-1,-1,-1",
+                        "endOffsets": "735,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,18,35,38,39,40",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,159,727,879,932,990",
+                        "endLines": "17,25,35,38,39,40",
+                        "endColumns": "23,19,37,52,57,52",
+                        "endOffsets": "154,441,760,927,985,1038"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.zebra.android.devdemo.app-merged_res-5:/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\\ZSDK_DevDemos_Combined\\app\\src\\main\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
+                    },
+                    "to": {
+                        "startLines": "36,37",
+                        "startColumns": "4,4",
+                        "startOffsets": "1195,1253",
+                        "endColumns": "57,55",
+                        "endOffsets": "1248,1304"
+                    }
+                },
+                {
+                    "source": "C:\\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\\ZSDK_DevDemos_Combined\\app\\src\\main\\res\\values\\array.xml",
+                    "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
+                    },
+                    "to": {
+                        "startLines": "26",
+                        "startColumns": "4",
+                        "startOffsets": "876",
+                        "endLines": "34",
+                        "endColumns": "19",
+                        "endOffsets": "1152"
+                    }
+                },
+                {
+                    "source": "C:\\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\\ZSDK_DevDemos_Combined\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "5,-1,-1,-1,-1,-1",
+                        "startColumns": "4,-1,-1,-1,-1,-1",
+                        "startOffsets": "115,-1,-1,-1,-1,-1",
+                        "endLines": "20,-1,-1,-1,-1,-1",
+                        "endColumns": "23,-1,-1,-1,-1,-1",
+                        "endOffsets": "644,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,18,35,38,39,40",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,589,1157,1309,1362,1420",
+                        "endLines": "17,25,35,38,39,40",
+                        "endColumns": "23,19,37,52,57,52",
+                        "endOffsets": "584,871,1190,1357,1415,1468"
+                    }
+                }
+            ]
+        }
+    ]
+}

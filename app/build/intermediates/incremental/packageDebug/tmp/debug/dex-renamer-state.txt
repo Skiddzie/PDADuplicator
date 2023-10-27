@@ -1,0 +1,4 @@
+#Fri Oct 27 14:24:15 EDT 2023
+base.0=C\:\\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\\ZSDK_DevDemos_Combined\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
