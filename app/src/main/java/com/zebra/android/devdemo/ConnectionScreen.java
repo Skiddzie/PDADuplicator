@@ -140,7 +140,10 @@ public abstract class ConnectionScreen extends Activity {
     }
 
     protected String getTcpAddress() {
+//        get rid of all this shit and have it pull from a different
+//        section that stores the ip of the printer
         return ipAddress.getText().toString();
+//        return "192.168.001.047";
     }
 
     protected String getTcpPortNumber() {

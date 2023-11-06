@@ -12,7 +12,15 @@
  * ALL RIGHTS RESERVED
  ***********************************************/
 
+
+
 package com.zebra.android.devdemo.connectivity;
+
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -28,6 +36,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.zebra.android.devdemo.R;
+import com.zebra.android.devdemo.sendfile.SendFileDemo;
 import com.zebra.android.devdemo.util.DemoSleeper;
 import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
@@ -72,6 +81,8 @@ public class ConnectivityDemo extends Activity {
             public void onClick(View v) {
                 new Thread(new Runnable() {
                     public void run() {
+                        //storing the ip address
+                        navigateToSendFileActivity();
                         enableTestButton(false);
                         Looper.prepare();
                         doConnectionTest();
@@ -130,6 +141,7 @@ public class ConnectivityDemo extends Activity {
     }
 
     public ZebraPrinter connect() {
+
         setStatus("Connecting...", Color.YELLOW);
         printerConnection = null;
         if (isBluetoothSelected()) {
@@ -137,13 +149,22 @@ public class ConnectivityDemo extends Activity {
             SettingsHelper.saveBluetoothAddress(this, getMacAddressFieldText());
         } else {
             try {
+                //
+                //this is probably the section you're gonna wanna be focusing on
+                //to get the ip address stored
+                //
                 int port = Integer.parseInt(getTcpPortNumber());
                 printerConnection = new TcpConnection(getTcpAddress(), port);
+                TcpConnection storedConnection = new TcpConnection(getTcpAddress(), port);
                 SettingsHelper.saveIp(this, getTcpAddress());
+                Log.e("ipaddy",storedConnection.toString());
                 SettingsHelper.savePort(this, getTcpPortNumber());
             } catch (NumberFormatException e) {
                 setStatus("Port Number Is Invalid", Color.RED);
                 return null;
+                //
+                //
+                //
             }
         }
 
@@ -208,14 +229,41 @@ public class ConnectivityDemo extends Activity {
         return macAddress.getText().toString();
     }
 
-    private String getTcpAddress() {
+    //put this into a variable that can be shared with the other scripts
+    public String getTcpAddress() {
         return ipDNSAddress.getText().toString();
     }
 
-    private String getTcpPortNumber() {
+    public String getTcpPortNumber() {
         return portNumber.getText().toString();
     }
 
+
+    //added code for sending the port number and ip address over to sendfiledemo
+    public void saveTcpAddress(String tcpAddress) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("tcpAddress", tcpAddress);
+        editor.apply();
+    }
+    public void saveTcpPortNumber(String tcpPortNumber) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("tcpPortNumber", tcpPortNumber);
+        editor.apply();
+    }
+    private void navigateToSendFileActivity() {
+        String tcpAddress = getTcpAddress(); // Retrieve the TCP address
+        saveTcpAddress(tcpAddress); // Save the TCP address to SharedPreferences
+
+        String tcpPortNumber = getTcpPortNumber();
+        saveTcpPortNumber(tcpPortNumber);
+
+        Intent intent = new Intent(this, SendFileDemo.class);
+        intent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to SendFileDemo
+        intent.putExtra("tcpPortNumber", tcpPortNumber);
+        startActivity(intent); // Start the SendFileDemo activity
+    }
     private void doConnectionTest() {
         printer = connect();
         if (printer != null) {
@@ -269,5 +317,6 @@ public class ConnectivityDemo extends Activity {
         }
         return configLabel;
     }
+
 
 }

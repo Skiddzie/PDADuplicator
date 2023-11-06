@@ -19,10 +19,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.View;
 
 import com.zebra.android.devdemo.ConnectionScreen;
+import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
 import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.android.devdemo.util.UIHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
@@ -40,11 +43,35 @@ public class SendFileDemo extends ConnectionScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        code written by chatgpt fix this shit
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_send_file_demo);
+//
+//        // Retrieve the values from the Intent
+//        Intent intent = getIntent();
+//        if (intent != null) {
+//            String tcpAddress = intent.getStringExtra("tcpAddress");
+//            String tcpPortNumber = intent.getStringExtra("tcpPortNumber");
+//
+//            // Now you can use tcpAddress and tcpPortNumber as needed
+//            if (tcpAddress != null && tcpPortNumber != null) {
+//                // Use the tcpAddress and tcpPortNumber values here in your SendFileDemo class
+//                // For example, log or display these values
+//                Log.d("SendFileDemo", "Received TCP Address: " + tcpAddress);
+//                Log.d("SendFileDemo", "Received TCP Port Number: " + tcpPortNumber);
+//            }
+//        } else {
+//            // Handle case where intent is null or extras are missing
+//        }
+
         super.onCreate(savedInstanceState);
         testButton.setText("Send Test File");
     }
 
-    @Override
+    public void onClick(View v) {
+        performTest();
+    }
+
     public void performTest() {
         new Thread(new Runnable() {
             public void run() {
@@ -56,6 +83,16 @@ public class SendFileDemo extends ConnectionScreen {
         }).start();
 
     }
+    private String getStoredTcpAddress() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("tcpAddress", "default_value_if_not_found");
+    }
+    // Example usage:
+    private void saveTcpAddressFromConnectivityDemo() {
+        ConnectivityDemo connectivityDemo = new ConnectivityDemo(); // Create an instance of ConnectivityDemo
+        String tcpAddress = connectivityDemo.getTcpAddress(); // Retrieve the TCP address
+        connectivityDemo.saveTcpAddress(tcpAddress); // Save the TCP address to SharedPreferences
+    }
 
     private void sendFile() {
         Connection connection = null;
@@ -64,7 +101,7 @@ public class SendFileDemo extends ConnectionScreen {
         } else {
             try {
                 int port = Integer.parseInt(getTcpPortNumber());
-                connection = new TcpConnection(getTcpAddress(), port);
+                connection = new TcpConnection(getStoredTcpAddress(), port);
             } catch (NumberFormatException e) {
                 helper.showErrorDialogOnGuiThread("Port number is invalid");
                 return;
@@ -91,7 +128,7 @@ public class SendFileDemo extends ConnectionScreen {
             createDemoFile(printer, "TEST.LBL");
             printer.sendFileContents(filepath.getAbsolutePath());
             SettingsHelper.saveBluetoothAddress(this, getMacAddressFieldText());
-            SettingsHelper.saveIp(this, getTcpAddress());
+            SettingsHelper.saveIp(this, getStoredTcpAddress());
             SettingsHelper.savePort(this, getTcpPortNumber());
 
         } catch (ConnectionException e1) {
@@ -109,7 +146,7 @@ public class SendFileDemo extends ConnectionScreen {
 
         PrinterLanguage pl = printer.getPrinterControlLanguage();
         if (pl == PrinterLanguage.ZPL) {
-            configLabel = "^XA^FO17,16^GB379,371,8^FS^FT65,255^A0N,135,134^FDTEST^FS^XZ".getBytes();
+            configLabel = "^XA^FO17,16^GB379,371,8^FS^FT65,255^A0N,135,134^FDFILE^FS^XZ".getBytes();
         } else if (pl == PrinterLanguage.CPCL) {
             String cpclConfigLabel = "! 0 200 200 406 1\r\n" + "ON-FEED IGNORE\r\n" + "BOX 20 20 380 380 8\r\n" + "T 0 6 137 177 TEST\r\n" + "PRINT\r\n";
             configLabel = cpclConfigLabel.getBytes();
