@@ -19,9 +19,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 
 import com.zebra.android.devdemo.ConnectionScreen;
@@ -44,27 +46,27 @@ public class SendFileDemo extends ConnectionScreen {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        code written by chatgpt fix this shit
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_send_file_demo);
-//
-//        // Retrieve the values from the Intent
-//        Intent intent = getIntent();
-//        if (intent != null) {
-//            String tcpAddress = intent.getStringExtra("tcpAddress");
-//            String tcpPortNumber = intent.getStringExtra("tcpPortNumber");
-//
-//            // Now you can use tcpAddress and tcpPortNumber as needed
-//            if (tcpAddress != null && tcpPortNumber != null) {
-//                // Use the tcpAddress and tcpPortNumber values here in your SendFileDemo class
-//                // For example, log or display these values
-//                Log.d("SendFileDemo", "Received TCP Address: " + tcpAddress);
-//                Log.d("SendFileDemo", "Received TCP Port Number: " + tcpPortNumber);
-//            }
-//        } else {
-//            // Handle case where intent is null or extras are missing
-//        }
-
         super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_send_file_demo);
+
+        // Retrieve the values from the Intent
+        Intent intent = getIntent();
+        if (intent != null) {
+            String tcpAddress = intent.getStringExtra("tcpAddress");
+            String tcpPortNumber = intent.getStringExtra("tcpPortNumber");
+
+            // Now you can use tcpAddress and tcpPortNumber as needed
+            if (tcpAddress != null && tcpPortNumber != null) {
+                // Use the tcpAddress and tcpPortNumber values here in your SendFileDemo class
+                // For example, log or display these values
+                Log.d("SendFileDemo", "Received TCP Address: " + tcpAddress);
+                Log.d("SendFileDemo", "Received TCP Port Number: " + tcpPortNumber);
+            }
+        } else {
+            // Handle case where intent is null or extras are missing
+        }
+
+//        super.onCreate(savedInstanceState);
         testButton.setText("Send Test File");
     }
 

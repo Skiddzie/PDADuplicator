@@ -5,424 +5,424 @@
 5    android:versionName="1.0" >
 6
 7    <uses-sdk
-7-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:7:5-9:41
+7-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:6:5-8:41
 8        android:minSdkVersion="15"
-8-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:8:9-35
+8-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:7:9-35
 9        android:targetSdkVersion="15" />
-9-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:9:9-38
+9-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:8:9-38
 10
 11    <uses-permission android:name="android.permission.BLUETOOTH" />
-11-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:11:5-68
-11-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:11:22-65
+11-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:10:5-68
+11-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:10:22-65
 12    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-12-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:12:5-74
-12-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:12:22-71
+12-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:11:5-74
+12-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:11:22-71
 13    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-13-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:13:5-86
-13-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:13:22-83
+13-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:12:5-86
+13-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:12:22-83
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:14:5-67
-14-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:14:22-64
+14-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:13:5-67
+14-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:13:22-64
 15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-15-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:15:5-81
-15-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:15:22-78
+15-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:14:5-81
+15-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:14:22-78
 16    <uses-permission android:name="android.permission.CAMERA" />
-16-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:16:5-65
-16-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:16:22-62
+16-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:15:5-65
+16-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:15:22-62
 17    <uses-permission android:name="android.permission.VIBRATE" />
-17-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:17:5-66
-17-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:17:22-63
+17-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:16:5-66
+17-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:16:22-63
 18    <uses-permission android:name="android.permission.FLASHLIGHT" />
-18-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:18:5-69
-18-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:18:22-66
+18-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:17:5-69
+18-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:17:22-66
 19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-19-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:19:2-76
-19-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:19:19-73
+19-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:18:2-76
+19-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:18:19-73
 20
 21    <uses-feature
-21-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:21:2-83
+21-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:20:2-83
 22        android:name="android.hardware.usb.host"
-22-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:21:16-56
+22-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:20:16-56
 23        android:required="false" />
-23-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:21:57-81
+23-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:20:57-81
 24    <uses-feature android:name="android.hardware.camera" />
-24-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:23:5-60
-24-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:23:19-57
+24-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:22:5-60
+24-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:22:19-57
 25    <uses-feature android:name="android.hardware.camera.autofocus" />
-25-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:24:5-70
-25-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:24:19-67
+25-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:23:5-70
+25-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:23:19-67
 26
 27    <application
-27-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:26:5-211:23
+27-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:25:5-210:23
 28        android:allowBackup="false"
-28-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:29:9-36
+28-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:28:9-36
 29        android:debuggable="true"
 30        android:icon="@drawable/icon"
-30-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:27:9-38
+30-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:26:9-38
 31        android:label="@string/app_name"
-31-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:28:9-41
+31-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:27:9-41
 32        android:testOnly="true" >
 33        <activity
-33-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:30:9-39:20
+33-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:29:9-38:20
 34            android:name="com.zebra.android.devdemo.LoadDevDemo"
-34-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:31:13-65
+34-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:30:13-65
 35            android:label="@string/app_name"
-35-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:32:13-45
+35-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:31:13-45
 36            android:screenOrientation="portrait" >
-36-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:33:13-49
+36-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:32:13-49
 37            <intent-filter>
-37-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:34:13-38:29
+37-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:33:13-37:29
 38                <action android:name="android.intent.action.MAIN" />
-38-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:35:17-69
-38-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:35:25-66
+38-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:34:17-69
+38-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:34:25-66
 39
 40                <category android:name="android.intent.category.LAUNCHER" />
-40-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:37:17-77
-40-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:37:27-74
+40-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:36:17-77
+40-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:36:27-74
 41            </intent-filter>
 42        </activity>
 43        <activity
-43-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:40:9-45:55
+43-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:39:9-44:55
 44            android:name="com.zebra.android.devdemo.discovery.DiscoveryDemo"
-44-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:41:13-77
+44-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:40:13-77
 45            android:configChanges="keyboardHidden|orientation"
-45-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:42:13-63
+45-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:41:13-63
 46            android:label="Discovery Demo"
-46-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:43:13-43
+46-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:42:13-43
 47            android:screenOrientation="portrait"
-47-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:44:13-49
+47-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:43:13-49
 48            android:windowSoftInputMode="adjustPan" />
-48-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:45:13-52
+48-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:44:13-52
 49        <activity
-49-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:46:9-51:55
+49-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:45:9-50:55
 50            android:name="com.zebra.android.devdemo.discovery.BluetoothDiscovery"
-50-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:47:13-82
+50-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:46:13-82
 51            android:configChanges="keyboardHidden|orientation"
-51-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:48:13-63
+51-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:47:13-63
 52            android:label="Discovered Printers"
-52-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:49:13-48
+52-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:48:13-48
 53            android:screenOrientation="portrait"
-53-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:50:13-49
+53-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:49:13-49
 54            android:windowSoftInputMode="adjustPan" />
-54-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:51:13-52
+54-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:50:13-52
 55        <activity
-55-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:52:9-57:55
+55-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:51:9-56:55
 56            android:name="com.zebra.android.devdemo.discovery.MulticastDiscoveryResultList"
-56-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:53:13-92
+56-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:52:13-92
 57            android:configChanges="keyboardHidden|orientation"
-57-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:54:13-63
+57-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:53:13-63
 58            android:label="Discovered Printers"
-58-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:55:13-48
+58-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:54:13-48
 59            android:screenOrientation="portrait"
-59-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:56:13-49
+59-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:55:13-49
 60            android:windowSoftInputMode="adjustPan" />
-60-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:57:13-52
+60-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:56:13-52
 61        <activity
-61-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:58:9-63:55
+61-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:57:9-62:55
 62            android:name="com.zebra.android.devdemo.discovery.DirectedBroadcastResultList"
-62-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:59:13-91
+62-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:58:13-91
 63            android:configChanges="keyboardHidden|orientation"
-63-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:60:13-63
+63-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:59:13-63
 64            android:label="Discovered Printers"
-64-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:61:13-48
+64-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:60:13-48
 65            android:screenOrientation="portrait"
-65-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:62:13-49
+65-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:61:13-49
 66            android:windowSoftInputMode="adjustPan" />
-66-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:63:13-52
+66-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:62:13-52
 67        <activity
-67-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:64:9-69:55
+67-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:63:9-68:55
 68            android:name="com.zebra.android.devdemo.discovery.DirectedBroadcastParameters"
-68-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:65:13-91
+68-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:64:13-91
 69            android:configChanges="keyboardHidden|orientation"
-69-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:66:13-63
+69-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:65:13-63
 70            android:label="Directed Broadcast Parameters"
-70-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:67:13-58
+70-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:66:13-58
 71            android:screenOrientation="portrait"
-71-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:68:13-49
+71-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:67:13-49
 72            android:windowSoftInputMode="adjustPan" />
-72-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:69:13-52
+72-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:68:13-52
 73        <activity
-73-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:70:9-75:55
+73-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:69:9-74:55
 74            android:name="com.zebra.android.devdemo.discovery.SubnetSearchResultList"
-74-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:71:13-86
+74-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:70:13-86
 75            android:configChanges="keyboardHidden|orientation"
-75-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:72:13-63
+75-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:71:13-63
 76            android:label="Discovered Printers"
-76-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:73:13-48
+76-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:72:13-48
 77            android:screenOrientation="portrait"
-77-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:74:13-49
+77-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:73:13-49
 78            android:windowSoftInputMode="adjustPan" />
-78-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:75:13-52
+78-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:74:13-52
 79        <activity
-79-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:76:9-81:55
+79-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:75:9-80:55
 80            android:name="com.zebra.android.devdemo.discovery.SubnetSearchParameters"
-80-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:77:13-86
+80-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:76:13-86
 81            android:configChanges="keyboardHidden|orientation"
-81-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:78:13-63
+81-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:77:13-63
 82            android:label="Subnet Search Parameters"
-82-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:79:13-53
+82-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:78:13-53
 83            android:screenOrientation="portrait"
-83-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:80:13-49
+83-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:79:13-49
 84            android:windowSoftInputMode="adjustPan" />
-84-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:81:13-52
+84-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:80:13-52
 85        <activity
-85-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:82:9-87:55
+85-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:81:9-86:55
 86            android:name="com.zebra.android.devdemo.discovery.LocalBroadcastDiscoveryResultList"
-86-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:83:13-97
+86-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:82:13-97
 87            android:configChanges="keyboardHidden|orientation"
-87-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:84:13-63
+87-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:83:13-63
 88            android:label="Discovered Printers"
-88-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:85:13-48
+88-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:84:13-48
 89            android:screenOrientation="portrait"
-89-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:86:13-49
+89-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:85:13-49
 90            android:windowSoftInputMode="adjustPan" />
-90-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:87:13-52
+90-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:86:13-52
 91        <activity
-91-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:88:9-93:55
+91-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:87:9-92:55
 92            android:name="com.zebra.android.devdemo.discovery.FindPrintersDiscoveryResultList"
-92-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:89:13-95
+92-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:88:13-95
 93            android:configChanges="keyboardHidden|orientation"
-93-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:90:13-63
+93-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:89:13-63
 94            android:label="Discovered Printers"
-94-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:91:13-48
+94-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:90:13-48
 95            android:screenOrientation="portrait"
-95-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:92:13-49
+95-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:91:13-49
 96            android:windowSoftInputMode="adjustPan" />
-96-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:93:13-52
+96-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:92:13-52
 97        <activity
-97-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:94:9-99:55
+97-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:93:9-98:55
 98            android:name="com.zebra.android.devdemo.discovery.MulticastDiscoveryParameters"
-98-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:95:13-92
+98-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:94:13-92
 99            android:configChanges="keyboardHidden|orientation"
-99-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:96:13-63
+99-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:95:13-63
 100            android:label="Multicast Parameters"
-100-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:97:13-49
+100-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:96:13-49
 101            android:screenOrientation="portrait"
-101-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:98:13-49
+101-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:97:13-49
 102            android:windowSoftInputMode="adjustPan" />
-102-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:99:13-52
+102-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:98:13-52
 103        <activity
-103-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:100:9-105:55
+103-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:99:9-104:55
 104            android:name="com.zebra.android.devdemo.imageprint.ImagePrintDemo"
-104-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:101:13-79
+104-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:100:13-79
 105            android:configChanges="keyboardHidden|orientation"
-105-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:102:13-63
+105-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:101:13-63
 106            android:label="Image Print Demo"
-106-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:103:13-45
+106-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:102:13-45
 107            android:screenOrientation="portrait"
-107-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:104:13-49
+107-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:103:13-49
 108            android:windowSoftInputMode="adjustPan" />
-108-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:105:13-52
+108-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:104:13-52
 109        <activity
-109-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:106:9-111:55
+109-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:105:9-110:55
 110            android:name="com.zebra.android.devdemo.magcard.MagCardDemo"
-110-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:107:13-73
+110-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:106:13-73
 111            android:configChanges="keyboardHidden|orientation"
-111-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:108:13-63
+111-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:107:13-63
 112            android:label="Mag Card Demo"
-112-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:109:13-42
+112-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:108:13-42
 113            android:screenOrientation="portrait"
-113-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:110:13-49
+113-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:109:13-49
 114            android:windowSoftInputMode="adjustPan" />
-114-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:111:13-52
+114-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:110:13-52
 115        <activity
-115-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:112:9-117:55
+115-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:111:9-116:55
 116            android:name="com.zebra.android.devdemo.status.PrintStatusDemo"
-116-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:113:13-76
+116-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:112:13-76
 117            android:configChanges="keyboardHidden|orientation"
-117-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:114:13-63
+117-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:113:13-63
 118            android:label="Printer Status Demo"
-118-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:115:13-48
+118-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:114:13-48
 119            android:screenOrientation="portrait"
-119-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:116:13-49
+119-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:115:13-49
 120            android:windowSoftInputMode="adjustPan" />
-120-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:117:13-52
+120-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:116:13-52
 121        <activity
-121-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:118:9-123:55
+121-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:117:9-122:55
 122            android:name="com.zebra.android.devdemo.smartcard.SmartCardDemo"
-122-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:119:13-77
+122-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:118:13-77
 123            android:configChanges="keyboardHidden|orientation"
-123-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:120:13-63
+123-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:119:13-63
 124            android:label="Smart Card Demo"
-124-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:121:13-44
+124-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:120:13-44
 125            android:screenOrientation="portrait"
-125-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:122:13-49
+125-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:121:13-49
 126            android:windowSoftInputMode="adjustPan" />
-126-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:123:13-52
+126-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:122:13-52
 127        <activity
-127-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:124:9-129:55
+127-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:123:9-128:55
 128            android:name="com.zebra.android.devdemo.sigcapture.SigCaptureDemo"
-128-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:125:13-79
+128-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:124:13-79
 129            android:configChanges="keyboardHidden|orientation"
-129-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:126:13-63
+129-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:125:13-63
 130            android:label="Signature Capture Demo"
-130-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:127:13-51
+130-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:126:13-51
 131            android:screenOrientation="portrait"
-131-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:128:13-49
+131-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:127:13-49
 132            android:windowSoftInputMode="adjustPan" />
-132-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:129:13-52
+132-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:128:13-52
 133        <activity
-133-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:130:9-135:55
+133-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:129:9-134:55
 134            android:name="com.zebra.android.devdemo.sendfile.SendFileDemo"
-134-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:131:13-75
+134-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:130:13-75
 135            android:configChanges="keyboardHidden|orientation"
-135-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:132:13-63
+135-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:131:13-63
 136            android:label="Send File Demo"
-136-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:133:13-43
+136-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:132:13-43
 137            android:screenOrientation="portrait"
-137-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:134:13-49
+137-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:133:13-49
 138            android:windowSoftInputMode="adjustPan" />
-138-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:135:13-52
+138-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:134:13-52
 139        <activity
-139-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:136:9-141:55
+139-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:135:9-140:55
 140            android:name="com.zebra.android.devdemo.storedformat.StoredFormatScreen"
-140-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:137:13-85
+140-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:136:13-85
 141            android:configChanges="keyboardHidden|orientation"
-141-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:138:13-63
+141-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:137:13-63
 142            android:label="Stored Format Demo"
-142-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:139:13-47
+142-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:138:13-47
 143            android:screenOrientation="portrait"
-143-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:140:13-49
+143-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:139:13-49
 144            android:windowSoftInputMode="adjustPan" />
-144-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:141:13-52
+144-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:140:13-52
 145        <activity
-145-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:142:9-146:55
+145-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:141:9-145:55
 146            android:name="com.zebra.android.devdemo.storedformat.StoredFormatDemo"
-146-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:143:13-83
+146-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:142:13-83
 147            android:configChanges="keyboardHidden|orientation"
-147-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:144:13-63
+147-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:143:13-63
 148            android:screenOrientation="portrait"
-148-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:145:13-49
+148-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:144:13-49
 149            android:windowSoftInputMode="adjustPan" />
-149-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:146:13-52
+149-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:145:13-52
 150        <activity
-150-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:147:9-151:55
+150-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:146:9-150:55
 151            android:name="com.zebra.android.devdemo.storedformat.VariablesScreen"
-151-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:148:13-82
+151-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:147:13-82
 152            android:configChanges="keyboardHidden|orientation"
-152-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:149:13-63
+152-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:148:13-63
 153            android:screenOrientation="portrait"
-153-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:150:13-49
+153-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:149:13-49
 154            android:windowSoftInputMode="adjustPan" />
-154-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:151:13-52
+154-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:150:13-52
 155        <activity
-155-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:152:9-157:55
+155-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:151:9-156:55
 156            android:name="com.zebra.android.devdemo.connectivity.ConnectivityDemo"
-156-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:153:13-83
+156-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:152:13-83
 157            android:configChanges="keyboardHidden|orientation"
-157-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:154:13-63
+157-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:153:13-63
 158            android:label="Connectivity Demo"
-158-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:155:13-46
+158-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:154:13-46
 159            android:screenOrientation="portrait"
-159-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:156:13-49
+159-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:155:13-49
 160            android:windowSoftInputMode="adjustPan" />
-160-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:157:13-52
+160-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:156:13-52
 161        <activity
-161-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:158:9-163:55
+161-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:157:9-162:55
 162            android:name="com.zebra.android.devdemo.status.PrinterStatusScreen"
-162-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:159:13-80
+162-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:158:13-80
 163            android:configChanges="keyboardHidden|orientation"
-163-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:160:13-63
+163-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:159:13-63
 164            android:label="Status Messages"
-164-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:161:13-44
+164-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:160:13-44
 165            android:screenOrientation="portrait"
-165-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:162:13-49
+165-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:161:13-49
 166            android:windowSoftInputMode="adjustPan" />
-166-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:163:13-52
+166-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:162:13-52
 167        <activity
-167-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:164:9-169:55
+167-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:163:9-168:55
 168            android:name="com.zebra.android.devdemo.listformats.ListFormatsScreen"
-168-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:165:13-83
+168-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:164:13-83
 169            android:configChanges="keyboardHidden|orientation"
-169-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:166:13-63
+169-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:165:13-63
 170            android:label="List Formats Demo"
-170-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:167:13-46
+170-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:166:13-46
 171            android:screenOrientation="portrait"
-171-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:168:13-49
+171-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:167:13-49
 172            android:windowSoftInputMode="adjustPan" />
-172-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:169:13-52
+172-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:168:13-52
 173        <activity
-173-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:170:9-174:55
+173-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:169:9-173:55
 174            android:name="com.zebra.android.devdemo.listformats.ListFormatsDemo"
-174-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:171:13-81
+174-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:170:13-81
 175            android:configChanges="keyboardHidden|orientation"
-175-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:172:13-63
+175-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:171:13-63
 176            android:screenOrientation="portrait"
-176-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:173:13-49
+176-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:172:13-49
 177            android:windowSoftInputMode="adjustPan" />
-177-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:174:13-52
+177-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:173:13-52
 178        <activity
-178-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:175:9-180:55
+178-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:174:9-179:55
 179            android:name="com.zebra.android.devdemo.statuschannel.StatusChannelDemo"
-179-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:176:13-85
+179-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:175:13-85
 180            android:configChanges="keyboardHidden|orientation"
-180-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:177:13-63
+180-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:176:13-63
 181            android:label="Status Channel"
-181-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:178:13-43
+181-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:177:13-43
 182            android:screenOrientation="portrait"
-182-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:179:13-49
+182-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:178:13-49
 183            android:windowSoftInputMode="adjustPan" />
-183-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:180:13-52
+183-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:179:13-52
 184        <activity
-184-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:181:9-186:55
+184-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:180:9-185:55
 185            android:name="com.zebra.android.devdemo.statuschannel.StatusChannelScreen"
-185-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:182:13-87
+185-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:181:13-87
 186            android:configChanges="keyboardHidden|orientation"
-186-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:183:13-63
+186-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:182:13-63
 187            android:label="Status Channel View"
-187-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:184:13-48
+187-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:183:13-48
 188            android:screenOrientation="portrait"
-188-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:185:13-49
+188-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:184:13-49
 189            android:windowSoftInputMode="adjustPan" />
-189-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:186:13-52
+189-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:185:13-52
 190        <activity
-190-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:187:9-192:55
+190-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:186:9-191:55
 191            android:name="com.zebra.android.devdemo.multichannel.MultiChannelDemo"
-191-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:188:13-83
+191-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:187:13-83
 192            android:configChanges="keyboardHidden|orientation"
-192-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:189:13-63
+192-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:188:13-63
 193            android:label="Multichannel"
-193-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:190:13-41
+193-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:189:13-41
 194            android:screenOrientation="portrait"
-194-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:191:13-49
+194-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:190:13-49
 195            android:windowSoftInputMode="adjustPan" />
-195-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:192:13-52
+195-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:191:13-52
 196        <activity
-196-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:193:9-198:55
+196-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:192:9-197:55
 197            android:name="com.zebra.android.devdemo.multichannel.MultiChannelScreen"
-197-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:194:13-85
+197-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:193:13-85
 198            android:configChanges="keyboardHidden|orientation"
-198-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:195:13-63
+198-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:194:13-63
 199            android:label="Multichannel View"
-199-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:196:13-46
+199-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:195:13-46
 200            android:screenOrientation="portrait"
-200-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:197:13-49
+200-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:196:13-49
 201            android:windowSoftInputMode="adjustPan" />
-201-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:198:13-52
+201-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:197:13-52
 202        <activity
-202-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:199:9-204:55
+202-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:198:9-203:55
 203            android:name="com.zebra.android.devdemo.connectionbuilder.ConnectionBuilderDemo"
-203-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:200:13-93
+203-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:199:13-93
 204            android:configChanges="keyboardHidden|orientation"
-204-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:201:13-63
+204-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:200:13-63
 205            android:label="Connection Builder Demo"
-205-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:202:13-52
+205-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:201:13-52
 206            android:screenOrientation="portrait"
-206-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:203:13-49
+206-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:202:13-49
 207            android:windowSoftInputMode="adjustPan" />
-207-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:204:13-52
+207-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:203:13-52
 208        <activity
-208-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:205:9-210:55
+208-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:204:9-209:55
 209            android:name="com.zebra.android.devdemo.receipt.ReceiptDemo"
-209-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:206:13-73
+209-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:205:13-73
 210            android:configChanges="keyboardHidden|orientation"
-210-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:207:13-63
+210-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:206:13-63
 211            android:label="Receipt Demo"
-211-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:208:13-41
+211-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:207:13-41
 212            android:screenOrientation="portrait"
-212-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:209:13-49
+212-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:208:13-49
 213            android:windowSoftInputMode="adjustPan" />
-213-->C:\LinkOS-Android-Samples-ZSDK_DevDemos_Combined\ZSDK_DevDemos_Combined\app\src\main\AndroidManifest.xml:210:13-52
+213-->C:\Users\User\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:209:13-52
 214    </application>
 215
 216</manifest>
