@@ -16,6 +16,7 @@ package com.zebra.android.devdemo.storedformat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.zebra.android.devdemo.ConnectionScreen;
 
@@ -24,18 +25,28 @@ public class StoredFormatDemo extends ConnectionScreen {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        performTest();
         testButton.setText("Retrieve Formats");
     }
 
     @Override
     public void performTest() {
-        Intent intent;
-        intent = new Intent(this, StoredFormatScreen.class);
+        String tcpAddress = getTcpAddress();
+        String tcpPortNumber = getTcpPortNumber();
+
+        Intent intent = new Intent(this, StoredFormatScreen.class);
+
         intent.putExtra("bluetooth selected", isBluetoothSelected());
         intent.putExtra("mac address", getMacAddressFieldText());
-        intent.putExtra("tcp address", getTcpAddress());
-        intent.putExtra("tcp port", getTcpPortNumber());
+        intent.putExtra("tcpAddress", tcpAddress);
+        intent.putExtra("tcpPortNumber", tcpPortNumber);
+
+        Log.d("storedformat", "Received TCP Address: " + tcpAddress);
+        Log.d("storedformat", "Received TCP Port Number: " + tcpPortNumber);
+
         startActivity(intent);
     }
+
+
 
 }

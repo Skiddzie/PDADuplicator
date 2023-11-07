@@ -39,6 +39,7 @@ import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.sendfile.SendFileDemo;
 import com.zebra.android.devdemo.storedformat.StoredFormatDemo;
 import com.zebra.android.devdemo.storedformat.StoredFormatScreen;
+import com.zebra.android.devdemo.storedformat.VariablesScreen;
 import com.zebra.android.devdemo.util.DemoSleeper;
 import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
@@ -267,7 +268,7 @@ public class ConnectivityDemo extends Activity {
         startActivity(sendFileIntent); // Start the SendFileDemo activity
 
         // Navigate to StoredFormatDemo
-        Intent storedFormatIntent = new Intent(this, StoredFormatScreen.class);
+        Intent storedFormatIntent = new Intent(this, StoredFormatDemo.class);
         storedFormatIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to StoredFormatDemo
         storedFormatIntent.putExtra("tcpPortNumber", tcpPortNumber);
         startActivity(storedFormatIntent); // Start the StoredFormatDemo activity
