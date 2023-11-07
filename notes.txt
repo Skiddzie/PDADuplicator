@@ -1,0 +1,6 @@
+goal here is to have it ask for the ip address and port, pull up a screen for selecting the zpl format,
+and then storing all of that so that the end user can just open the app and always have that one
+screen.
+
+connectivity demo must send ip address and port to storedformatdemo must send selected format
+to sendfiledemo

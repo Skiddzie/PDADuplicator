@@ -37,6 +37,7 @@ import android.widget.TextView;
 
 import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.sendfile.SendFileDemo;
+import com.zebra.android.devdemo.storedformat.StoredFormatDemo;
 import com.zebra.android.devdemo.util.DemoSleeper;
 import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
@@ -259,10 +260,17 @@ public class ConnectivityDemo extends Activity {
         String tcpPortNumber = getTcpPortNumber();
         saveTcpPortNumber(tcpPortNumber);
 
-        Intent intent = new Intent(this, SendFileDemo.class);
-        intent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to SendFileDemo
-        intent.putExtra("tcpPortNumber", tcpPortNumber);
-        startActivity(intent); // Start the SendFileDemo activity
+        Intent sendFileIntent = new Intent(this, SendFileDemo.class);
+        sendFileIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to SendFileDemo
+        sendFileIntent.putExtra("tcpPortNumber", tcpPortNumber);
+        startActivity(sendFileIntent); // Start the SendFileDemo activity
+
+        // Navigate to StoredFormatDemo
+        Intent storedFormatIntent = new Intent(this, StoredFormatDemo.class);
+        storedFormatIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to StoredFormatDemo
+        storedFormatIntent.putExtra("tcpPortNumber", tcpPortNumber);
+        startActivity(storedFormatIntent); // Start the StoredFormatDemo activity
+
     }
     private void doConnectionTest() {
         printer = connect();
