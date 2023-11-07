@@ -21,9 +21,11 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -56,19 +58,32 @@ public class VariablesScreen extends Activity {
     private Connection connection;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        try {
+            super.onCreate(savedInstanceState);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            // Your code here
+            Log.w("VariablesScreen", "check");
+            // Other code
+        } catch (Exception e) {
+            e.printStackTrace(); // Log the exception details
+        }
 
         setContentView(R.layout.stored_format_variables);
-        Bundle b = getIntent().getExtras();
-        bluetoothSelected = b.getBoolean("bluetooth selected");
-        macAddress = b.getString("mac address");
-        tcpAddress = b.getString("tcp address");
-        tcpPort = b.getString("tcp port");
-        formatName = b.getString("format name");
+        Intent intent = getIntent();
+        bluetoothSelected = intent.getBooleanExtra("bluetooth selected", false);
+        macAddress = intent.getStringExtra("mac address");
+        tcpAddress = intent.getStringExtra("tcpAddress"); // Correct the key used for extraction
+        tcpPort = intent.getStringExtra("tcpPortNumber"); // Correct the key used for extraction
+        formatName = intent.getStringExtra("format name");
 
-        TextView formatNameTextView = (TextView) this.findViewById(R.id.formatName);
-        formatNameTextView.setText(formatName);
+        Log.d("VariablesScreen", "Received TCP Address: " + tcpAddress);
+        Log.d("VariablesScreen", "Received TCP Port Number: " + tcpPort);
+
 
         final Button printButton = (Button) this.findViewById(R.id.printFormatButton);
 

@@ -57,6 +57,7 @@ public class StoredFormatScreen extends ListActivity {
         Bundle b = getIntent().getExtras();
         bluetoothSelected = b.getBoolean("bluetooth selected");
         macAddress = b.getString("mac address");
+        //change this shit to the shit sent from connectivity demo
         tcpAddress = b.getString("tcp address");
         tcpPort = b.getString("tcp port");
         statusListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, formatsList);
