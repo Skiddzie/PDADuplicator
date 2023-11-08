@@ -20,6 +20,7 @@ package com.zebra.android.devdemo.connectivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Environment;
 import android.util.Log;
 
 import android.app.Activity;
@@ -50,6 +51,12 @@ import com.zebra.sdk.printer.PrinterLanguage;
 import com.zebra.sdk.printer.ZebraPrinter;
 import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import au.com.bytecode.opencsv.CSVWriter;
 
 public class ConnectivityDemo extends Activity {
 
@@ -85,6 +92,7 @@ public class ConnectivityDemo extends Activity {
                 new Thread(new Runnable() {
                     public void run() {
                         //storing the ip address
+
                         navigateToSendFileActivity();
                         enableTestButton(false);
                         Looper.prepare();
@@ -255,12 +263,65 @@ public class ConnectivityDemo extends Activity {
         editor.putString("tcpPortNumber", tcpPortNumber);
         editor.apply();
     }
+    public static void csvInit(String filePath, String IP, String port)
+    {
+        // first create file object for file placed at location
+        // specified by filepath
+        File file = new File(filePath);
+        try {
+            // create FileWriter object with file as parameter
+            FileWriter outputfile = new FileWriter(file);
+
+            // create CSVWriter object filewriter object as parameter
+            CSVWriter writer = new CSVWriter(outputfile);
+
+            // adding header to csv
+            String[] header = { "IP", "PORT", "FORMAT" };
+            writer.writeNext(header);
+
+            // add data to csv
+            String[] data1 = { IP, port, "1" };
+            writer.writeNext(data1);
+
+            // closing writer connection
+            writer.close();
+        }
+        catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void writeToFile(String tcpAddress, String port) {
+        String fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
+
+        try{
+            FileWriter writer = new FileWriter(fileDirectory + "/settings.txt");
+            writer.write(tcpAddress + "," + port);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     private void navigateToSendFileActivity() {
         String tcpAddress = getTcpAddress(); // Retrieve the TCP address
         saveTcpAddress(tcpAddress); // Save the TCP address to SharedPreferences
 
         String tcpPortNumber = getTcpPortNumber();
         saveTcpPortNumber(tcpPortNumber);
+
+        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+        File file = new File(filePath);
+
+        if (!file.exists() && !file.isFile()) {
+            csvInit(filePath, tcpAddress, tcpPortNumber);
+        } else {
+            Log.d("csv","CSV already exists");
+        }
+
+
+        writeToFile(tcpAddress, tcpPortNumber);
 
         Intent sendFileIntent = new Intent(this, SendFileDemo.class);
         sendFileIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to SendFileDemo
