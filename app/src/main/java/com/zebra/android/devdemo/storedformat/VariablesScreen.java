@@ -14,6 +14,9 @@
 
 package com.zebra.android.devdemo.storedformat;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,8 +25,10 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Looper;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -42,6 +47,9 @@ import com.zebra.sdk.printer.FieldDescriptionData;
 import com.zebra.sdk.printer.ZebraPrinter;
 import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
+
+import au.com.bytecode.opencsv.CSVReader;
+import au.com.bytecode.opencsv.CSVWriter;
 
 public class VariablesScreen extends Activity {
 
@@ -67,6 +75,10 @@ public class VariablesScreen extends Activity {
         tcpPort = b.getString("tcp port");
         formatName = b.getString("format name");
 
+        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+        Log.d("ZPL","Format name: " + formatName);
+
+        Log.d("ZPL",readDataLineByLine());
         TextView formatNameTextView = (TextView) this.findViewById(R.id.formatName);
         formatNameTextView.setText(formatName);
 
@@ -99,6 +111,35 @@ public class VariablesScreen extends Activity {
             }
         }).start();
 
+    }
+
+    // Java code to illustrate reading a
+// all data at once
+    public static void readDataLineByLine(String file)
+    {
+
+        try {
+
+            // Create an object of filereader
+            // class with CSV file as a parameter.
+            FileReader filereader = new FileReader(file);
+
+            // create csvReader object passing
+            // file reader as a parameter
+            CSVReader csvReader = new CSVReader(filereader);
+            String[] nextRecord;
+
+            // we are going to read data line by line
+            while ((nextRecord = csvReader.readNext()) != null) {
+                for (String cell : nextRecord) {
+                    System.out.print(cell + "\t");
+                }
+                System.out.println();
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected void getVariables() {

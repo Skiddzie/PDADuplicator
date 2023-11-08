@@ -314,7 +314,7 @@ public class ConnectivityDemo extends Activity {
         String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
         File file = new File(filePath);
 
-        if (!file.exists() && !file.isFile()) {
+        if (!file.exists()) {
             csvInit(filePath, tcpAddress, tcpPortNumber);
         } else {
             Log.d("csv","CSV already exists");
