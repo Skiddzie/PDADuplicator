@@ -64,6 +64,7 @@ public class VariablesScreen extends Activity {
     private Connection connection;
 
     @Override
+    //this is being ran when the format is selected, NOT when the page is printed
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -76,12 +77,15 @@ public class VariablesScreen extends Activity {
         formatName = b.getString("format name");
 
         String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+        String stringPath = filePath.toString();
         Log.d("ZPL","Format name: " + formatName);
 
-        Log.d("ZPL",readDataLineByLine(filePath));
+        Log.d("ZPL",filePath+" "+stringPath);
+        //this one changes the csv
         modifyFormatValue(filePath,1,2,formatName);
         TextView formatNameTextView = (TextView) this.findViewById(R.id.formatName);
         formatNameTextView.setText(formatName);
+        Log.d("ZPL", "reading: "+readFieldsFromCSV(filePath));
 
         final Button printButton = (Button) this.findViewById(R.id.printFormatButton);
 
@@ -139,33 +143,33 @@ public class VariablesScreen extends Activity {
         }
     }
 
-    public static String readDataLineByLine(String file)
-    {
-        String text = "";
+    public static List<FieldDescriptionData> readFieldsFromCSV(String file) {
+        List<FieldDescriptionData> fieldsFromCSV = new ArrayList<>();
 
         try {
-
-            // Create an object of filereader
-            // class with CSV file as a parameter.
-            FileReader filereader = new FileReader(file);
-
-            // create csvReader object passing
-            // file reader as a parameter
-            CSVReader csvReader = new CSVReader(filereader);
+            FileReader fileReader = new FileReader(file);
+            CSVReader csvReader = new CSVReader(fileReader);
             String[] nextRecord;
 
-            // we are going to read data line by line
+            // Skip header if it exists
+            csvReader.readNext(); // Skip the header row if it exists
+
+            // Read each row and assume specific columns contain field data
             while ((nextRecord = csvReader.readNext()) != null) {
-                for (String cell : nextRecord) {
-                    text += cell + "\t";
-                }
-                text += "\n";
+                // Assuming column 0 contains field names and column 1 contains field numbers (modify as per your CSV structure)
+                String fieldName = nextRecord[0];
+                int fieldNumber = Integer.parseInt(nextRecord[1]); // Assuming it's an integer
+
+                // Create FieldDescriptionData object and add to the list
+                FieldDescriptionData field = new FieldDescriptionData(fieldNumber,fieldName);
+                fieldsFromCSV.add(field);
             }
-        }
-        catch (Exception e) {
+            csvReader.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        return text;
+
+        return fieldsFromCSV;
     }
 
     protected void getVariables() {
@@ -210,7 +214,10 @@ public class VariablesScreen extends Activity {
                     FieldDescriptionData var = variablesList.get(i);
                     vars.put(var.fieldNumber, variableValues.get(i).getText().toString());
                 }
+                //format name below can be changed to any format, but causes crashes
+                //probably has to do with the way the fields are displaying
                 printer.printStoredFormat(formatName, vars, "utf8");
+                Log.d("ZPL","format name: "+formatName);
                 connection.close();
             } catch (ConnectionException e) {
                 helper.showErrorDialogOnGuiThread(e.getMessage());
