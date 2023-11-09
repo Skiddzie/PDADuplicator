@@ -78,7 +78,8 @@ public class VariablesScreen extends Activity {
         String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
         Log.d("ZPL","Format name: " + formatName);
 
-        Log.d("ZPL",readDataLineByLine());
+        Log.d("ZPL",readDataLineByLine(filePath));
+        modifyFormatValue(filePath,1,2,formatName);
         TextView formatNameTextView = (TextView) this.findViewById(R.id.formatName);
         formatNameTextView.setText(formatName);
 
@@ -113,10 +114,34 @@ public class VariablesScreen extends Activity {
 
     }
 
-    // Java code to illustrate reading a
-// all data at once
-    public static void readDataLineByLine(String file)
+    //thank you computer for writing this code for me lol
+    public static void modifyFormatValue(String file, int rowIndex, int columnIndex, String newValue) {
+        try {
+            FileReader fileReader = new FileReader(file);
+            CSVReader csvReader = new CSVReader(fileReader);
+            List<String[]> csvData = csvReader.readAll();
+
+            if (rowIndex < csvData.size() && columnIndex < csvData.get(rowIndex).length) {
+                csvData.get(rowIndex)[columnIndex] = newValue;
+
+                csvReader.close();
+
+                // Write back the modified content to the CSV file
+                FileWriter fileWriter = new FileWriter(file);
+                CSVWriter csvWriter = new CSVWriter(fileWriter);
+                csvWriter.writeAll(csvData);
+                csvWriter.close();
+            } else {
+                System.out.println("Invalid row or column index provided.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String readDataLineByLine(String file)
     {
+        String text = "";
 
         try {
 
@@ -132,14 +157,15 @@ public class VariablesScreen extends Activity {
             // we are going to read data line by line
             while ((nextRecord = csvReader.readNext()) != null) {
                 for (String cell : nextRecord) {
-                    System.out.print(cell + "\t");
+                    text += cell + "\t";
                 }
-                System.out.println();
+                text += "\n";
             }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+        return text;
     }
 
     protected void getVariables() {
