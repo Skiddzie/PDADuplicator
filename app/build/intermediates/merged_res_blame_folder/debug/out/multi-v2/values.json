@@ -4,14 +4,33 @@
             "outputFile": "com.zebra.android.devdemo.app-mergeDebugResources-2:/values/values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\array.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "10",
+                        "endColumns": "19",
+                        "endOffsets": "341"
+                    },
+                    "to": {
+                        "startLines": "26",
+                        "startColumns": "4",
+                        "startOffsets": "876",
+                        "endLines": "34",
+                        "endColumns": "19",
+                        "endOffsets": "1152"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "5,21,30,32,3,33",
                         "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "115,649,937,976,56,1029",
+                        "startOffsets": "120,670,967,1008,59,1062",
                         "endLines": "20,28,30,32,3,33",
                         "endColumns": "23,19,37,52,57,52",
-                        "endOffsets": "644,931,970,1024,109,1077"
+                        "endOffsets": "664,959,1000,1056,112,1110"
                     },
                     "to": {
                         "startLines": "2,18,35,38,39,40",
@@ -23,13 +42,13 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\dimens.xml",
+                    "source": "C:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
                         "startLines": "3,4",
                         "startColumns": "4,4",
-                        "startOffsets": "89,147",
+                        "startOffsets": "92,151",
                         "endColumns": "57,55",
-                        "endOffsets": "142,198"
+                        "endOffsets": "145,202"
                     },
                     "to": {
                         "startLines": "36,37",
@@ -37,25 +56,6 @@
                         "startOffsets": "1195,1253",
                         "endColumns": "57,55",
                         "endOffsets": "1248,1304"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\array.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "10",
-                        "endColumns": "19",
-                        "endOffsets": "331"
-                    },
-                    "to": {
-                        "startLines": "26",
-                        "startColumns": "4",
-                        "startOffsets": "876",
-                        "endLines": "34",
-                        "endColumns": "19",
-                        "endOffsets": "1152"
                     }
                 }
             ]

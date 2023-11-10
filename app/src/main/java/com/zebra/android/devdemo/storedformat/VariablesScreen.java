@@ -201,33 +201,64 @@ public class VariablesScreen extends Activity {
     }
 
     protected void printFormat() {
-        helper.showLoadingDialog("Printing " + formatName + "...");
+        helper.showLoadingDialog("Printing...");
         connection = getPrinterConnection();
 
         if (connection != null) {
             try {
                 connection.open();
                 ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
-                Map<Integer, String> vars = new HashMap<Integer, String>();
 
-                for (int i = 0; i < variablesList.size(); i++) {
-                    FieldDescriptionData var = variablesList.get(i);
-                    vars.put(var.fieldNumber, variableValues.get(i).getText().toString());
+                // Get the CSV file path
+                String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+
+                // Read the CSV file to get the value from the 1st row and 3rd column
+                String formatNameFromCSV = readValueFromCSV(filePath, 1, 2);
+
+                // Check if the value is not empty before printing
+                if (!formatNameFromCSV.isEmpty()) {
+                    Map<Integer, String> vars = new HashMap<>();
+
+                    for (int i = 0; i < variablesList.size(); i++) {
+                        FieldDescriptionData var = variablesList.get(i);
+                        vars.put(var.fieldNumber, variableValues.get(i).getText().toString());
+                    }
+
+                    // Use the value from the CSV file as the formatName
+                    printer.printStoredFormat(formatNameFromCSV, vars, "utf8");
+                    Log.d("ZPL", "format name: " + formatNameFromCSV);
+                } else {
+                    Log.e("ZPL", "Format name from CSV is empty");
                 }
-                //format name below can be changed to any format, but causes crashes
-                //probably has to do with the way the fields are displaying
-                printer.printStoredFormat(formatName, vars, "utf8");
-                Log.d("ZPL","format name: "+formatName);
+
                 connection.close();
             } catch (ConnectionException e) {
                 helper.showErrorDialogOnGuiThread(e.getMessage());
-            } catch (ZebraPrinterLanguageUnknownException e) {
-                helper.showErrorDialogOnGuiThread(e.getMessage());
-            } catch (UnsupportedEncodingException e) {
+            } catch (ZebraPrinterLanguageUnknownException | UnsupportedEncodingException e) {
                 helper.showErrorDialogOnGuiThread(e.getMessage());
             }
         }
+
         helper.dismissLoadingDialog();
+    }
+
+    // Helper method to read a specific value from the CSV file
+    private String readValueFromCSV(String file, int rowIndex, int columnIndex) {
+        try {
+            FileReader fileReader = new FileReader(file);
+            CSVReader csvReader = new CSVReader(fileReader);
+            List<String[]> csvData = csvReader.readAll();
+
+            if (rowIndex < csvData.size() && columnIndex < csvData.get(rowIndex).length) {
+                return csvData.get(rowIndex)[columnIndex];
+            } else {
+                System.out.println("Invalid row or column index provided.");
+                return "";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
     private Connection getPrinterConnection() {
