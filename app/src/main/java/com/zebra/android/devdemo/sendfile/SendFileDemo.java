@@ -28,6 +28,8 @@ import android.view.View;
 
 import com.zebra.android.devdemo.ConnectionScreen;
 import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
+import com.zebra.android.devdemo.storedformat.StoredFormatDemo;
+import com.zebra.android.devdemo.storedformat.VariablesScreen;
 import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.android.devdemo.util.UIHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
@@ -71,20 +73,34 @@ public class SendFileDemo extends ConnectionScreen {
     }
 
     public void onClick(View v) {
-        performTest();
+        // Redirect to VariablesScreen activity
+        Log.d("lol", "onClick called");
+        Intent variablesScreenIntent = new Intent(SendFileDemo.this, VariablesScreen.class);
+        startActivity(variablesScreenIntent);
     }
 
     public void performTest() {
         new Thread(new Runnable() {
             public void run() {
-                Looper.prepare();
-                sendFile();
-                Looper.loop();
-                Looper.myLooper().quit();
+                // Background thread logic
+
+                // Create an Intent to start VariablesScreen
+                Intent variablesScreenIntent = new Intent(SendFileDemo.this, VariablesScreen.class);
+
+                // You can add extra data to the intent if needed
+                // variablesScreenIntent.putExtra("key", "value");
+
+                // Run UI operations on the main thread
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        // Start the VariablesScreen activity
+                        startActivity(variablesScreenIntent);
+                    }
+                });
             }
         }).start();
-
     }
+
     private String getStoredTcpAddress() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         return sharedPreferences.getString("tcpAddress", "default_value_if_not_found");

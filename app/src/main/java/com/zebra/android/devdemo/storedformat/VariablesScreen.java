@@ -67,7 +67,7 @@ public class VariablesScreen extends Activity {
     //this is being ran when the format is selected, NOT when the page is printed
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.d("lol", "onCreate called");
         setContentView(R.layout.stored_format_variables);
         Bundle b = getIntent().getExtras();
         bluetoothSelected = b.getBoolean("bluetooth selected");
