@@ -27,6 +27,7 @@ import com.zebra.android.devdemo.sigcapture.SigCaptureDemo;
 import com.zebra.android.devdemo.smartcard.SmartCardDemo;
 import com.zebra.android.devdemo.status.PrintStatusDemo;
 import com.zebra.android.devdemo.statuschannel.StatusChannelDemo;
+import com.zebra.android.devdemo.storedformat.DisplayFieldsActivity;
 import com.zebra.android.devdemo.storedformat.StoredFormatDemo;
 
 import android.app.ListActivity;
@@ -89,7 +90,7 @@ public class LoadDevDemo extends ListActivity {
             intent = new Intent(this, SigCaptureDemo.class);
             break;
         case SNDFILE_ID:
-            intent = new Intent(this, SendFileDemo.class);
+            intent = new Intent(this, DisplayFieldsActivity.class);
             break;
         case STRDFRMT_ID:
             intent = new Intent(this, StoredFormatDemo.class);

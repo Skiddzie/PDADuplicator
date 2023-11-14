@@ -323,10 +323,6 @@ public class ConnectivityDemo extends Activity {
 
         writeToFile(tcpAddress, tcpPortNumber);
 
-        Intent sendFileIntent = new Intent(this, SendFileDemo.class);
-        sendFileIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to SendFileDemo
-        sendFileIntent.putExtra("tcpPortNumber", tcpPortNumber);
-        startActivity(sendFileIntent); // Start the SendFileDemo activity
 
         // Navigate to StoredFormatDemo
         Intent storedFormatIntent = new Intent(this, StoredFormatDemo.class);
