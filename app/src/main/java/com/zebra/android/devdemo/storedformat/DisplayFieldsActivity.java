@@ -50,6 +50,9 @@ public class DisplayFieldsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stored_format_variables); // Replace with your actual layout file
 
+        // Read CSV values once during onCreate
+        readCsvFile();
+
         final Button printButton = (Button) findViewById(R.id.printFormatButton);
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,13 +60,18 @@ public class DisplayFieldsActivity extends Activity {
                 new Thread(new Runnable() {
                     public void run() {
                         Looper.prepare();
-                        readCsvFile();
-                        getVariables();
                         openConnection(); // Open the connection
-                        printFormat();   // Call your printFormat method here
-                        closeConnection(); // Close the connection after printing
-                        Looper.loop();
-                        Looper.myLooper().quit();
+
+                        // Print and handle any exceptions
+                        try {
+                            printFormat();
+                        } catch (Exception e) {
+                            Log.e("ERROR", "Error printing: " + e.getMessage(), e);
+                        } finally {
+                            closeConnection(); // Close the connection regardless of success or failure
+                            Looper.loop();
+                            Looper.myLooper().quit();
+                        }
                     }
                 }).start();
             }
@@ -73,13 +81,13 @@ public class DisplayFieldsActivity extends Activity {
         new Thread(new Runnable() {
             public void run() {
                 Looper.prepare();
-                readCsvFile();
                 getVariables();
                 Looper.loop();
                 Looper.myLooper().quit();
             }
         }).start();
     }
+
 
     private void openConnection() {
         connection = getPrinterConnection();

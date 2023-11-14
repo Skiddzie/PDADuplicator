@@ -201,22 +201,18 @@ public class VariablesScreen extends Activity {
     }
 
     protected void printFormat() {
-        helper.showLoadingDialog("Printing...");
-        connection = getPrinterConnection();
+        try {
+            helper.showLoadingDialog("Printing...");
+            connection = getPrinterConnection();
 
-        if (connection != null) {
-            try {
+            if (connection != null) {
                 connection.open();
                 ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
 
-                // Get the CSV file path
-                String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
-
                 // Read the CSV file to get the value from the 1st row and 3rd column
-                String formatNameFromCSV = readValueFromCSV(filePath, 1, 2);
 
                 // Check if the value is not empty before printing
-                if (!formatNameFromCSV.isEmpty()) {
+                if (!formatName.isEmpty()) {
                     Map<Integer, String> vars = new HashMap<>();
 
                     for (int i = 0; i < variablesList.size(); i++) {
@@ -225,21 +221,23 @@ public class VariablesScreen extends Activity {
                     }
 
                     // Use the value from the CSV file as the formatName
-                    printer.printStoredFormat(formatNameFromCSV, vars, "utf8");
-                    Log.d("ZPL", "format name: " + formatNameFromCSV);
+                    printer.printStoredFormat(formatName, vars, "utf8");
+                    Log.d("ZPL", "format name: " + formatName);
                 } else {
                     Log.e("ZPL", "Format name from CSV is empty");
                 }
 
                 connection.close();
-            } catch (ConnectionException e) {
-                helper.showErrorDialogOnGuiThread(e.getMessage());
-            } catch (ZebraPrinterLanguageUnknownException | UnsupportedEncodingException e) {
-                helper.showErrorDialogOnGuiThread(e.getMessage());
             }
+        } catch (ConnectionException e) {
+            Log.e("ERROR", "Error printing: " + e.getMessage(), e);
+            helper.showErrorDialogOnGuiThread(e.getMessage());
+        } catch (ZebraPrinterLanguageUnknownException | UnsupportedEncodingException e) {
+            Log.e("ERROR", "Error printing: " + e.getMessage(), e);
+            helper.showErrorDialogOnGuiThread(e.getMessage());
+        } finally {
+            helper.dismissLoadingDialog();
         }
-
-        helper.dismissLoadingDialog();
     }
 
     // Helper method to read a specific value from the CSV file
