@@ -24,6 +24,9 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
@@ -37,6 +40,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.zebra.android.devdemo.LoadDevDemo;
 import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.util.UIHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
@@ -87,36 +91,56 @@ public class VariablesScreen extends Activity {
         formatNameTextView.setText(formatName);
         Log.d("ZPL", "reading: "+readFieldsFromCSV(filePath));
 
-        final Button printButton = (Button) this.findViewById(R.id.printFormatButton);
+        showDialogAfterSelectingFormat();
 
-        printButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                printButton.setEnabled(false);
 
-                new Thread(new Runnable() {
-                    public void run() {
-                        printFormat();
+//        final Button printButton = (Button) this.findViewById(R.id.printFormatButton);
 
-                        runOnUiThread(new Runnable() {
-                            public void run() {
-                                printButton.setEnabled(true);
-                            }
-                        });
-                    }
-                }).start();
+//        printButton.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                printButton.setEnabled(false);
+//
+//                new Thread(new Runnable() {
+//                    public void run() {
+//                        printFormat();
+//
+//                        runOnUiThread(new Runnable() {
+//                            public void run() {
+//                                printButton.setEnabled(true);
+//                            }
+//                        });
+//                    }
+//                }).start();
+//            }
+//        });
+
+//        new Thread(new Runnable() {
+//            public void run() {
+//                Looper.prepare();
+////                getVariables();
+//                Looper.loop();
+//                Looper.myLooper().quit();
+//            }
+//        }).start();
+
+    }
+
+    private void showDialogAfterSelectingFormat() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Format Selected");
+        builder.setMessage("You selected the format: " + formatName);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Continue with your activity or perform any other necessary action
+                Intent intent = new Intent(VariablesScreen.this, LoadDevDemo.class);
+                startActivity(intent); // Call the method to start the next activity
             }
         });
 
-        new Thread(new Runnable() {
-            public void run() {
-                Looper.prepare();
-                getVariables();
-                Looper.loop();
-                Looper.myLooper().quit();
-            }
-        }).start();
-
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
+
 
     //thank you computer for writing this code for me lol
     public static void modifyFormatValue(String file, int rowIndex, int columnIndex, String newValue) {
@@ -172,33 +196,33 @@ public class VariablesScreen extends Activity {
         return fieldsFromCSV;
     }
 
-    protected void getVariables() {
-        helper.showLoadingDialog("Retrieving variables...");
-        connection = getPrinterConnection();
-
-        if (connection != null) {
-            try {
-                connection.open();
-                ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
-
-                byte[] formatContents = printer.retrieveFormatFromPrinter(formatName);
-                FieldDescriptionData[] variables = printer.getVariableFields(new String(formatContents, "utf8"));
-
-                for (int i = 0; i < variables.length; i++) {
-                    variablesList.add(variables[i]);
-                }
-                connection.close();
-                updateGuiWithFormats();
-            } catch (ConnectionException e) {
-                helper.showErrorDialogOnGuiThread(e.getMessage());
-            } catch (ZebraPrinterLanguageUnknownException e) {
-                helper.showErrorDialogOnGuiThread(e.getMessage());
-            } catch (UnsupportedEncodingException e) {
-                helper.showErrorDialogOnGuiThread(e.getMessage());
-            }
-        }
-        helper.dismissLoadingDialog();
-    }
+//    protected void getVariables() {
+//        helper.showLoadingDialog("Retrieving variables...");
+//        connection = getPrinterConnection();
+//
+//        if (connection != null) {
+//            try {
+//                connection.open();
+//                ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
+//
+//                byte[] formatContents = printer.retrieveFormatFromPrinter(formatName);
+//                FieldDescriptionData[] variables = printer.getVariableFields(new String(formatContents, "utf8"));
+//
+//                for (int i = 0; i < variables.length; i++) {
+//                    variablesList.add(variables[i]);
+//                }
+//                connection.close();
+//                updateGuiWithFormats();
+//            } catch (ConnectionException e) {
+//                helper.showErrorDialogOnGuiThread(e.getMessage());
+//            } catch (ZebraPrinterLanguageUnknownException e) {
+//                helper.showErrorDialogOnGuiThread(e.getMessage());
+//            } catch (UnsupportedEncodingException e) {
+//                helper.showErrorDialogOnGuiThread(e.getMessage());
+//            }
+//        }
+//        helper.dismissLoadingDialog();
+//    }
 
     protected void printFormat() {
         try {
