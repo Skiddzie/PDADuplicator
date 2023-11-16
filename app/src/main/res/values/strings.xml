@@ -4,20 +4,20 @@
     <string name="app_name">ZSDK Developer Demos</string>
 
     <string-array name="DEMO_APPS">
-        <item>Connectivity</item>
-        <item>Discovery</item>
-        <item>Image Print</item>
-        <item>List Formats</item>
-        <item>Mag Card</item>
-        <item>Printer Status</item>
-        <item>Smart Card</item>
-        <item>Signature Capture</item>
-        <item>Send File</item>
-        <item>Stored Format</item>
-        <item>Status Channel</item>
-        <item>Connection Builder</item>
-        <item>Receipt</item>
-        <item>Multichannel</item>
+        <item>Printer Setup</item>
+        <item>Duplicate</item>
+<!--        <item>Image Print</item>-->
+<!--        <item>List Formats</item>-->
+<!--        <item>Mag Card</item>-->
+<!--        <item>Printer Status</item>-->
+<!--        <item>Smart Card</item>-->
+<!--        <item>Signature Capture</item>-->
+<!--        <item>Send File</item>-->
+<!--        <item>Stored Format</item>-->
+<!--        <item>Status Channel</item>-->
+<!--        <item>Connection Builder</item>-->
+<!--        <item>Receipt</item>-->
+<!--        <item>Multichannel</item>-->
         </string-array>
     <string-array name="DISCODEMO_DISCO_METHODS">
         <item>Bluetooth</item>

@@ -69,10 +69,64 @@ public class VariablesScreen extends Activity {
 
     @Override
     //this is being ran when the format is selected, NOT when the page is printed
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        Log.d("lol", "onCreate called");
+//        setContentView(R.layout.notification);
+//        Bundle b = getIntent().getExtras();
+//        bluetoothSelected = b.getBoolean("bluetooth selected");
+//        macAddress = b.getString("mac address");
+//        tcpAddress = b.getString("tcp address");
+//        tcpPort = b.getString("tcp port");
+//        formatName = b.getString("format name");
+//
+//        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+//        String stringPath = filePath.toString();
+//        Log.d("ZPL","Format name: " + formatName);
+//
+//        Log.d("ZPL",filePath+" "+stringPath);
+//        //this one changes the csv
+//        modifyFormatValue(filePath,1,2,formatName);
+//        TextView formatNameTextView = (TextView) this.findViewById(R.id.formatName);
+//        formatNameTextView.setText(formatName);
+//        Log.d("ZPL", "reading: "+readFieldsFromCSV(filePath));
+//
+//        showDialogAfterSelectingFormat();
+//
+//
+////        final Button printButton = (Button) this.findViewById(R.id.printFormatButton);
+//
+////        printButton.setOnClickListener(new OnClickListener() {
+////            public void onClick(View v) {
+////                printButton.setEnabled(false);
+////
+////                new Thread(new Runnable() {
+////                    public void run() {
+////                        printFormat();
+////
+////                        runOnUiThread(new Runnable() {
+////                            public void run() {
+////                                printButton.setEnabled(true);
+////                            }
+////                        });
+////                    }
+////                }).start();
+////            }
+////        });
+//
+////        new Thread(new Runnable() {
+////            public void run() {
+////                Looper.prepare();
+//////                getVariables();
+////                Looper.loop();
+////                Looper.myLooper().quit();
+////            }
+////        }).start();
+//
+//    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("lol", "onCreate called");
-        setContentView(R.layout.stored_format_variables);
+        setContentView(R.layout.notification);
         Bundle b = getIntent().getExtras();
         bluetoothSelected = b.getBoolean("bluetooth selected");
         macAddress = b.getString("mac address");
@@ -80,66 +134,38 @@ public class VariablesScreen extends Activity {
         tcpPort = b.getString("tcp port");
         formatName = b.getString("format name");
 
-        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
-        String stringPath = filePath.toString();
-        Log.d("ZPL","Format name: " + formatName);
 
-        Log.d("ZPL",filePath+" "+stringPath);
-        //this one changes the csv
-        modifyFormatValue(filePath,1,2,formatName);
-        TextView formatNameTextView = (TextView) this.findViewById(R.id.formatName);
-        formatNameTextView.setText(formatName);
-        Log.d("ZPL", "reading: "+readFieldsFromCSV(filePath));
+        // Find the OK button in the layout
+        Button okButton = (Button) findViewById(R.id.okButton);
 
-        showDialogAfterSelectingFormat();
+        // Set a click listener for the OK button
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handle OK button click (e.g., navigate to another activity)
 
-
-//        final Button printButton = (Button) this.findViewById(R.id.printFormatButton);
-
-//        printButton.setOnClickListener(new OnClickListener() {
-//            public void onClick(View v) {
-//                printButton.setEnabled(false);
-//
-//                new Thread(new Runnable() {
-//                    public void run() {
-//                        printFormat();
-//
-//                        runOnUiThread(new Runnable() {
-//                            public void run() {
-//                                printButton.setEnabled(true);
-//                            }
-//                        });
-//                    }
-//                }).start();
-//            }
-//        });
-
-//        new Thread(new Runnable() {
-//            public void run() {
-//                Looper.prepare();
-////                getVariables();
-//                Looper.loop();
-//                Looper.myLooper().quit();
-//            }
-//        }).start();
-
-    }
-
-    private void showDialogAfterSelectingFormat() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Format Selected");
-        builder.setMessage("You selected the format: " + formatName);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // Continue with your activity or perform any other necessary action
                 Intent intent = new Intent(VariablesScreen.this, LoadDevDemo.class);
                 startActivity(intent); // Call the method to start the next activity
+
+                finish(); // Close the current activity
             }
         });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
+//    private void showDialogAfterSelectingFormat() {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Format Selected");
+//        builder.setMessage("You selected the format: " + formatName);
+//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int which) {
+//                // Continue with your activity or perform any other necessary action
+//                Intent intent = new Intent(VariablesScreen.this, LoadDevDemo.class);
+//                startActivity(intent); // Call the method to start the next activity
+//            }
+//        });
+//
+//        AlertDialog dialog = builder.create();
+//        dialog.show();
+//    }
 
 
     //thank you computer for writing this code for me lol

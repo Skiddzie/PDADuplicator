@@ -8,20 +8,20 @@
         <item>BT</item>
         <item>BT_STATUS</item>
     </string-array></file><file path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\res\values\dimens.xml" qualifiers=""><dimen name="activity_horizontal_margin">16dp</dimen><dimen name="activity_vertical_margin">16dp</dimen></file><file path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">ZSDK Developer Demos</string><string-array name="DEMO_APPS">
-        <item>Connectivity</item>
-        <item>Discovery</item>
-        <item>Image Print</item>
-        <item>List Formats</item>
-        <item>Mag Card</item>
-        <item>Printer Status</item>
-        <item>Smart Card</item>
-        <item>Signature Capture</item>
-        <item>Send File</item>
-        <item>Stored Format</item>
-        <item>Status Channel</item>
-        <item>Connection Builder</item>
-        <item>Receipt</item>
-        <item>Multichannel</item>
+        <item>Printer Setup</item>
+        <item>Duplicate</item>
+
+
+
+
+
+
+
+
+
+
+
+
         </string-array><string-array name="DISCODEMO_DISCO_METHODS">
         <item>Bluetooth</item>
         <item>Local Broadcast</item>
@@ -29,4 +29,4 @@
         <item>Multicast</item>
         <item>Subnet Search</item>
         <item>Find printers near me</item>
-    </string-array><color name="Red">#FF0000</color><string name="action_settings">Settings</string><string name="hello_world">Hello world!</string></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\User\StudioProjects\PDADuplicator2\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\User\StudioProjects\PDADuplicator2\app\build\generated\res\resValues\debug"/></dataSet><mergedItems/></merger>
+    </string-array><color name="Red">#FF0000</color><string name="action_settings">Settings</string><string name="hello_world">Hello world!</string></file><file name="notification" path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\res\layout\notification.xml" qualifiers="" type="layout"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\User\StudioProjects\PDADuplicator2\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\User\StudioProjects\PDADuplicator2\app\build\generated\res\resValues\debug"/></dataSet><mergedItems/></merger>

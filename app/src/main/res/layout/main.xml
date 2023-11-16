@@ -11,6 +11,8 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 
+
 		android:entries="@array/DEMO_APPS" />
+<!--	^ location of layout for main menu-->
 <!--ctrl click the string above, it'll take you over there-->
 </LinearLayout>

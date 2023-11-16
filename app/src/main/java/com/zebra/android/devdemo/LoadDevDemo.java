@@ -39,14 +39,15 @@ import android.widget.ListView;
 public class LoadDevDemo extends ListActivity {
 
     private static final int CONNECT_ID = 0;
-    private static final int DISCO_ID = 1;
-    private static final int IMGPRNT_ID = 2;
-    private static final int LSTFORMATS_ID = 3;
-    private static final int MAGCARD_ID = 4;
-    private static final int PRNTSTATUS_ID = 5;
-    private static final int SMRTCARD_ID = 6;
-    private static final int SIGCAP_ID = 7;
-    private static final int SNDFILE_ID = 8;
+    private static final int SNDFILE_ID = 1;
+    private static final int DISCO_ID = 2;
+    private static final int IMGPRNT_ID = 3;
+    private static final int LSTFORMATS_ID = 4;
+    private static final int MAGCARD_ID = 5;
+    private static final int PRNTSTATUS_ID = 6;
+    private static final int SMRTCARD_ID = 7;
+    private static final int SIGCAP_ID = 8;
+
     private static final int STRDFRMT_ID = 9;
     private static final int STATUSCHANNEL_ID = 10;
     private static final int CONNECTIONBUILDER_ID = 11;
@@ -69,7 +70,7 @@ public class LoadDevDemo extends ListActivity {
             intent = new Intent(this, ConnectivityDemo.class);
             break;
         case DISCO_ID:
-            intent = new Intent(this, DiscoveryDemo.class);
+            intent = new Intent(this, DisplayFieldsActivity.class);
             break;
         case IMGPRNT_ID:
             intent = new Intent(this, ImagePrintDemo.class);
