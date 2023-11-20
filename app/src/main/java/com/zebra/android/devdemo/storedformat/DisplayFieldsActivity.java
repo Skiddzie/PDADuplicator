@@ -218,19 +218,20 @@ public class DisplayFieldsActivity extends Activity {
     protected void printFormat() {
         helper.showLoadingDialog("Printing...");
         connection = getPrinterConnection();
-
+        Log.e("PRINTER", "print section 1");
         if (connection != null) {
             try {
                 connection.open();
                 ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
-
+                Log.e("PRINTER", "print section first try");
                 // Read the CSV file to get the value from the 1st row and 3rd column
 
                 // Check if the value is not empty before printing
                 if (!formatName.isEmpty()) {
                     Map<Integer, String> vars = new HashMap<>();
-
+                    Log.e("PRINTER", "print section format isn't empty");
                     for (int i = 0; i < variablesList.size(); i++) {
+                        Log.e("PRINTER", "print section for loop");
                         FieldDescriptionData var = variablesList.get(i);
                         vars.put(var.fieldNumber, variableValues.get(i).getText().toString());
                     }
@@ -239,18 +240,22 @@ public class DisplayFieldsActivity extends Activity {
                     printer.printStoredFormat(formatName, vars, "utf8");
                     Log.d("ZPL", "format name: " + formatName);
                 } else {
+                    Log.e("PRINTER", "print section format is empty");
                     Log.e("ZPL", "Format name from CSV is empty");
                 }
-
+                Log.e("PRINTER", "print section connection close");
                 connection.close();
             } catch (ConnectionException e) {
+                Log.e("PRINTER", "print section first catch");
                 helper.showErrorDialogOnGuiThread(e.getMessage());
             } catch (ZebraPrinterLanguageUnknownException | UnsupportedEncodingException e) {
+                Log.e("PRINTER", "print section second catch");
                 helper.showErrorDialogOnGuiThread(e.getMessage());
             }
         }
-
+        Log.e("PRINTER", "print section 2");
         helper.dismissLoadingDialog();
+        Log.e("PRINTER", "print section 3");
     }
     private void updateGuiWithFormats() {
         runOnUiThread(new Runnable() {
