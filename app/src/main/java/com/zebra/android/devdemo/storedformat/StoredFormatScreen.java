@@ -14,12 +14,17 @@
 
 package com.zebra.android.devdemo.storedformat;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Looper;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -38,6 +43,9 @@ import com.zebra.sdk.printer.PrinterLanguage;
 import com.zebra.sdk.printer.ZebraPrinter;
 import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
+
+import au.com.bytecode.opencsv.CSVReader;
+import au.com.bytecode.opencsv.CSVWriter;
 
 public class StoredFormatScreen extends ListActivity {
 
@@ -87,8 +95,55 @@ public class StoredFormatScreen extends ListActivity {
         intent.putExtra("tcp port", tcpPort);
         intent.putExtra("format name", (String) l.getItemAtPosition(position));
 
+        // Add the following lines to write to CSV
+        writeDataToCsv(tcpAddress, tcpPort, (String) l.getItemAtPosition(position));
+
         startActivity(intent);
     }
+
+    // Add this method to write the selected data to CSV
+    private void writeDataToCsv(String tcpAddress, String tcpPort, String formatName) {
+        try {
+            String csvFilePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+            File csvFile = new File(csvFilePath);
+
+            // Check if it's the first row, if yes, write headers
+            if (!csvFile.exists() || csvFile.length() == 0) {
+                FileWriter fileWriter = new FileWriter(csvFilePath);
+                CSVWriter csvWriter = new CSVWriter(fileWriter);
+                String[] headers = {"IP Address", "Port", "Format Name"};
+                csvWriter.writeNext(headers);
+                csvWriter.close();
+                fileWriter.close();
+            }
+
+            // Read existing data
+            CSVReader reader = new CSVReader(new FileReader(csvFilePath));
+            List<String[]> existingData = reader.readAll();
+            reader.close();
+
+            // Update the second row
+            if (existingData.size() > 1) {
+                existingData.set(1, new String[]{tcpAddress, tcpPort, formatName});
+            } else {
+                // If the file is empty or has only one row, add the second row
+                existingData.add(new String[]{tcpAddress, tcpPort, formatName});
+            }
+
+            // Write the updated data to the CSV file
+            FileWriter fileWriter = new FileWriter(csvFilePath);
+            CSVWriter csvWriter = new CSVWriter(fileWriter);
+            csvWriter.writeAll(existingData);
+
+            // Close the writers
+            csvWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     private void getFileList() {
         Connection connection = null;

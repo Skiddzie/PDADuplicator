@@ -1,6 +1,8 @@
 package com.zebra.android.devdemo.storedformat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
@@ -45,6 +47,7 @@ public class DisplayFieldsActivity extends Activity {
     private String formatName = readCsvValue(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt", 1, 2);
     private UIHelper helper = new UIHelper(this);
     private Connection connection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,38 +60,81 @@ public class DisplayFieldsActivity extends Activity {
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Thread(new Runnable() {
-                    public void run() {
-                        Looper.prepare();
-                        openConnection(); // Open the connection
-
-                        // Print and handle any exceptions
-                        try {
-                            printFormat();
-                        } catch (Exception e) {
-                            Log.e("ERROR", "Error printing: " + e.getMessage(), e);
-                        } finally {
-                            closeConnection(); // Close the connection regardless of success or failure
-                            Looper.loop();
-                            Looper.myLooper().quit();
-                        }
-                    }
-                }).start();
+                new PrintFormatTask().execute();
             }
         });
 
         // Move the retrieval of variables outside the button click listener
-        new Thread(new Runnable() {
-            public void run() {
-                Looper.prepare();
-                getVariables();
-                Looper.loop();
-                Looper.myLooper().quit();
-            }
-        }).start();
+        new GetVariablesTask().execute();
     }
 
+    // AsyncTask for retrieving variables
+    private class GetVariablesTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            getVariables();
+            return null;
+        }
 
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            // Update UI if needed after retrieving variables
+        }
+    }
+
+    // AsyncTask for printing format
+    protected void printFormat() {
+        new PrintFormatTask().execute();
+    }
+
+    private class PrintFormatTask extends AsyncTask<Void, Void, Void> {
+        @SuppressLint("WrongThread")
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                connection = getPrinterConnection();
+                if (connection != null) {
+                    connection.open();
+                    ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
+
+                    if (!formatName.isEmpty()) {
+                        Map<Integer, String> vars = new HashMap<>();
+
+                        for (int i = 0; i < variablesList.size(); i++) {
+                            FieldDescriptionData var = variablesList.get(i);
+                            vars.put(var.fieldNumber, variableValues.get(i).getText().toString());
+                        }
+
+                        printer.printStoredFormat(formatName, vars, "utf8");
+                    } else {
+                        Log.e("print", "format name from csv is empty");
+                    }
+
+                    connection.close();
+                }
+            } catch (ConnectionException e) {
+                Log.e("print", "Error printing: " + e.getMessage(), e);
+                helper.showErrorDialogOnGuiThread(e.getMessage());
+            } catch (ZebraPrinterLanguageUnknownException | UnsupportedEncodingException e) {
+                Log.e("print", "Error printing: " + e.getMessage(), e);
+                helper.showErrorDialogOnGuiThread(e.getMessage());
+            } finally {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        helper.dismissLoadingDialog();
+                    }
+                });
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            // This method is executed on the UI thread after the background operation is complete.
+            // You can perform any UI updates here if needed.
+        }
+    }
     private void openConnection() {
         connection = getPrinterConnection();
         if (connection != null) {
@@ -114,16 +160,17 @@ public class DisplayFieldsActivity extends Activity {
         String csvFilePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
         tcpAddress = readCsvValue(csvFilePath, 1, 0);
         tcpPort = readCsvValue(csvFilePath, 1, 1);
-        formatName = readCsvValue(csvFilePath, 1, 2);
+        formatName = readCsvValue(csvFilePath, 1, 2); // Update formatName from CSV
         Log.d("CSV", "TCP Address: " + tcpAddress);
         Log.d("CSV", "TCP Port: " + tcpPort);
-        Log.d("CSV", "Format Name: " + formatName);
+        Log.d("CSV", "Format Name: " + formatName); // Log the updated formatName
     }
+
     private Connection getPrinterConnection() {
         Log.d("CONNECTION", "ADDRESS: "+tcpAddress);
         Log.d("CONNECTION", "PORT: "+tcpPort);
         Log.d("CONNECTION", "FORMAT: "+formatName);
-        if (bluetoothSelected == false) {
+        if (!bluetoothSelected) {
             try {
                 int port = Integer.parseInt(tcpPort);
                 connection = new TcpConnection(tcpAddress, port);
@@ -136,6 +183,7 @@ public class DisplayFieldsActivity extends Activity {
         }
         return connection;
     }
+
     protected void getVariables() {
         helper.showLoadingDialog("Retrieving variables...");
 
@@ -215,43 +263,7 @@ public class DisplayFieldsActivity extends Activity {
     }
 
 
-    protected void printFormat() {
-        helper.showLoadingDialog("Printing...");
-        connection = getPrinterConnection();
 
-        if (connection != null) {
-            try {
-                connection.open();
-                ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
-
-                // Read the CSV file to get the value from the 1st row and 3rd column
-
-                // Check if the value is not empty before printing
-                if (!formatName.isEmpty()) {
-                    Map<Integer, String> vars = new HashMap<>();
-
-                    for (int i = 0; i < variablesList.size(); i++) {
-                        FieldDescriptionData var = variablesList.get(i);
-                        vars.put(var.fieldNumber, variableValues.get(i).getText().toString());
-                    }
-
-                    // Use the value from the CSV file as the formatName
-                    printer.printStoredFormat(formatName, vars, "utf8");
-                    Log.d("ZPL", "format name: " + formatName);
-                } else {
-                    Log.e("ZPL", "Format name from CSV is empty");
-                }
-
-                connection.close();
-            } catch (ConnectionException e) {
-                helper.showErrorDialogOnGuiThread(e.getMessage());
-            } catch (ZebraPrinterLanguageUnknownException | UnsupportedEncodingException e) {
-                helper.showErrorDialogOnGuiThread(e.getMessage());
-            }
-        }
-
-        helper.dismissLoadingDialog();
-    }
     private void updateGuiWithFormats() {
         runOnUiThread(new Runnable() {
             public void run() {
