@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -66,7 +67,16 @@ public class DisplayFieldsActivity extends Activity {
 
         // Move the retrieval of variables outside the button click listener
         new GetVariablesTask().execute();
+
+        // Automatically select the first EditText field and show the keyboard
+        if (!variableValues.isEmpty()) {
+            EditText firstEditText = variableValues.get(0);
+            firstEditText.requestFocus();
+            helper.showKeyboard(firstEditText);
+        }
+
     }
+
 
     // AsyncTask for retrieving variables
     private class GetVariablesTask extends AsyncTask<Void, Void, Void> {
@@ -81,12 +91,32 @@ public class DisplayFieldsActivity extends Activity {
             // Update UI if needed after retrieving variables
         }
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_TAB) {
+            // Check if the current focused view is an EditText
+            View focusedView = getCurrentFocus();
+            if (focusedView instanceof EditText) {
+                // If there's only one field, execute PrintFormatTask
+                if (variableValues.size() == 1) {
+                    new PrintFormatTask().execute();
+                    return true; // consume the key event
 
-    // AsyncTask for printing format
-    protected void printFormat() {
-        new PrintFormatTask().execute();
+                }
+
+            }
+        }
+        //clears the field so that stuff doesn't start doubling up
+        //not sure why placing it right after PrintFormatTask() breaks it, but it does
+        EditText editTextToClear = variableValues.get(0);
+        clearEditText(editTextToClear);
+        return super.onKeyDown(keyCode, event);
     }
-
+    private void clearEditText(EditText editText) {
+        if (editText != null) {
+            editText.setText("");
+        }
+    }
     private class PrintFormatTask extends AsyncTask<Void, Void, Void> {
         @SuppressLint("WrongThread")
         @Override
@@ -290,6 +320,14 @@ public class DisplayFieldsActivity extends Activity {
 
                     varTable.addView(aRow, new TableLayout.LayoutParams(
                             ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                }
+                //this is here to select the first field so the scanner can work without tapping on
+                //the screen
+                //needs to be in this function so that the fields are already loaded when it's called
+                if (!variableValues.isEmpty()) {
+                    EditText firstEditText = variableValues.get(0);
+                    firstEditText.requestFocus();
+                    helper.showKeyboard(firstEditText);
                 }
             }
         });

@@ -17,7 +17,10 @@ package com.zebra.android.devdemo.util;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 public class UIHelper {
     ProgressDialog loadingDialog;
@@ -81,6 +84,14 @@ public class UIHelper {
                     }).create().show();
                 }
             });
+        }
+    }
+    public void showKeyboard(View view) {
+        if (view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (inputMethodManager != null) {
+                inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+            }
         }
     }
 
