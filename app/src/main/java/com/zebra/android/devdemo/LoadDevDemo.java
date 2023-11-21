@@ -92,7 +92,7 @@ public class LoadDevDemo extends ListActivity {
             bottomText.setText("IP: " + ipDisplay + "\nPORT: " + portDisplay + "\nFORMAT: " + formatDisplay);
         } else {
             TextView bottomText = (TextView) findViewById(R.id.bottomText);
-            bottomText.setText("Insufficient data in CSV file.");
+            bottomText.setText("No stored connection data");
         }
     }
 
