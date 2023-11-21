@@ -7,7 +7,7 @@
         <item>BT_MULTI</item>
         <item>BT</item>
         <item>BT_STATUS</item>
-    </string-array></file><file path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\res\values\dimens.xml" qualifiers=""><dimen name="activity_horizontal_margin">16dp</dimen><dimen name="activity_vertical_margin">16dp</dimen></file><file path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">ZSDK Developer Demos</string><string-array name="DEMO_APPS">
+    </string-array></file><file path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\res\values\dimens.xml" qualifiers=""><dimen name="activity_horizontal_margin">16dp</dimen><dimen name="activity_vertical_margin">16dp</dimen></file><file path="C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">PDA Duplicator</string><string-array name="DEMO_APPS">
         <item>Printer Setup</item>
         <item>Duplicate</item>
 

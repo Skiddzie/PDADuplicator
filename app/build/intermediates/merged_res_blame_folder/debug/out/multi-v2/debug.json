@@ -6,6 +6,61 @@
                 {
                     "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\array.xml",
                     "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
+                    },
+                    "to": {
+                        "startLines": "26",
+                        "startColumns": "4",
+                        "startOffsets": "480",
+                        "endLines": "34",
+                        "endColumns": "19",
+                        "endOffsets": "756"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "5,-1,-1,-1,3,-1",
+                        "startColumns": "4,-1,-1,-1,4,-1",
+                        "startOffsets": "114,-1,-1,-1,59,-1",
+                        "endLines": "20,-1,-1,-1,3,-1",
+                        "endColumns": "23,-1,-1,-1,51,-1",
+                        "endOffsets": "743,-1,-1,-1,106,-1"
+                    },
+                    "to": {
+                        "startLines": "2,18,35,38,39,40",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,193,761,913,966,1018",
+                        "endLines": "17,25,35,38,39,40",
+                        "endColumns": "23,19,37,52,51,52",
+                        "endOffsets": "188,475,794,961,1013,1066"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
+                    },
+                    "to": {
+                        "startLines": "36,37",
+                        "startColumns": "4,4",
+                        "startOffsets": "799,857",
+                        "endColumns": "57,55",
+                        "endOffsets": "852,908"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-4:\\values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\array.xml",
+                    "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "57",

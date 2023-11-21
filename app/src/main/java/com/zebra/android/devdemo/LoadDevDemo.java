@@ -72,30 +72,30 @@ public class LoadDevDemo extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-//        String dcimPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
-////        List<FieldDescriptionData> fieldsFromCSV = readFieldsFromCSV(dcimPath + "/csv.txt");
-////        if (fieldsFromCSV.size() >= 2) {
-//            // Get the second row values
-////            FieldDescriptionData secondRowField1 = fieldsFromCSV.get(1);
-////            String fieldName = secondRowField1.fieldName;
-////            int fieldNumber = secondRowField1.fieldNumber;
-//            String firstValue = readValueFromSecondRow(dcimPath, 1);
-//            String secondValue = readValueFromSecondRow(dcimPath, 2);
-//            Log.e("csv", "csv value: " + firstValue);
-//            Log.e("csv", dcimPath);
-//            // Update the TextView with the fetched values
-//
-//
-//
-//            TextView bottomText = (TextView) findViewById(R.id.bottomText);
-//            bottomText.setText("Field Name: " + firstValue + "\nField Number: " + secondValue);
-//        } else {
-//            TextView bottomText = (TextView) findViewById(R.id.bottomText);
-//            bottomText.setText("f");
-//        }
+        String dcimPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
+        List<FieldDescriptionData> fieldsFromCSV = readFieldsFromCSV(dcimPath + "/csv.txt");
 
+        if (fieldsFromCSV.size() >= 2) {
+            // Get the second row values
+            FieldDescriptionData secondRowField1 = fieldsFromCSV.get(1);
+            String fieldName = secondRowField1.fieldName;
+            int fieldNumber = secondRowField1.fieldNumber;
 
+            // Update the TextView with the fetched values
+            TextView bottomText = (TextView) findViewById(R.id.bottomText);
+
+            // Read values from the second row
+            String ipDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 0); // Assuming the first value is in the first column
+            String portDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 1); // Assuming the second value is in the second column
+            String formatDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 2);
+
+            bottomText.setText("IP: " + ipDisplay + "\nPORT: " + portDisplay + "\nFORMAT: " + formatDisplay);
+        } else {
+            TextView bottomText = (TextView) findViewById(R.id.bottomText);
+            bottomText.setText("Insufficient data in CSV file.");
+        }
     }
+
     public static String readValueFromSecondRow(String filePath, int columnIndex) {
         String value = null;
         try {
@@ -122,7 +122,7 @@ public class LoadDevDemo extends ListActivity {
 
     public static void main(String[] args) {
         // Replace "yourFilePath.csv" with the actual path to your CSV file
-        String filePath = "yourFilePath.csv";
+        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
 
         // Replace columnIndex with the index of the column you want to retrieve
         int columnIndex = 2;

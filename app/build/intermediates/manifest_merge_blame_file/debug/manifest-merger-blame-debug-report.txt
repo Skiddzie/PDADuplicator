@@ -267,8 +267,8 @@
 134-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:130:13-88
 135            android:configChanges="keyboardHidden|orientation"
 135-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:131:13-63
-136            android:label="Display Fields"
-136-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:132:13-43
+136            android:label="Duplicate Barcode"
+136-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:132:13-46
 137            android:screenOrientation="portrait"
 137-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:133:13-49
 138            android:windowSoftInputMode="adjustPan" />
@@ -279,8 +279,8 @@
 140-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:136:13-85
 141            android:configChanges="keyboardHidden|orientation"
 141-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:137:13-63
-142            android:label="Stored Format Demo"
-142-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:138:13-47
+142            android:label="Select Format"
+142-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:138:13-42
 143            android:screenOrientation="portrait"
 143-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:139:13-49
 144            android:windowSoftInputMode="adjustPan" />
@@ -311,8 +311,8 @@
 156-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:152:13-83
 157            android:configChanges="keyboardHidden|orientation"
 157-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:153:13-63
-158            android:label="Connectivity Demo"
-158-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:154:13-46
+158            android:label="Connect To Printer"
+158-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:154:13-47
 159            android:screenOrientation="portrait"
 159-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:155:13-49
 160            android:windowSoftInputMode="adjustPan" />

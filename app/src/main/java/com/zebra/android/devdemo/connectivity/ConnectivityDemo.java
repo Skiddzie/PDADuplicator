@@ -334,8 +334,11 @@ public class ConnectivityDemo extends Activity {
     private void doConnectionTest() {
         printer = connect();
         if (printer != null) {
-            sendTestLabel();
+//            sendTestLabel();
+//            idk if getting rid of these functions breaks anything, so it's getting a log!
+            Log.d("connection","CONNECTED");
         } else {
+            Log.d("connection","CONNECTION FAILED");
             disconnect();
         }
     }
