@@ -1,14 +1,14 @@
 /***********************************************
- * CONFIDENTIAL AND PROPRIETARY 
- * 
+ * CONFIDENTIAL AND PROPRIETARY
+ *
  * The source code and other information contained herein is the confidential and the exclusive property of
  * ZIH Corp. and is subject to the terms and conditions in your end user license agreement.
- * This source code, and any other information contained herein, shall not be copied, reproduced, published, 
+ * This source code, and any other information contained herein, shall not be copied, reproduced, published,
  * displayed or distributed, in whole or in part, in any medium, by any means, for any purpose except as
  * expressly permitted under such license agreement.
- * 
+ *
  * Copyright ZIH Corp. 2012
- * 
+ *
  * ALL RIGHTS RESERVED
  ***********************************************/
 
@@ -76,10 +76,10 @@ public class LoadDevDemo extends ListActivity {
         String dcimPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
         List<FieldDescriptionData> fieldsFromCSV = readFieldsFromCSV(dcimPath + "/csv.txt");
 
-        if (fieldsFromCSV.size() >= 2) {
-            // Get the second row values
-            FieldDescriptionData secondRowField1 = fieldsFromCSV.get(1);
+        Log.d("CSV", "Number of rows in CSV: " + fieldsFromCSV.size());
 
+        if (fieldsFromCSV.size() >= 1) {
+            // Get the second row values
             // Update the TextView with the fetched values
             TextView bottomText = (TextView) findViewById(R.id.bottomText);
 
@@ -88,12 +88,17 @@ public class LoadDevDemo extends ListActivity {
             String portDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 1); // Assuming the second value is in the second column
             String formatDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 2);
 
+            Log.d("CSV", "IP: " + ipDisplay + ", PORT: " + portDisplay + ", FORMAT: " + formatDisplay);
+
             bottomText.setText("IP: " + ipDisplay + "\nPORT: " + portDisplay + "\nFORMAT: " + formatDisplay);
         } else {
             TextView bottomText = (TextView) findViewById(R.id.bottomText);
+            Log.d("CSV", "No stored connection data");
+            Log.d("CSV", readValueFromSecondRow(dcimPath + "/csv.txt", 2));
             bottomText.setText("No stored connection data");
         }
     }
+
 
     public static String readValueFromSecondRow(String filePath, int columnIndex) {
         String value = null;
