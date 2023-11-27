@@ -16,6 +16,7 @@ package com.zebra.android.devdemo;
 
 import static com.zebra.android.devdemo.storedformat.VariablesScreen.readFieldsFromCSV;
 
+import com.zebra.android.devdemo.ChangePIN.ChangePIN;
 import com.zebra.android.devdemo.connectionbuilder.ConnectionBuilderDemo;
 import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
 import com.zebra.android.devdemo.discovery.DiscoveryDemo;
@@ -53,7 +54,7 @@ public class LoadDevDemo extends ListActivity {
 
     private static final int CONNECT_ID = 0;
     private static final int SNDFILE_ID = 1;
-    private static final int DISCO_ID = 2;
+    private static final int PIN_ID = 2;
     private static final int IMGPRNT_ID = 3;
     private static final int LSTFORMATS_ID = 4;
     private static final int MAGCARD_ID = 5;
@@ -78,8 +79,6 @@ public class LoadDevDemo extends ListActivity {
         if (fieldsFromCSV.size() >= 2) {
             // Get the second row values
             FieldDescriptionData secondRowField1 = fieldsFromCSV.get(1);
-            String fieldName = secondRowField1.fieldName;
-            int fieldNumber = secondRowField1.fieldNumber;
 
             // Update the TextView with the fetched values
             TextView bottomText = (TextView) findViewById(R.id.bottomText);
@@ -144,8 +143,8 @@ public class LoadDevDemo extends ListActivity {
         case CONNECT_ID:
             intent = new Intent(this, ConnectivityDemo.class);
             break;
-        case DISCO_ID:
-            intent = new Intent(this, DisplayFieldsActivity.class);
+        case PIN_ID:
+            intent = new Intent(this, ChangePIN.class);
             break;
         case IMGPRNT_ID:
             intent = new Intent(this, ImagePrintDemo.class);

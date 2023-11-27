@@ -53,9 +53,12 @@ import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
+import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 
 public class ConnectivityDemo extends Activity {
@@ -73,6 +76,7 @@ public class ConnectivityDemo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connection_screen_with_status);
 
+
         ipDNSAddress = (EditText) this.findViewById(R.id.ipAddressInput);
         ipDNSAddress.setText(SettingsHelper.getIp(this));
 
@@ -87,23 +91,56 @@ public class ConnectivityDemo extends Activity {
 
         testButton = (Button) this.findViewById(R.id.testButton);
         testButton.setOnClickListener(new OnClickListener() {
-
             public void onClick(View v) {
-                new Thread(new Runnable() {
-                    public void run() {
-                        //storing the ip address
+                String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+                File file = new File(filePath);
+                String pinText = ((EditText) findViewById(R.id.pinInput)).getText().toString();
+                if (!file.exists()) {
+                    if ("1234".equals(pinText)) {
+                        new Thread(new Runnable() {
+                            public void run() {
+                                // Your existing code to store IP, navigate, connect, and send test label
+                                // ...
 
-                        navigateToSendFileActivity();
-                        enableTestButton(false);
-                        Looper.prepare();
-                        doConnectionTest();
-                        Looper.loop();
-                        Looper.myLooper().quit();
+                                // Example: Only call the connect method if the pin is correct
+                                navigateToSendFileActivity();
+                                connect();
+                                Looper.prepare();
+                                enableTestButton(false);
+                                doConnectionTest();
+                                Looper.loop();
+                                Looper.myLooper().quit();
+                            }
+                        }).start();
+                    } else {
+                        // Pin is incorrect, handle accordingly (e.g., show a message)
+                        setStatus("Incorrect PIN", Color.RED);
                     }
-                }).start();
+                } else {
+                    if (getPIN(file).equals(pinText)) {
+                        new Thread(new Runnable() {
+                            public void run() {
+                                // Your existing code to store IP, navigate, connect, and send test label
+                                // ...
+
+                                // Example: Only call the connect method if the pin is correct
+                                navigateToSendFileActivity();
+                                connect();
+                                Looper.prepare();
+                                enableTestButton(false);
+                                doConnectionTest();
+                                Looper.loop();
+                                Looper.myLooper().quit();
+                            }
+                        }).start();
+                    } else {
+                        // Pin is incorrect, handle accordingly (e.g., show a message)
+                        setStatus("Incorrect PIN", Color.RED);
+                    }
+                }
+
             }
         });
-
         RadioGroup radioGroup = (RadioGroup) this.findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -121,6 +158,37 @@ public class ConnectivityDemo extends Activity {
         });
     }
 
+    private String getPIN(File file) {
+        try {
+            // Create FileReader object with file as a parameter
+            FileReader fileReader = new FileReader(file);
+
+            // Create CSVReader object with fileReader as a parameter
+            CSVReader csvReader = new CSVReader(fileReader);
+
+            // Read all rows from the CSV file
+            List<String[]> allRows = csvReader.readAll();
+
+            // Close the CSVReader
+            csvReader.close();
+
+            // Check if there are at least three rows
+            if (allRows.size() >= 3) {
+                // Get the third row
+                String[] thirdRow = allRows.get(2);
+
+                // Check if the first value of the third row is not empty
+                if (thirdRow.length > 0) {
+                    return thirdRow[0];
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Return null if there was an error or the value was not found
+        return null;
+    }
     private void toggleEditField(EditText editText, boolean set) {
         /*
          * Note: Disabled EditText fields may still get focus by some other means, and allow text input.
@@ -263,17 +331,17 @@ public class ConnectivityDemo extends Activity {
         editor.putString("tcpPortNumber", tcpPortNumber);
         editor.apply();
     }
-    public static void csvInit(String filePath, String IP, String port)
-    {
+    //make it so the first time it's run it just adds the PIN field value to the CSV
+    public static void csvInit(String filePath, String IP, String port, String PIN) {
         // first create file object for file placed at location
         // specified by filepath
         File file = new File(filePath);
         try {
             // create FileWriter object with file as parameter
-            FileWriter outputfile = new FileWriter(file);
+            FileWriter outputFile = new FileWriter(file);
 
             // create CSVWriter object filewriter object as parameter
-            CSVWriter writer = new CSVWriter(outputfile);
+            CSVWriter writer = new CSVWriter(outputFile);
 
             // adding header to csv
             String[] header = { "IP", "PORT", "FORMAT" };
@@ -283,15 +351,17 @@ public class ConnectivityDemo extends Activity {
             String[] data1 = { IP, port, "1" };
             writer.writeNext(data1);
 
+            // add third row
+            String[] data3 = { PIN };
+            writer.writeNext(data3);
+
             // closing writer connection
             writer.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
-
     public void writeToFile(String tcpAddress, String port) {
         String fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
 
@@ -315,7 +385,7 @@ public class ConnectivityDemo extends Activity {
         File file = new File(filePath);
 
         if (!file.exists()) {
-            csvInit(filePath, tcpAddress, tcpPortNumber);
+            csvInit(filePath, tcpAddress, tcpPortNumber, "1234");
         } else {
             Log.d("csv","CSV already exists");
         }

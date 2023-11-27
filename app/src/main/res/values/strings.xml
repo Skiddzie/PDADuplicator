@@ -4,9 +4,10 @@
     <string name="app_name">PDA Duplicator</string>
 
     <string-array name="DEMO_APPS">
+
         <item>Printer Setup</item>
         <item>Duplicate</item>
-<!--        <item>Image Print</item>-->
+        <item>Change PIN</item>
 <!--        <item>List Formats</item>-->
 <!--        <item>Mag Card</item>-->
 <!--        <item>Printer Status</item>-->

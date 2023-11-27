@@ -19,6 +19,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -206,13 +207,18 @@ public class VariablesScreen extends Activity {
 
             // Read each row and assume specific columns contain field data
             while ((nextRecord = csvReader.readNext()) != null) {
-                // Assuming column 0 contains field names and column 1 contains field numbers (modify as per your CSV structure)
-                String fieldName = nextRecord[0];
-                int fieldNumber = Integer.parseInt(nextRecord[1]); // Assuming it's an integer
+                // Check if there are enough elements in the array
+                if (nextRecord.length >= 2) {
+                    // Assuming column 0 contains field names and column 1 contains field numbers (modify as per your CSV structure)
+                    String fieldName = nextRecord[0];
+                    int fieldNumber = Integer.parseInt(nextRecord[1]); // Assuming it's an integer
 
-                // Create FieldDescriptionData object and add to the list
-                FieldDescriptionData field = new FieldDescriptionData(fieldNumber,fieldName);
-                fieldsFromCSV.add(field);
+                    // Create FieldDescriptionData object and add to the list
+                    FieldDescriptionData field = new FieldDescriptionData(fieldNumber, fieldName);
+                    fieldsFromCSV.add(field);
+                } else {
+                    System.out.println("Invalid row format: " + Arrays.toString(nextRecord));
+                }
             }
             csvReader.close();
         } catch (IOException e) {
@@ -221,7 +227,6 @@ public class VariablesScreen extends Activity {
 
         return fieldsFromCSV;
     }
-
 //    protected void getVariables() {
 //        helper.showLoadingDialog("Retrieving variables...");
 //        connection = getPrinterConnection();

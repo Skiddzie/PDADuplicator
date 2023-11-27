@@ -1,7 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 18
+    lintOptions {
+        disable 'ExpiredTargetSdkVersion'
+    }
+
+    compileSdkVersion 15
 
     defaultConfig {
         applicationId "com.zebra.android.devdemo"
@@ -13,6 +17,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.debug
         }
     }
     packagingOptions {
