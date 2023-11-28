@@ -40,8 +40,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -51,9 +53,8 @@ import java.util.List;
 import au.com.bytecode.opencsv.CSVReader;
 
 public class LoadDevDemo extends ListActivity {
-
-    private static final int CONNECT_ID = 0;
-    private static final int SNDFILE_ID = 1;
+    private static final int SNDFILE_ID = 0;
+    private static final int CONNECT_ID = 1;
     private static final int PIN_ID = 2;
     private static final int IMGPRNT_ID = 3;
     private static final int LSTFORMATS_ID = 4;
@@ -68,6 +69,7 @@ public class LoadDevDemo extends ListActivity {
     private static final int RECEIPT_ID = 12;
     private static final int MULTICHANNEL_ID = 13;
 
+    final boolean[] showSysOps = {false};
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,13 +77,38 @@ public class LoadDevDemo extends ListActivity {
         setContentView(R.layout.main);
         String dcimPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
         List<FieldDescriptionData> fieldsFromCSV = readFieldsFromCSV(dcimPath + "/csv.txt");
+        TextView bottomText = (TextView) findViewById(R.id.bottomText);
+        int[] counter = {0};
 
+        // Initialize the ListView with the appropriate adapter based on the initial state of showSysOps[0]
+        updateListView(showSysOps[0]);
+
+        // Set an OnClickListener for bottomText
+        bottomText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counter[0]++;
+                if (counter[0] == 7){
+                    counter[0] = 0;
+                    if (showSysOps[0]) {
+                        showSysOps[0] = false;
+                        updateListView(showSysOps[0]);
+                        Toast.makeText(getApplicationContext(), "System Settings Hidden", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        showSysOps[0] = true;
+                        updateListView(showSysOps[0]);
+                        Toast.makeText(getApplicationContext(), "System Settings Visible", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                Log.d("hidden", String.valueOf(showSysOps[0]));
+            }
+        });
+
+        // Check if there is CSV data available
         if (fieldsFromCSV.size() >= 2) {
             // Get the second row values
             FieldDescriptionData secondRowField1 = fieldsFromCSV.get(1);
-
-            // Update the TextView with the fetched values
-            TextView bottomText = (TextView) findViewById(R.id.bottomText);
 
             // Read values from the second row
             String ipDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 0); // Assuming the first value is in the first column
@@ -90,13 +117,16 @@ public class LoadDevDemo extends ListActivity {
 
             Log.d("CSV", "IP: " + ipDisplay + ", PORT: " + portDisplay + ", FORMAT: " + formatDisplay);
 
+            // Update the TextView with the fetched values
             bottomText.setText("IP: " + ipDisplay + "\nPORT: " + portDisplay + "\nFORMAT: " + formatDisplay);
         } else {
-            TextView bottomText = (TextView) findViewById(R.id.bottomText);
             Log.d("CSV", "No stored connection data");
-            bottomText.setText("No stored connection data");
+            bottomText.setText("SEI PDA Duplicator\nNo Format to Display");
         }
+
+        // Rest of the code...
     }
+
     @Override
     public void onBackPressed() {
         //nothing here means it's disabled
@@ -146,53 +176,47 @@ public class LoadDevDemo extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Intent intent;
+
+        // Proceed with the intent based on the selected item
         switch (position) {
-        case CONNECT_ID:
-            intent = new Intent(this, ConnectivityDemo.class);
-            break;
-        case PIN_ID:
-            intent = new Intent(this, ChangePIN.class);
-            break;
-        case IMGPRNT_ID:
-            intent = new Intent(this, ImagePrintDemo.class);
-            break;
-        case LSTFORMATS_ID:
-            intent = new Intent(this, ListFormatsDemo.class);
-            break;
-        case MAGCARD_ID:
-            intent = new Intent(this, MagCardDemo.class);
-            break;
-        case PRNTSTATUS_ID:
-            intent = new Intent(this, PrintStatusDemo.class);
-            break;
-        case SMRTCARD_ID:
-            intent = new Intent(this, SmartCardDemo.class);
-            break;
-        case SIGCAP_ID:
-            intent = new Intent(this, SigCaptureDemo.class);
-            break;
-        case SNDFILE_ID:
-            intent = new Intent(this, DisplayFieldsActivity.class);
-            break;
-        case STRDFRMT_ID:
-            intent = new Intent(this, StoredFormatDemo.class);
-            break;
-        case STATUSCHANNEL_ID:
-            intent = new Intent(this, StatusChannelDemo.class);
-            break;
-        case CONNECTIONBUILDER_ID:
-            intent = new Intent(this, ConnectionBuilderDemo.class);
-            break;
-        case RECEIPT_ID:
-            intent = new Intent(this, ReceiptDemo.class);
-            break;
-        case MULTICHANNEL_ID:
-            intent = new Intent(this, MultiChannelDemo.class);
-            break;
-        default:
-            return;// not possible
+            case SNDFILE_ID:
+                intent = new Intent(this, DisplayFieldsActivity.class);
+                break;
+            case CONNECT_ID:
+                intent = new Intent(this, ConnectivityDemo.class);
+                break;
+
+            case PIN_ID:
+                intent = new Intent(this, ChangePIN.class);
+                break;
+            // ... (remaining cases)
+            default:
+                return; // not possible
         }
+
         startActivity(intent);
+    }
+
+    // Update the adapter to dynamically hide/show items
+    private void updateListView(boolean includeSysOpsItems) {
+        String[] items;
+
+        if (includeSysOpsItems) {
+            // Include all items
+            items = new String[] {
+                    "Duplicate",
+                    "Printer Setup",
+                    "Change PIN"
+            };
+        } else {
+            // Exclude CONNECT_ID and PIN_ID from the items list
+            items = new String[] {
+                    "Duplicate"
+            };
+        }
+
+        // Set the updated adapter
+        setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items));
     }
 
 }
