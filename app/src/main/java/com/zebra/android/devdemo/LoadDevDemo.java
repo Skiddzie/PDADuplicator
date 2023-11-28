@@ -97,7 +97,11 @@ public class LoadDevDemo extends ListActivity {
             bottomText.setText("No stored connection data");
         }
     }
-
+    @Override
+    public void onBackPressed() {
+        //nothing here means it's disabled
+        //done to prevent accidentally making it back to the setup screen
+    }
     public static String readValueFromSecondRow(String filePath, int columnIndex) {
         String value = null;
         try {

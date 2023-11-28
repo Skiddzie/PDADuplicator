@@ -26,12 +26,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.zebra.android.devdemo.R;
+import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
 import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.android.devdemo.util.UIHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
@@ -82,7 +84,17 @@ public class StoredFormatScreen extends ListActivity {
         }).start();
 
     }
+    @Override
+    public void onBackPressed() {
 
+        //this function keeps it from switching to the version that doesn't require a PIN.
+        //not sure why that version opens when it's a different method from the one that displays
+        //the formats, but it does.
+        Intent newIntent = new Intent(this, ConnectivityDemo.class);
+        startActivity(newIntent);
+
+        Log.d("switch", "switching from StoredFormatScreen.java");
+    }
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);

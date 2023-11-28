@@ -43,6 +43,7 @@ import android.widget.TextView;
 
 import com.zebra.android.devdemo.LoadDevDemo;
 import com.zebra.android.devdemo.R;
+import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
 import com.zebra.android.devdemo.util.UIHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
 import com.zebra.sdk.comm.Connection;
@@ -193,7 +194,17 @@ public class VariablesScreen extends Activity {
             e.printStackTrace();
         }
     }
+    @Override
+    public void onBackPressed() {
 
+        //this function keeps it from switching to the version that doesn't require a PIN.
+        //not sure why that version opens when it's a different method from the one that displays
+        //the formats, but it does.
+        Intent newIntent = new Intent(this, ConnectivityDemo.class);
+        startActivity(newIntent);
+
+        Log.d("switch", "switching from VariablesScreen.java");
+    }
     public static List<FieldDescriptionData> readFieldsFromCSV(String file) {
         List<FieldDescriptionData> fieldsFromCSV = new ArrayList<>();
 

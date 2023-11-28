@@ -36,6 +36,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
+import com.zebra.android.devdemo.LoadDevDemo;
 import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.sendfile.SendFileDemo;
 import com.zebra.android.devdemo.storedformat.StoredFormatDemo;
@@ -95,6 +96,8 @@ public class ConnectivityDemo extends Activity {
                 String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
                 File file = new File(filePath);
                 String pinText = ((EditText) findViewById(R.id.pinInput)).getText().toString();
+
+
                 if (!file.exists()) {
                     if ("1234".equals(pinText)) {
                         new Thread(new Runnable() {
@@ -105,11 +108,11 @@ public class ConnectivityDemo extends Activity {
                                 // Example: Only call the connect method if the pin is correct
                                 navigateToSendFileActivity();
                                 connect();
-                                Looper.prepare();
+//                                Looper.prepare();
                                 enableTestButton(false);
                                 doConnectionTest();
-                                Looper.loop();
-                                Looper.myLooper().quit();
+//                                Looper.loop();
+//                                Looper.myLooper().quit();
                             }
                         }).start();
                     } else {
@@ -126,11 +129,11 @@ public class ConnectivityDemo extends Activity {
                                 // Example: Only call the connect method if the pin is correct
                                 navigateToSendFileActivity();
                                 connect();
-                                Looper.prepare();
+//                                Looper.prepare();
                                 enableTestButton(false);
                                 doConnectionTest();
-                                Looper.loop();
-                                Looper.myLooper().quit();
+//                                Looper.loop();
+//                                Looper.myLooper().quit();
                             }
                         }).start();
                     } else {
@@ -156,6 +159,17 @@ public class ConnectivityDemo extends Activity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        //because i'm coding like a crazy person this also has to go in here
+        //otherwise it'll infinitely switch back and forth between them
+        Intent newIntent = new Intent(this, LoadDevDemo.class);
+        startActivity(newIntent);
+
+        Log.d("switch", "switching from ConnectivityDemo.java");
     }
 
     private String getPIN(File file) {
@@ -373,6 +387,15 @@ public class ConnectivityDemo extends Activity {
             e.printStackTrace();
         }
 
+    }
+
+    protected String connectIP() {
+        String IP = getTcpAddress();
+        return IP;
+    }
+    protected String connectPort() {
+        String port = getTcpPortNumber();
+        return port;
     }
     private void navigateToSendFileActivity() {
         String tcpAddress = getTcpAddress(); // Retrieve the TCP address

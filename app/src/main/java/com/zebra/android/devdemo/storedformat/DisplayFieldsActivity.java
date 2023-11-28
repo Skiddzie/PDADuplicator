@@ -2,6 +2,7 @@ package com.zebra.android.devdemo.storedformat;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,6 +18,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.zebra.android.devdemo.R;
+import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
 import com.zebra.android.devdemo.util.UIHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
 import com.zebra.sdk.comm.Connection;
@@ -74,9 +76,20 @@ public class DisplayFieldsActivity extends Activity {
             firstEditText.requestFocus();
             helper.showKeyboard(firstEditText);
         }
-
     }
 
+    //dumbass, this is the duplicator section
+//    @Override
+//    public void onBackPressed() {
+//
+//        //this function keeps it from switching to the version that doesn't require a PIN.
+//        //not sure why that version opens when it's a different method from the one that displays
+//        //the formats, but it does.
+//        Intent newIntent = new Intent(this, ConnectivityDemo.class);
+//        startActivity(newIntent);
+//
+//        Log.d("switch", "switching from DisplayFieldsActivity.java");
+//    }
 
     // AsyncTask for retrieving variables
     private class GetVariablesTask extends AsyncTask<Void, Void, Void> {
