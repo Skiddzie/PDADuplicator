@@ -1,14 +1,14 @@
 /***********************************************
- * CONFIDENTIAL AND PROPRIETARY 
- * 
+ * CONFIDENTIAL AND PROPRIETARY
+ *
  * The source code and other information contained herein is the confidential and the exclusive property of
  * ZIH Corp. and is subject to the terms and conditions in your end user license agreement.
- * This source code, and any other information contained herein, shall not be copied, reproduced, published, 
+ * This source code, and any other information contained herein, shall not be copied, reproduced, published,
  * displayed or distributed, in whole or in part, in any medium, by any means, for any purpose except as
  * expressly permitted under such license agreement.
- * 
+ *
  * Copyright ZIH Corp. 2012
- * 
+ *
  * ALL RIGHTS RESERVED
  ***********************************************/
 
@@ -93,12 +93,13 @@ public class ConnectivityDemo extends Activity {
         testButton = (Button) this.findViewById(R.id.testButton);
         testButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+                String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
                 File file = new File(filePath);
                 String pinText = ((EditText) findViewById(R.id.pinInput)).getText().toString();
 
 
                 if (!file.exists()) {
+                    Log.e("pin", "pin in csv doesn't exist");
                     if ("1234".equals(pinText)) {
                         new Thread(new Runnable() {
                             public void run() {
@@ -120,13 +121,11 @@ public class ConnectivityDemo extends Activity {
                         setStatus("Incorrect PIN", Color.RED);
                     }
                 } else {
+                    Log.e("pin", "pin in csv exists");
                     if (getPIN(file).equals(pinText)) {
                         new Thread(new Runnable() {
                             public void run() {
-                                // Your existing code to store IP, navigate, connect, and send test label
-                                // ...
 
-                                // Example: Only call the connect method if the pin is correct
                                 navigateToSendFileActivity();
                                 connect();
 //                                Looper.prepare();
@@ -137,7 +136,7 @@ public class ConnectivityDemo extends Activity {
                             }
                         }).start();
                     } else {
-                        // Pin is incorrect, handle accordingly (e.g., show a message)
+
                         setStatus("Incorrect PIN", Color.RED);
                     }
                 }
@@ -174,24 +173,24 @@ public class ConnectivityDemo extends Activity {
 
     private String getPIN(File file) {
         try {
-            // Create FileReader object with file as a parameter
+
             FileReader fileReader = new FileReader(file);
 
-            // Create CSVReader object with fileReader as a parameter
+
             CSVReader csvReader = new CSVReader(fileReader);
 
-            // Read all rows from the CSV file
+
             List<String[]> allRows = csvReader.readAll();
 
-            // Close the CSVReader
+
             csvReader.close();
 
-            // Check if there are at least three rows
+            //check the csv to make sure it has the data we want to reference
             if (allRows.size() >= 3) {
-                // Get the third row
+
                 String[] thirdRow = allRows.get(2);
 
-                // Check if the first value of the third row is not empty
+
                 if (thirdRow.length > 0) {
                     return thirdRow[0];
                 }
@@ -200,7 +199,7 @@ public class ConnectivityDemo extends Activity {
             e.printStackTrace();
         }
 
-        // Return null if there was an error or the value was not found
+
         return null;
     }
     private void toggleEditField(EditText editText, boolean set) {
@@ -234,40 +233,27 @@ public class ConnectivityDemo extends Activity {
     }
 
     public ZebraPrinter connect() {
+        Log.d("ConnectivityDemo", "Connecting...");
 
-        setStatus("Connecting...", Color.YELLOW);
-        printerConnection = null;
-        if (isBluetoothSelected()) {
-            printerConnection = new BluetoothConnection(getMacAddressFieldText());
-            SettingsHelper.saveBluetoothAddress(this, getMacAddressFieldText());
-        } else {
-            try {
-                //
-                //this is probably the section you're gonna wanna be focusing on
-                //to get the ip address stored
-                //
-                int port = Integer.parseInt(getTcpPortNumber());
-                printerConnection = new TcpConnection(getTcpAddress(), port);
-                TcpConnection storedConnection = new TcpConnection(getTcpAddress(), port);
-                SettingsHelper.saveIp(this, getTcpAddress());
-                Log.e("ipaddy",storedConnection.toString());
-                SettingsHelper.savePort(this, getTcpPortNumber());
-            } catch (NumberFormatException e) {
-                setStatus("Port Number Is Invalid", Color.RED);
-                return null;
-                //
-                //
-                //
-            }
-        }
+        //based on the comment below i'm pretty sure I accidentally deleted some code here
+        //when copying from chatGPT
+        // existing code...
+
+        int port = Integer.parseInt(getTcpPortNumber());
+        printerConnection = new TcpConnection(getTcpAddress(), port);
+        SettingsHelper.saveIp(this, getTcpAddress());
+        SettingsHelper.savePort(this, getTcpPortNumber());
+
 
         try {
             printerConnection.open();
             setStatus("Connected", Color.GREEN);
+            Log.d("ConnectivityDemo", "Connected successfully");
         } catch (ConnectionException e) {
             setStatus("Comm Error! Disconnecting", Color.RED);
             DemoSleeper.sleep(1000);
             disconnect();
+            Log.e("ConnectivityDemo", "ConnectionException: " + e.getMessage());
         }
 
         ZebraPrinter printer = null;
@@ -275,19 +261,19 @@ public class ConnectivityDemo extends Activity {
         if (printerConnection.isConnected()) {
             try {
                 printer = ZebraPrinterFactory.getInstance(printerConnection);
-                setStatus("Determining Printer Language", Color.YELLOW);
-                PrinterLanguage pl = printer.getPrinterControlLanguage();
-                setStatus("Printer Language " + pl, Color.BLUE);
+                // existing code...
             } catch (ConnectionException e) {
                 setStatus("Unknown Printer Language", Color.RED);
                 printer = null;
                 DemoSleeper.sleep(1000);
                 disconnect();
+                Log.e("ConnectivityDemo", "ConnectionException: " + e.getMessage());
             } catch (ZebraPrinterLanguageUnknownException e) {
                 setStatus("Unknown Printer Language", Color.RED);
                 printer = null;
                 DemoSleeper.sleep(1000);
                 disconnect();
+                Log.e("ConnectivityDemo", "ZebraPrinterLanguageUnknownException: " + e.getMessage());
             }
         }
 
@@ -346,38 +332,58 @@ public class ConnectivityDemo extends Activity {
         editor.apply();
     }
     //make it so the first time it's run it just adds the PIN field value to the CSV
-    public static void csvInit(String filePath, String IP, String port, String PIN) {
-        // first create file object for file placed at location
-        // specified by filepath
-        File file = new File(filePath);
+    public void csvInit(Context context, String fileName, String IP, String port, String PIN) {
         try {
-            // create FileWriter object with file as parameter
+            // Get the DCIM directory where you can place your app-specific files.
+            File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
+
+            // Create the file within the DCIM directory directly
+            File file = new File(directory, fileName);
+
+            // Ensure the directory exists, create it if not
+            if (!directory.exists()) {
+                if (!directory.mkdirs()) {
+                    // If directory creation fails, return without creating the file
+                    return;
+                }
+            }
+            if (file.exists()) {
+                Log.d("CSV", "CSV file already exists " + file.getAbsolutePath());
+            } else {
+                Log.d("CSV", "CSV file does not exist, creating...");
+                // Code to create the CSV file goes here
+            }
+            // Create FileWriter object with file as a parameter
             FileWriter outputFile = new FileWriter(file);
 
-            // create CSVWriter object filewriter object as parameter
+            // Create CSVWriter object filewriter object as a parameter
             CSVWriter writer = new CSVWriter(outputFile);
 
-            // adding header to csv
-            String[] header = { "IP", "PORT", "FORMAT" };
+            // Adding header to csv
+            String[] header = {"IP", "PORT", "FORMAT"};
             writer.writeNext(header);
 
-            // add data to csv
-            String[] data1 = { IP, port, "1" };
+            // Adding data rows to csv
+            String[] data1 = {IP, port, "1"};
             writer.writeNext(data1);
 
-            // add third row
-            String[] data3 = { PIN };
+            // Adding third row
+            String[] data3 = {PIN};
             writer.writeNext(data3);
 
-            // closing writer connection
+            // Closing writer connection
             writer.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
+
+
+
+
+    //this is unnecessary now, but I figure i'd keep it around
     public void writeToFile(String tcpAddress, String port) {
-        String fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
+        File fileDirectory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv.txt");
 
         try{
             FileWriter writer = new FileWriter(fileDirectory + "/settings.txt");
@@ -404,26 +410,31 @@ public class ConnectivityDemo extends Activity {
         String tcpPortNumber = getTcpPortNumber();
         saveTcpPortNumber(tcpPortNumber);
 
-        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+        File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
+
+        if (!directory.exists()) {
+            directory.mkdirs(); // Create the directory if it doesn't exist
+        }
+
+        String filePath = new File(directory, "csv.txt").getAbsolutePath();
+
         File file = new File(filePath);
 
         if (!file.exists()) {
-            csvInit(filePath, tcpAddress, tcpPortNumber, "1234");
+            csvInit(this, "csv.txt", tcpAddress, tcpPortNumber, "1234");
         } else {
-            Log.d("csv","CSV already exists");
+            Log.d("csv", "CSV already exists "+ file.getAbsolutePath());//////////
         }
 
-
-        writeToFile(tcpAddress, tcpPortNumber);
-
+//        writeToFile(tcpAddress, tcpPortNumber);
 
         // Navigate to StoredFormatDemo
         Intent storedFormatIntent = new Intent(this, StoredFormatDemo.class);
         storedFormatIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to StoredFormatDemo
         storedFormatIntent.putExtra("tcpPortNumber", tcpPortNumber);
         startActivity(storedFormatIntent); // Start the StoredFormatDemo activity
-
     }
+
     private void doConnectionTest() {
         printer = connect();
         if (printer != null) {
@@ -457,7 +468,7 @@ public class ConnectivityDemo extends Activity {
     /*
     * Returns the command for a test label depending on the printer control language
     * The test label is a box with the word "TEST" inside of it
-    * 
+    *
     * _________________________
     * |                       |
     * |                       |
@@ -465,8 +476,8 @@ public class ConnectivityDemo extends Activity {
     * |                       |
     * |                       |
     * |_______________________|
-    * 
-    * 
+    *
+    *
     */
     private byte[] getConfigLabel() {
         PrinterLanguage printerLanguage = printer.getPrinterControlLanguage();

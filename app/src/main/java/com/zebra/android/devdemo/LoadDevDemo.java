@@ -45,6 +45,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -75,7 +76,8 @@ public class LoadDevDemo extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        String dcimPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath();
+        String dcimPath = new File(getFilesDir(), "csv").getAbsolutePath();
+
         List<FieldDescriptionData> fieldsFromCSV = readFieldsFromCSV(dcimPath + "/csv.txt");
         TextView bottomText = (TextView) findViewById(R.id.bottomText);
         int[] counter = {0};
@@ -106,6 +108,7 @@ public class LoadDevDemo extends ListActivity {
         });
 
         // Check if there is CSV data available
+        // Check if there is CSV data available
         if (fieldsFromCSV.size() >= 2) {
             // Get the second row values
             FieldDescriptionData secondRowField1 = fieldsFromCSV.get(1);
@@ -120,7 +123,7 @@ public class LoadDevDemo extends ListActivity {
             // Update the TextView with the fetched values
             bottomText.setText("IP: " + ipDisplay + "\nPORT: " + portDisplay + "\nFORMAT: " + formatDisplay);
         } else {
-            Log.d("CSV", "No stored connection data");
+            Log.d("CSV", "No stored connection data. Number of rows: " + fieldsFromCSV.size());
             bottomText.setText("SEI PDA Duplicator\nNo Format to Display");
         }
 

@@ -71,15 +71,15 @@ public class ChangePIN extends Activity {
     private void updatePinInCSV(String newPin) {
         // Implement the logic to update the third row value in the CSV with newPin
         // You can use the modifyFormatValue method you provided earlier
-        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+        String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
         modifyFormatValue(filePath, 2, 0, newPin); // Assuming the third row is at index 2
     }
 
     // Implement the logic to read the third row value from the CSV
     private String readThirdRowFromCSV() {
-        // Replace this with the actual logic to read the third row value from the CSV
-        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
-        return readValueFromCSV(filePath, 2, 0); // Assuming the third row is at index 2
+
+        String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
+        return readValueFromCSV(filePath, 2, 0);
     }
 
     // Implement the logic to read a specific value from the CSV file

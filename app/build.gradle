@@ -5,12 +5,13 @@ android {
         disable 'ExpiredTargetSdkVersion'
     }
 
-    compileSdkVersion 15
+
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "com.zebra.android.devdemo"
-        minSdkVersion 15
-        targetSdkVersion 15
+        minSdkVersion 30
+        targetSdkVersion 34
     }
 
     buildTypes {

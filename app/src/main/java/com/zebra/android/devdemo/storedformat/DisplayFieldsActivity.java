@@ -45,9 +45,9 @@ public class DisplayFieldsActivity extends Activity {
     private List<EditText> variableValues = new ArrayList<>();
     private boolean bluetoothSelected;
     private String macAddress;
-    private String tcpAddress = readCsvValue(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt", 1, 0);
-    private String tcpPort = readCsvValue(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt", 1, 1);
-    private String formatName = readCsvValue(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt", 1, 2);
+    private String tcpAddress;
+    private String tcpPort;
+    private String formatName;
     private UIHelper helper = new UIHelper(this);
     private Connection connection;
 
@@ -58,8 +58,10 @@ public class DisplayFieldsActivity extends Activity {
 
         // Read CSV values once during onCreate
         readCsvFile();
+        // Initialize CSV values
+        initializeCsvValues();
 
-        final Button printButton = (Button) findViewById(R.id.printFormatButton);
+        final Button printButton = findViewById(R.id.printFormatButton);
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +69,6 @@ public class DisplayFieldsActivity extends Activity {
             }
         });
 
-        // Move the retrieval of variables outside the button click listener
         new GetVariablesTask().execute();
 
         // Automatically select the first EditText field and show the keyboard
@@ -77,6 +78,25 @@ public class DisplayFieldsActivity extends Activity {
             helper.showKeyboard(firstEditText);
         }
     }
+
+
+    private void initializeCsvValues() {
+        // Initialize your CSV values here
+        tcpAddress = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 0);
+        tcpPort = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 1);
+        formatName = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2);
+
+        // Log the values for debugging
+        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 0));
+        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 1));
+        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2));
+
+
+        Log.d("CSV", "TCP Address: " + tcpAddress);
+        Log.d("CSV", "TCP Port: " + tcpPort);
+        Log.d("CSV", "Format Name: " + formatName);
+    }
+
 
     //dumbass, this is the duplicator section
 //    @Override
@@ -200,34 +220,40 @@ public class DisplayFieldsActivity extends Activity {
     }
 
     private void readCsvFile() {
-        String csvFilePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
         tcpAddress = readCsvValue(csvFilePath, 1, 0);
         tcpPort = readCsvValue(csvFilePath, 1, 1);
-        formatName = readCsvValue(csvFilePath, 1, 2); // Update formatName from CSV
+        formatName = readCsvValue(csvFilePath, 1, 2);
         Log.d("CSV", "TCP Address: " + tcpAddress);
         Log.d("CSV", "TCP Port: " + tcpPort);
-        Log.d("CSV", "Format Name: " + formatName); // Log the updated formatName
+        Log.d("CSV", "Format Name: " + formatName);
     }
 
     private Connection getPrinterConnection() {
-        Log.d("CONNECTION", "ADDRESS: "+tcpAddress);
-        Log.d("CONNECTION", "PORT: "+tcpPort);
-        Log.d("CONNECTION", "FORMAT: "+formatName);
+        Log.d("CONNECTION", "ADDRESS: " + tcpAddress);
+        Log.d("CONNECTION", "PORT: " + tcpPort);
+        Log.d("CONNECTION", "FORMAT: " + formatName);
         if (!bluetoothSelected) {
             try {
                 int port = Integer.parseInt(tcpPort);
                 connection = new TcpConnection(tcpAddress, port);
+                connection.open(); // Open the connection here
             } catch (NumberFormatException e) {
                 helper.showErrorDialogOnGuiThread("Port number is invalid");
+                return null;
+            } catch (ConnectionException e) {
+                Log.e("ERROR", "Error opening connection: " + e.getMessage(), e);
+                helper.showErrorDialogOnGuiThread("Error opening connection: " + e.getMessage());
                 return null;
             }
         } else {
             connection = new BluetoothConnection(macAddress);
+            // Handle Bluetooth connection logic here if needed
         }
         return connection;
     }
-
     protected void getVariables() {
+        Log.d("DEBUG", "getVariables: start");
         helper.showLoadingDialog("Retrieving variables...");
 
         new Thread(new Runnable() {
@@ -247,6 +273,10 @@ public class DisplayFieldsActivity extends Activity {
                                 for (int i = 0; i < variables.length; i++) {
                                     variablesList.add(variables[i]);
                                 }
+
+                                // Debug logs to check variablesList size
+                                Log.d("DEBUG", "VariablesList size: " + variablesList.size());
+
                                 updateGuiWithFormats();
                             } else {
                                 Log.e("ERROR", "Format contents are null");
@@ -276,6 +306,7 @@ public class DisplayFieldsActivity extends Activity {
             }
         }).start();
     }
+
 
     public static String readCsvValue(String filePath, int rowIndex, int columnIndex) {
         try {

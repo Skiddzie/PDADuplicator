@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Connection Successful"
         android:textSize="18sp"
-        android:textColor="#ffffff"/>
+        android:textColor="#cccccc"/>
 
     <Button
         android:id="@+id/okButton"

@@ -47,7 +47,7 @@ public class SendFileDemo extends ConnectionScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        code written by chatgpt fix this shit
+//        code written by chatgpt need to fix this shit later
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_send_file_demo);
 

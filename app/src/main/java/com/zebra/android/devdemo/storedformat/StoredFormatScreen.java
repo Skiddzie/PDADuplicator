@@ -115,31 +115,35 @@ public class StoredFormatScreen extends ListActivity {
 
     // Add this method to write the selected data to CSV
     private void writeDataToCsv(String tcpAddress, String tcpPort, String formatName) {
+        Log.e("formatwrite", formatName);
         try {
-            String csvFilePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
+            String csvFilePath = String.valueOf(new File(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt"));
+
+            Log.e("path", csvFilePath);
             File csvFile = new File(csvFilePath);
 
-            // Check if it's the first row, if yes, write headers
-            if (!csvFile.exists() || csvFile.length() == 0) {
-                FileWriter fileWriter = new FileWriter(csvFilePath);
-                CSVWriter csvWriter = new CSVWriter(fileWriter);
-                String[] headers = {"IP Address", "Port", "Format Name"};
-                csvWriter.writeNext(headers);
-                csvWriter.close();
-                fileWriter.close();
+            // Read existing data
+            List<String[]> existingData;
+            if (csvFile.exists() && csvFile.length() > 0) {
+                CSVReader reader = new CSVReader(new FileReader(csvFilePath));
+                existingData = reader.readAll();
+                reader.close();
+
+                // Check if the second row exists
+                if (existingData.size() >= 2) {
+                    // Modify the format name in the second row
+                    existingData.get(1)[2] = formatName;
+                }
+            } else {
+                // If the file is empty or doesn't exist, create an empty list
+                existingData = new ArrayList<>();
             }
 
-            // Read existing data
-            CSVReader reader = new CSVReader(new FileReader(csvFilePath));
-            List<String[]> existingData = reader.readAll();
-            reader.close();
-
-            // Update the second row
-            if (existingData.size() > 1) {
-                existingData.set(1, new String[]{tcpAddress, tcpPort, formatName});
-            } else {
-                // If the file is empty or has only one row, add the second row
-                existingData.add(new String[]{tcpAddress, tcpPort, formatName});
+            // If the second row doesn't exist, add a new row with the format name
+            if (existingData.size() < 2) {
+                // Add a new row with the format name
+                String[] newRow = {tcpAddress, tcpPort, formatName};
+                existingData.add(newRow);
             }
 
             // Write the updated data to the CSV file
@@ -154,6 +158,7 @@ public class StoredFormatScreen extends ListActivity {
             e.printStackTrace();
         }
     }
+
 
 
 
