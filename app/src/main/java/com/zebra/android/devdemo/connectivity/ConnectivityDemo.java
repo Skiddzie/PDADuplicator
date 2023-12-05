@@ -403,6 +403,46 @@ public class ConnectivityDemo extends Activity {
         String port = getTcpPortNumber();
         return port;
     }
+
+    private void updateCsvFile(File file, String tcpAddress, String tcpPortNumber) {
+        try {
+            // Read existing content of CSV file
+            FileReader fileReader = new FileReader(file);
+            CSVReader csvReader = new CSVReader(fileReader);
+            List<String[]> csvContent = csvReader.readAll();
+            csvReader.close();
+
+            // Update the specific row containing the TCP address (skip the first row)
+            boolean updated = false;
+            for (int i = 1; i < csvContent.size(); i++) {
+                String[] row = csvContent.get(i);
+                if (row.length >= 2) {
+                    // Replace the values in the second row
+                    row[0] = tcpAddress;  // Replace IP address (assuming it's in the first column)
+                    row[1] = tcpPortNumber; // Replace port number (assuming it's in the second column)
+                    updated = true;
+                    break; // Exit loop after updating the row
+                }
+            }
+
+            // If the row with the TCP address doesn't exist, log a message
+            if (!updated) {
+                Log.d("CSV", "Row with IP address not found for update");
+            } else {
+                Log.d("CSV", "Updated the second row");
+            }
+
+            // Write the updated content back to the CSV file
+            FileWriter fileWriter = new FileWriter(file);
+            CSVWriter csvWriter = new CSVWriter(fileWriter);
+            csvWriter.writeAll(csvContent);
+            csvWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void navigateToSendFileActivity() {
         String tcpAddress = getTcpAddress(); // Retrieve the TCP address
         saveTcpAddress(tcpAddress); // Save the TCP address to SharedPreferences
@@ -411,19 +451,21 @@ public class ConnectivityDemo extends Activity {
         saveTcpPortNumber(tcpPortNumber);
 
         File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
-
+        File file = new File(directory, "csv.txt");
         if (!directory.exists()) {
             directory.mkdirs(); // Create the directory if it doesn't exist
         }
 
-        String filePath = new File(directory, "csv.txt").getAbsolutePath();
-
-        File file = new File(filePath);
+//        String filePath = new File(directory, "csv.txt").getAbsolutePath();
+//
+//        File file = new File(filePath);
 
         if (!file.exists()) {
+            Log.d("csv", "CSV does not exist "+ file);
             csvInit(this, "csv.txt", tcpAddress, tcpPortNumber, "1234");
         } else {
-            Log.d("csv", "CSV already exists "+ file.getAbsolutePath());//////////
+            updateCsvFile(file, tcpAddress, tcpPortNumber);
+            Log.d("csv", "CSV already exists "+ file);//////////
         }
 
 //        writeToFile(tcpAddress, tcpPortNumber);
