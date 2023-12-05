@@ -141,8 +141,12 @@ public class DisplayFieldsActivity extends Activity {
         }
         //clears the field so that stuff doesn't start doubling up
         //not sure why placing it right after PrintFormatTask() breaks it, but it does
-        EditText editTextToClear = variableValues.get(0);
-        clearEditText(editTextToClear);
+        if (variableValues.size() == 1) {
+            EditText editTextToClear = variableValues.get(0);
+            clearEditText(editTextToClear);
+
+        }
+
         return super.onKeyDown(keyCode, event);
     }
     private void clearEditText(EditText editText) {
