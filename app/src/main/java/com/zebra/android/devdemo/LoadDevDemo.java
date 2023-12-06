@@ -75,10 +75,29 @@ public class LoadDevDemo extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("LoadDevDemo", "onCreate");
         setContentView(R.layout.main);
-        String dcimPath = new File(getFilesDir(), "csv").getAbsolutePath();
+        updateUI();
+    }
 
-        List<FieldDescriptionData> fieldsFromCSV = readFieldsFromCSV(dcimPath + "/csv.txt");
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        Log.d("LoadDevDemo", "onResume");
+//        updateUI();
+//    }
+
+    @Override
+    public void onBackPressed() {
+        //nothing here means it's disabled
+        //done to prevent accidentally making it back to the setup screen
+    }
+
+    private void updateUI() {
+        String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
+        Log.e("CSV", filePath);
+        List<FieldDescriptionData> fieldsFromCSV = readFieldsFromCSV(filePath);
+        Log.e("CSV", "updateUI");
         TextView bottomText = (TextView) findViewById(R.id.bottomText);
         int[] counter = {0};
 
@@ -90,14 +109,13 @@ public class LoadDevDemo extends ListActivity {
             @Override
             public void onClick(View v) {
                 counter[0]++;
-                if (counter[0] == 7){
+                if (counter[0] == 7) {
                     counter[0] = 0;
                     if (showSysOps[0]) {
                         showSysOps[0] = false;
                         updateListView(showSysOps[0]);
                         Toast.makeText(getApplicationContext(), "System Settings Hidden", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    } else {
                         showSysOps[0] = true;
                         updateListView(showSysOps[0]);
                         Toast.makeText(getApplicationContext(), "System Settings Visible", Toast.LENGTH_SHORT).show();
@@ -108,33 +126,24 @@ public class LoadDevDemo extends ListActivity {
         });
 
         // Check if there is CSV data available
-        // Check if there is CSV data available
-        if (fieldsFromCSV.size() >= 2) {
-            // Get the second row values
-            FieldDescriptionData secondRowField1 = fieldsFromCSV.get(1);
+        if (!fieldsFromCSV.isEmpty()) {
+            FieldDescriptionData firstRow = fieldsFromCSV.get(0);
 
-            // Read values from the second row
-            String ipDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 0); // Assuming the first value is in the first column
-            String portDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 1); // Assuming the second value is in the second column
-            String formatDisplay = readValueFromSecondRow(dcimPath + "/csv.txt", 2);
+            // Read values from the first row
+            String ipDisplay = readValueFromSecondRow(filePath, 0);
+            String portDisplay = readValueFromSecondRow(filePath, 1);
+            String formatDisplay = readValueFromSecondRow(filePath, 2);
 
             Log.d("CSV", "IP: " + ipDisplay + ", PORT: " + portDisplay + ", FORMAT: " + formatDisplay);
 
             // Update the TextView with the fetched values
-            bottomText.setText("IP: " + ipDisplay + "\nPORT: " + portDisplay + "\nFORMAT: " + formatDisplay);
+            bottomText.setText("IP: " + ipDisplay + "\n" +"PORT: "+ portDisplay + "\n" + "FORMAT: " +formatDisplay);
         } else {
-            Log.d("CSV", "No stored connection data. Number of rows: " + fieldsFromCSV.size());
+            Log.d("CSV", "No stored connection data.");
             bottomText.setText("SEI PDA Duplicator\nNo Format to Display");
         }
-
-        // Rest of the code...
     }
 
-    @Override
-    public void onBackPressed() {
-        //nothing here means it's disabled
-        //done to prevent accidentally making it back to the setup screen
-    }
     public static String readValueFromSecondRow(String filePath, int columnIndex) {
         String value = null;
         try {
@@ -180,6 +189,17 @@ public class LoadDevDemo extends ListActivity {
         super.onListItemClick(l, v, position, id);
         Intent intent;
 
+
+        if (position == SNDFILE_ID) {
+            String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
+            File csvFile = new File(filePath);
+
+            if (!csvFile.exists()) {
+                // CSV file doesn't exist, show toast and break
+                Toast.makeText(this, "No printer connected", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
         // Proceed with the intent based on the selected item
         switch (position) {
             case SNDFILE_ID:
