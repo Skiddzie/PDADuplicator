@@ -2,10 +2,13 @@ package com.zebra.android.devdemo.storedformat;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.FileObserver;
 import android.os.Looper;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -16,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
@@ -29,10 +33,15 @@ import com.zebra.sdk.printer.ZebraPrinter;
 import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -55,6 +64,21 @@ public class DisplayFieldsActivity extends Activity {
     private UIHelper helper = new UIHelper(this);
     private Connection connection;
 
+    // ... (existing code)
+
+    private FileObserver fileObserver;
+
+    // Broadcast receiver for detecting power connection
+    private BroadcastReceiver powerConnectedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action != null && action.equals(Intent.ACTION_POWER_CONNECTED)) {
+                // Phone is plugged in, trigger file transfer
+                transferFileToComputer();
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +94,7 @@ public class DisplayFieldsActivity extends Activity {
             @Override
             public void onClick(View v) {
                 new PrintFormatTask().execute();
+                transferFileToComputer();
             }
         });
 
@@ -83,6 +108,15 @@ public class DisplayFieldsActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Stop FileObserver and unregister the receiver when the activity is destroyed
+        if (fileObserver != null) {
+            fileObserver.stopWatching();
+        }
+        unregisterReceiver(powerConnectedReceiver);
+    }
 
     private void initializeCsvValues() {
         // Initialize your CSV values here
@@ -101,6 +135,46 @@ public class DisplayFieldsActivity extends Activity {
         Log.d("CSV", "Format Name: " + formatName);
     }
 
+    private void transferFileToComputer() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String todaysDate = dateFormat.format(new Date());
+        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history"+todaysDate+".txt";
+
+        File sourceFile = new File(csvFilePath);
+
+        // Specify the destination directory on the computer (can be modified based on your needs)
+        File destinationDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        Toast.makeText(this, "file transfer called", Toast.LENGTH_SHORT).show();
+        try {
+            // Create FileInputStream for the source file
+            FileInputStream inputStream = new FileInputStream(sourceFile);
+
+            // Create OutputStream for the destination file on the computer
+            File destinationFile = new File(destinationDirectory, "history"+todaysDate+".txt");
+            FileOutputStream outputStream = new FileOutputStream(destinationFile);
+
+            // Transfer bytes from the source file to the destination file
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, length);
+            }
+
+            // Close streams
+            inputStream.close();
+            outputStream.close();
+
+            // Optionally, you can delete the source file after transfer
+            // sourceFile.delete();
+
+            // Log success or perform additional actions as needed
+            Toast.makeText(this, "file transfer successful", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception (e.g., show an error message)
+            Toast.makeText(this, "file transfer unsuccessful" + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
 
     //dumbass, this is the duplicator section
 //    @Override
@@ -180,6 +254,7 @@ public class DisplayFieldsActivity extends Activity {
             Log.e("history", "Error writing to history.csv: " + e.getMessage());
         }
     }
+
     private class PrintFormatTask extends AsyncTask<Void, Void, Void> {
         @SuppressLint("WrongThread")
         @Override
