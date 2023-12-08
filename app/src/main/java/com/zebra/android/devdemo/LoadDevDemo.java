@@ -48,7 +48,9 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
@@ -77,6 +79,9 @@ public class LoadDevDemo extends ListActivity {
         super.onCreate(savedInstanceState);
         Log.d("LoadDevDemo", "onCreate");
         setContentView(R.layout.main);
+
+        createHistoryCsv();
+
         updateUI();
     }
 
@@ -141,6 +146,29 @@ public class LoadDevDemo extends ListActivity {
         } else {
             Log.d("CSV", "No stored connection data.");
             bottomText.setText("SEI PDA Duplicator\nNo Format to Display");
+        }
+    }
+
+    private void createHistoryCsv() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String todaysDate = dateFormat.format(new Date());
+        String historyFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history"+todaysDate+".txt";
+        File historyCsvFile = new File(historyFilePath);
+
+        // Check if the "history.txt" file already exists
+        if (!historyCsvFile.exists()) {
+            try {
+                // Create a blank CSV file if it doesn't exist
+                boolean created = historyCsvFile.createNewFile();
+
+                if (created) {
+                    Log.d("CSV", "Blank history.csv created successfully.");
+                } else {
+                    Log.d("CSV", "Failed to create blank history.csv.");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

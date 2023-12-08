@@ -30,14 +30,18 @@ import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import au.com.bytecode.opencsv.CSVReader;
+import au.com.bytecode.opencsv.CSVWriter;
 
 public class DisplayFieldsActivity extends Activity {
 
@@ -154,6 +158,28 @@ public class DisplayFieldsActivity extends Activity {
             editText.setText("");
         }
     }
+
+    private void addToHistoryCsv(List<String> values) {
+        Log.d("history", "add history called");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String todaysDate = dateFormat.format(new Date());
+        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history"+todaysDate+".txt";
+        try {
+
+            // Open CSV file in append mode
+            FileWriter fileWriter = new FileWriter(csvFilePath, true);
+            CSVWriter csvWriter = new CSVWriter(fileWriter);
+
+            // Write a new row to the CSV file
+            csvWriter.writeNext(values.toArray(new String[0]));
+
+            // Close CSV writer
+            csvWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("history", "Error writing to history.csv: " + e.getMessage());
+        }
+    }
     private class PrintFormatTask extends AsyncTask<Void, Void, Void> {
         @SuppressLint("WrongThread")
         @Override
@@ -179,6 +205,17 @@ public class DisplayFieldsActivity extends Activity {
 
                     connection.close();
                 }
+                // Get the values from the EditText fields
+                List<String> fieldValues = new ArrayList<>();
+                for (EditText editText : variableValues) {
+                    fieldValues.add(editText.getText().toString());
+                }
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String currentTime = dateFormat.format(new Date());
+                fieldValues.add(currentTime);
+                Log.d("history", "field values: " + fieldValues);
+                // Create a new row in the CSV file with the values and timestamp
+                addToHistoryCsv(fieldValues);
             } catch (ConnectionException e) {
                 Log.e("print", "Error printing: " + e.getMessage(), e);
                 helper.showErrorDialogOnGuiThread(e.getMessage());

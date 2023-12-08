@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="DEMO_APPS">
+
         <item>Printer Setup</item>
         <item>Duplicate</item>
-
+        <item>Change PIN</item>
 
 
 

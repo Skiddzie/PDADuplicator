@@ -4,62 +4,7 @@
             "outputFile": "com.zebra.android.devdemo.app-merged_res-4:/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\array.xml",
-                    "from": {
-                        "startLines": "-1",
-                        "startColumns": "-1",
-                        "startOffsets": "-1"
-                    },
-                    "to": {
-                        "startLines": "26",
-                        "startColumns": "4",
-                        "startOffsets": "480",
-                        "endLines": "34",
-                        "endColumns": "19",
-                        "endOffsets": "756"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "5,-1,-1,-1,3,-1",
-                        "startColumns": "4,-1,-1,-1,4,-1",
-                        "startOffsets": "114,-1,-1,-1,59,-1",
-                        "endLines": "20,-1,-1,-1,3,-1",
-                        "endColumns": "23,-1,-1,-1,51,-1",
-                        "endOffsets": "743,-1,-1,-1,106,-1"
-                    },
-                    "to": {
-                        "startLines": "2,18,35,38,39,40",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,193,761,913,966,1018",
-                        "endLines": "17,25,35,38,39,40",
-                        "endColumns": "23,19,37,52,51,52",
-                        "endOffsets": "188,475,794,961,1013,1066"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\dimens.xml",
-                    "from": {
-                        "startLines": "-1,-1",
-                        "startColumns": "-1,-1",
-                        "startOffsets": "-1,-1"
-                    },
-                    "to": {
-                        "startLines": "36,37",
-                        "startColumns": "4,4",
-                        "startOffsets": "799,857",
-                        "endColumns": "57,55",
-                        "endOffsets": "852,908"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-4:\\values_values.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\array.xml",
+                    "source": "C:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\array.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -69,35 +14,35 @@
                         "endOffsets": "341"
                     },
                     "to": {
-                        "startLines": "26",
+                        "startLines": "27",
                         "startColumns": "4",
-                        "startOffsets": "480",
-                        "endLines": "34",
+                        "startOffsets": "512",
+                        "endLines": "35",
                         "endColumns": "19",
-                        "endOffsets": "756"
+                        "endOffsets": "788"
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "5,21,30,32,3,33",
+                        "startLines": "5,22,31,33,3,34",
                         "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "120,755,1052,1093,59,1147",
-                        "endLines": "20,28,30,32,3,33",
-                        "endColumns": "23,19,37,52,57,52",
-                        "endOffsets": "749,1044,1085,1141,112,1195"
+                        "startOffsets": "114,743,1040,1081,59,1135",
+                        "endLines": "21,29,31,33,3,34",
+                        "endColumns": "23,19,37,52,51,52",
+                        "endOffsets": "737,1032,1073,1129,106,1183"
                     },
                     "to": {
-                        "startLines": "2,18,35,38,39,40",
+                        "startLines": "2,19,36,39,40,41",
                         "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,193,761,913,966,1024",
-                        "endLines": "17,25,35,38,39,40",
-                        "endColumns": "23,19,37,52,57,52",
-                        "endOffsets": "188,475,794,961,1019,1072"
+                        "startOffsets": "55,225,793,945,998,1050",
+                        "endLines": "18,26,36,39,40,41",
+                        "endColumns": "23,19,37,52,51,52",
+                        "endOffsets": "220,507,826,993,1045,1098"
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\src\\main\\res\\values\\dimens.xml",
+                    "source": "C:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
                         "startLines": "3,4",
                         "startColumns": "4,4",
@@ -106,11 +51,11 @@
                         "endOffsets": "145,202"
                     },
                     "to": {
-                        "startLines": "36,37",
+                        "startLines": "37,38",
                         "startColumns": "4,4",
-                        "startOffsets": "799,857",
+                        "startOffsets": "831,889",
                         "endColumns": "57,55",
-                        "endOffsets": "852,908"
+                        "endOffsets": "884,940"
                     }
                 }
             ]

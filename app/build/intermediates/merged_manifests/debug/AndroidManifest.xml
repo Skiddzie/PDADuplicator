@@ -5,18 +5,20 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="15"
-        android:targetSdkVersion="15" />
+        android:minSdkVersion="30"
+        android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.usb.host"
@@ -27,10 +29,13 @@
     <application
         android:allowBackup="false"
         android:debuggable="true"
+        android:extractNativeLibs="false"
         android:icon="@drawable/icon"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:testOnly="true" >
         <activity
             android:name="com.zebra.android.devdemo.LoadDevDemo"
+            android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -208,6 +213,12 @@
             android:name="com.zebra.android.devdemo.receipt.ReceiptDemo"
             android:configChanges="keyboardHidden|orientation"
             android:label="Receipt Demo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.zebra.android.devdemo.ChangePIN.ChangePIN"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="Change PIN"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
     </application>

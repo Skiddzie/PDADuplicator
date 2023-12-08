@@ -3,8 +3,8 @@
     package="com.zebra.android.devdemo.test" >
 
     <uses-sdk
-        android:minSdkVersion="15"
-        android:targetSdkVersion="15" />
+        android:minSdkVersion="30"
+        android:targetSdkVersion="34" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
@@ -13,7 +13,9 @@
         android:label="Tests for com.zebra.android.devdemo"
         android:targetPackage="com.zebra.android.devdemo" />
 
-    <application android:debuggable="true" >
+    <application
+        android:debuggable="true"
+        android:extractNativeLibs="false" >
         <uses-library android:name="android.test.runner" />
     </application>
 
