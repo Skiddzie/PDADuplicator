@@ -150,7 +150,7 @@ public class DisplayFieldsActivity extends Activity {
         File sourceFile = new File(csvFilePath);
 
         // Specify the destination directory on the computer (can be modified based on your needs)
-        File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "history" + todaysDate + ".txt");
+        File destinationFile = new File(getFilesDir(), "history" + todaysDate + ".txt");
         Log.d("filetransfer", "Source File: " + sourceFile.getAbsolutePath());
         Log.d("filetransfer", "Destination File: " + destinationFile.getAbsolutePath());
         Toast.makeText(this, "File transfer called", Toast.LENGTH_SHORT).show();
