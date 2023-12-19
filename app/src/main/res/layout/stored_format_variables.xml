@@ -22,6 +22,16 @@
 			android:layout_height="wrap_content"
 			android:stretchColumns="0,1" />
 
+		<!-- Add a Checkbox -->
+		<CheckBox
+			android:id="@+id/printOnScan"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Print on Scan"
+			android:gravity="bottom|right"
+			android:checked="true"
+			android:visibility="invisible" />
+
 		<Button
 			android:id="@+id/printFormatButton"
 			android:layout_width="fill_parent"

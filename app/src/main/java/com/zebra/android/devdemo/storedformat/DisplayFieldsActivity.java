@@ -15,12 +15,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zebra.android.devdemo.LoadDevDemo;
 import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
 import com.zebra.android.devdemo.util.UIHelper;
@@ -93,8 +95,13 @@ public class DisplayFieldsActivity extends Activity {
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new PrintFormatTask().execute();
-                transferFileToComputer();
+                new PrintFormatTask() {
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        transferFileToComputer();
+                    }
+                }.execute();
+
             }
         });
 
@@ -138,19 +145,20 @@ public class DisplayFieldsActivity extends Activity {
     private void transferFileToComputer() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String todaysDate = dateFormat.format(new Date());
-        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history"+todaysDate+".txt";
+        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history" + todaysDate + ".txt";
 
         File sourceFile = new File(csvFilePath);
 
         // Specify the destination directory on the computer (can be modified based on your needs)
-        File destinationDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        Toast.makeText(this, "file transfer called", Toast.LENGTH_SHORT).show();
+        File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "history" + todaysDate + ".txt");
+        Log.d("filetransfer", "Source File: " + sourceFile.getAbsolutePath());
+        Log.d("filetransfer", "Destination File: " + destinationFile.getAbsolutePath());
+        Toast.makeText(this, "File transfer called", Toast.LENGTH_SHORT).show();
         try {
             // Create FileInputStream for the source file
             FileInputStream inputStream = new FileInputStream(sourceFile);
 
             // Create OutputStream for the destination file on the computer
-            File destinationFile = new File(destinationDirectory, "history"+todaysDate+".txt");
             FileOutputStream outputStream = new FileOutputStream(destinationFile);
 
             // Transfer bytes from the source file to the destination file
@@ -168,26 +176,28 @@ public class DisplayFieldsActivity extends Activity {
             // sourceFile.delete();
 
             // Log success or perform additional actions as needed
-            Toast.makeText(this, "file transfer successful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "File transfer successful", Toast.LENGTH_SHORT).show();
+            Log.d("filetransfer", "File transfer successful. Destination File: " + destinationFile.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
             // Handle the exception (e.g., show an error message)
-            Toast.makeText(this, "file transfer unsuccessful" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "File transfer unsuccessful: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.e("filetransfer", "File transfer unsuccessful: " + e.getMessage());
         }
     }
 
     //dumbass, this is the duplicator section
-//    @Override
-//    public void onBackPressed() {
-//
-//        //this function keeps it from switching to the version that doesn't require a PIN.
-//        //not sure why that version opens when it's a different method from the one that displays
-//        //the formats, but it does.
-//        Intent newIntent = new Intent(this, ConnectivityDemo.class);
-//        startActivity(newIntent);
-//
-//        Log.d("switch", "switching from DisplayFieldsActivity.java");
-//    }
+    @Override
+    public void onBackPressed() {
+
+        //this function keeps it from switching to the version that doesn't require a PIN.
+        //not sure why that version opens when it's a different method from the one that displays
+        //the formats, but it does.
+        Intent newIntent = new Intent(this, LoadDevDemo.class);
+        startActivity(newIntent);
+
+        Log.d("switch", "switching from DisplayFieldsActivity.java");
+    }
 
     // AsyncTask for retrieving variables
     private class GetVariablesTask extends AsyncTask<Void, Void, Void> {
@@ -208,25 +218,42 @@ public class DisplayFieldsActivity extends Activity {
             // Check if the current focused view is an EditText
             View focusedView = getCurrentFocus();
             if (focusedView instanceof EditText) {
-                // If there's only one field, execute PrintFormatTask
-                if (variableValues.size() == 1) {
-                    new PrintFormatTask().execute();
+                // If there's only one field and the CheckBox is checked, execute PrintFormatTask
+                if (variableValues.size() == 1 && isPrintOnScanChecked()) {
+                    new PrintFormatTask() {
+                        @SuppressLint("StaticFieldLeak")
+                        @Override
+                        protected void onPostExecute(Void result) {
+                            transferFileToComputer();
+                        }
+                    }.execute();
+
                     return true; // consume the key event
-
                 }
-
             }
         }
-        //clears the field so that stuff doesn't start doubling up
-        //not sure why placing it right after PrintFormatTask() breaks it, but it does
-        if (variableValues.size() == 1) {
+
+        // Clear the field so that stuff doesn't start doubling up
+        if (variableValues.size() == 1 && isPrintOnScanChecked()) {
             EditText editTextToClear = variableValues.get(0);
             clearEditText(editTextToClear);
 
         }
+        if (variableValues.size() == 1){
+            EditText firstBox = variableValues.get(0);
+            firstBox.requestFocus();
+        }
+
+
 
         return super.onKeyDown(keyCode, event);
     }
+
+    private boolean isPrintOnScanChecked() {
+        CheckBox printOnScanCheckBox = findViewById(R.id.printOnScan);
+        return printOnScanCheckBox.isChecked();
+    }
+
     private void clearEditText(EditText editText) {
         if (editText != null) {
             editText.setText("");
@@ -457,7 +484,7 @@ public class DisplayFieldsActivity extends Activity {
     private void updateGuiWithFormats() {
         runOnUiThread(new Runnable() {
             public void run() {
-                TableLayout varTable = (TableLayout) findViewById(R.id.variablesTable); // Replace with your actual TableLayout ID
+                TableLayout varTable = findViewById(R.id.variablesTable); // Replace with your actual TableLayout ID
 
                 for (int i = 0; i < variablesList.size(); i++) {
                     TableRow aRow = new TableRow(DisplayFieldsActivity.this);
@@ -481,9 +508,19 @@ public class DisplayFieldsActivity extends Activity {
                     varTable.addView(aRow, new TableLayout.LayoutParams(
                             ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                 }
-                //this is here to select the first field so the scanner can work without tapping on
-                //the screen
-                //needs to be in this function so that the fields are already loaded when it's called
+
+                // CheckBox
+                CheckBox printOnScanCheckBox = findViewById(R.id.printOnScan);
+
+                if (variablesList.size() == 1) {
+                    // If there's only one form, make the CheckBox visible
+                    printOnScanCheckBox.setVisibility(View.VISIBLE);
+                } else {
+                    // If there are multiple forms, make the CheckBox invisible
+                    printOnScanCheckBox.setVisibility(View.GONE);
+                }
+
+                // Select the first EditText field
                 if (!variableValues.isEmpty()) {
                     EditText firstEditText = variableValues.get(0);
                     firstEditText.requestFocus();
@@ -492,4 +529,5 @@ public class DisplayFieldsActivity extends Activity {
             }
         });
     }
+
 }

@@ -230,6 +230,7 @@ public class ConnectivityDemo extends Activity {
 
     private boolean isBluetoothSelected() {
         return btRadioButton.isChecked();
+
     }
 
     public ZebraPrinter connect() {
