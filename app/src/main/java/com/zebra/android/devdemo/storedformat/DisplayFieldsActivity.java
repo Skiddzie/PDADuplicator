@@ -341,26 +341,26 @@ public class DisplayFieldsActivity extends Activity {
             // You can perform any UI updates here if needed.
         }
     }
-    private void openConnection() {
-        connection = getPrinterConnection();
-        if (connection != null) {
-            try {
-                connection.open();
-            } catch (ConnectionException e) {
-                Log.e("ERROR", "Error opening connection: " + e.getMessage(), e);
-            }
-        }
-    }
-
-    private void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (ConnectionException e) {
-                Log.e("ERROR", "Error closing connection: " + e.getMessage(), e);
-            }
-        }
-    }
+//    private void openConnection() {
+//        connection = getPrinterConnection();
+//        if (connection != null) {
+//            try {
+//                connection.open();
+//            } catch (ConnectionException e) {
+//                Log.e("ERROR", "Error opening connection: " + e.getMessage(), e);
+//            }
+//        }
+//    }
+//
+//    private void closeConnection() {
+//        if (connection != null) {
+//            try {
+//                connection.close();
+//            } catch (ConnectionException e) {
+//                Log.e("ERROR", "Error closing connection: " + e.getMessage(), e);
+//            }
+//        }
+//    }
 
     private void readCsvFile() {
         String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";

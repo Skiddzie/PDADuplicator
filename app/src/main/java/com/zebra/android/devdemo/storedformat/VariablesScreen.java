@@ -81,29 +81,29 @@ public class VariablesScreen extends Activity {
         });
     }
 
-    public static void modifyFormatValue(String file, int rowIndex, int columnIndex, String newValue) {
-        try {
-            FileReader fileReader = new FileReader(file);
-            CSVReader csvReader = new CSVReader(fileReader);
-            List<String[]> csvData = csvReader.readAll();
-
-            if (rowIndex < csvData.size() && columnIndex < csvData.get(rowIndex).length) {
-                csvData.get(rowIndex)[columnIndex] = newValue;
-
-                csvReader.close();
-
-                // Write back the modified content to the CSV file
-                FileWriter fileWriter = new FileWriter(file);
-                CSVWriter csvWriter = new CSVWriter(fileWriter);
-                csvWriter.writeAll(csvData);
-                csvWriter.close();
-            } else {
-                System.out.println("Invalid row or column index provided.");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void modifyFormatValue(String file, int rowIndex, int columnIndex, String newValue) {
+//        try {
+//            FileReader fileReader = new FileReader(file);
+//            CSVReader csvReader = new CSVReader(fileReader);
+//            List<String[]> csvData = csvReader.readAll();
+//
+//            if (rowIndex < csvData.size() && columnIndex < csvData.get(rowIndex).length) {
+//                csvData.get(rowIndex)[columnIndex] = newValue;
+//
+//                csvReader.close();
+//
+//                // Write back the modified content to the CSV file
+//                FileWriter fileWriter = new FileWriter(file);
+//                CSVWriter csvWriter = new CSVWriter(fileWriter);
+//                csvWriter.writeAll(csvData);
+//                csvWriter.close();
+//            } else {
+//                System.out.println("Invalid row or column index provided.");
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void onBackPressed() {
