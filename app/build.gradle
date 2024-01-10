@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.zebra.android.devdemo"
-        minSdkVersion 30
+        minSdkVersion 25
         targetSdkVersion 34
     }
 
@@ -31,4 +31,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.zxing:core:3.4.0'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
 }

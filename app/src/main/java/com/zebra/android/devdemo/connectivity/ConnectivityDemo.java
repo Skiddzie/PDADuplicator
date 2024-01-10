@@ -20,6 +20,7 @@ package com.zebra.android.devdemo.connectivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.MacAddress;
 import android.os.Environment;
 import android.util.Log;
 
@@ -317,7 +318,9 @@ public class ConnectivityDemo extends Activity {
     public String getTcpPortNumber() {
         return portNumber.getText().toString();
     }
-
+    public String getMacAddress() {
+        return macAddress.getText().toString();
+    }
 
     //added code for sending the port number and ip address over to sendfiledemo
     public void saveTcpAddress(String tcpAddress) {
@@ -333,7 +336,7 @@ public class ConnectivityDemo extends Activity {
         editor.apply();
     }
     //make it so the first time it's run it just adds the PIN field value to the CSV
-    public void csvInit(Context context, String fileName, String IP, String port, String PIN) {
+    public void csvInit(Context context, String fileName, String IP, String port, String PIN, String MAC) {
         try {
             // Get the DCIM directory where you can place your app-specific files.
             File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
@@ -361,7 +364,8 @@ public class ConnectivityDemo extends Activity {
             CSVWriter writer = new CSVWriter(outputFile);
 
             // Adding header to csv
-            String[] header = {"IP", "PORT", "FORMAT"};
+            String[] header = {"IP", "PORT", "FORMAT", "MAC"};
+
             writer.writeNext(header);
 
             // Adding data rows to csv
@@ -371,6 +375,9 @@ public class ConnectivityDemo extends Activity {
             // Adding third row
             String[] data3 = {PIN};
             writer.writeNext(data3);
+
+            String[] data4 = {MAC};
+            writer.writeNext(data4);
 
             // Closing writer connection
             writer.close();
@@ -444,6 +451,14 @@ public class ConnectivityDemo extends Activity {
         }
     }
 
+    //THIS IS CHANGED!!!!
+    //THIS IS CHANGED!!!!
+    //THIS IS CHANGED!!!!
+    //THIS IS CHANGED!!!!
+    //NOT TESTED!!!!
+    //NOT TESTED!!!!
+    //NOT TESTED!!!!
+    //NOT TESTED!!!!
     private void navigateToSendFileActivity() {
         String tcpAddress = getTcpAddress(); // Retrieve the TCP address
         saveTcpAddress(tcpAddress); // Save the TCP address to SharedPreferences
@@ -451,6 +466,7 @@ public class ConnectivityDemo extends Activity {
         String tcpPortNumber = getTcpPortNumber();
         saveTcpPortNumber(tcpPortNumber);
 
+        String macAddress = getMacAddress();
         File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
         File file = new File(directory, "csv.txt");
         if (!directory.exists()) {
@@ -463,7 +479,10 @@ public class ConnectivityDemo extends Activity {
 
         if (!file.exists()) {
             Log.d("csv", "CSV does not exist "+ file);
-            csvInit(this, "csv.txt", tcpAddress, tcpPortNumber, "1234");
+            if (btRadioButton.isChecked()){
+                csvInit(this, "csv.txt", "0", tcpPortNumber, "1234", macAddress);
+            }
+
         } else {
             updateCsvFile(file, tcpAddress, tcpPortNumber);
             Log.d("csv", "CSV already exists "+ file);//////////

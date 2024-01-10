@@ -15,7 +15,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="" />
-
 		<TableLayout
 			android:id="@+id/variablesTable"
 			android:layout_width="fill_parent"
@@ -31,7 +30,12 @@
 			android:gravity="bottom|right"
 			android:checked="true"
 			android:visibility="invisible" />
-
+		<Button
+			android:id="@+id/scanBarcodeButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Camera Scan"
+			android:layout_marginTop="16dp"/>
 		<Button
 			android:id="@+id/printFormatButton"
 			android:layout_width="fill_parent"

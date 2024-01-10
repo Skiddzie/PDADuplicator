@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -54,6 +55,8 @@ import java.util.Map;
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 public class DisplayFieldsActivity extends Activity {
 
     private List<FieldDescriptionData> variablesList = new ArrayList<>();
@@ -91,6 +94,18 @@ public class DisplayFieldsActivity extends Activity {
         // Initialize CSV values
         initializeCsvValues();
 
+//        final EditText barcodeField = findViewById(R.id.barcodeField);
+        Button scanBarcodeButton = findViewById(R.id.scanBarcodeButton);
+
+        scanBarcodeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startBarcodeScanner();
+            }
+        });
+
+
+
         final Button printButton = findViewById(R.id.printFormatButton);
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +139,43 @@ public class DisplayFieldsActivity extends Activity {
         }
         unregisterReceiver(powerConnectedReceiver);
     }
+    private void startBarcodeScanner() {
+        Log.d("BarcodeScanner", "Starting barcode scanner...");
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrator.setPrompt("Scan a barcode");
+        integrator.setOrientationLocked(false);
+        integrator.setBeepEnabled(true);
+        integrator.setCaptureActivity(CustomScannerActivity.class); // CustomScannerActivity is a placeholder, replace with your implementation
+        integrator.initiateScan();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("BarcodeScanner", "onActivityResult called");
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() != null) {
+                // Handle the scanned barcode result
+                String scannedBarcode = result.getContents();
+                Log.d("BarcodeScanner", "Scanned Barcode: " + scannedBarcode);
+
+                // Set the scanned barcode to the currently focused EditText field
+                View focusedView = getCurrentFocus();
+                if (focusedView instanceof EditText) {
+                    EditText editText = (EditText) focusedView;
+                    editText.setText(scannedBarcode);
+                }
+            } else {
+                // Handle when the scanning is canceled or failed
+                Log.d("BarcodeScanner", "Scanning canceled");
+                Toast.makeText(this, "Scanning canceled", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
 
     private void initializeCsvValues() {
         // Initialize your CSV values here
