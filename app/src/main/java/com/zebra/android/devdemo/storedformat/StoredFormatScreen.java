@@ -162,12 +162,50 @@ public class StoredFormatScreen extends ListActivity {
         }
     }
 
+    private String readIpCsv() {
+        try {
+            String csvFilePath = String.valueOf(new File(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt"));
+
+            Log.e("path", csvFilePath);
+            File csvFile = new File(csvFilePath);
+
+            if (csvFile.exists() && csvFile.length() > 0) {
+                // Read existing data
+                CSVReader reader = new CSVReader(new FileReader(csvFilePath));
+                List<String[]> existingData = reader.readAll();
+                reader.close();
+
+                // Check if the second row exists
+                if (existingData.size() >= 2) {
+
+                    return existingData.get(1)[0];
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Return a default value or handle the case when the data is not found
+        return "DefaultFormatName";
+    }
 
 
-
+    //it's over here lol
+    //it's over here lol
+    //it's over here lol
+    //it's over here lol
+    //it's over here lol
+    //it's over here lol
+    //it's over here lol
+    //it's over here lol
+    //it's over here lol
     private void getFileList() {
+
         Connection connection = null;
-        if (bluetoothSelected == true) {
+        Log.d("IP", "readipcsv " + readIpCsv());
+
+        //figure out why this isn't returning as true
+        if (readIpCsv() == "0") {
             Log.d("connection", "bluetooth");
             connection = new BluetoothConnection(macAddress);
         } else {
