@@ -35,7 +35,7 @@ public class StoredFormatDemo extends ConnectivityDemo {
         String storedTcpAddress = sharedPreferences.getString("tcpAddress", "defaultTcpAddress");
         String storedTcpPortNumber = sharedPreferences.getString("tcpPortNumber", "defaultTcpPortNumber");
         String storedMacAddress = sharedPreferences.getString("macAddress", "defaultMacAddress");
-
+        Log.d("IP", storedMacAddress);
         Log.d("IP", "Retrieved TCP Address: " + storedTcpAddress);
         Log.d("IP", "Retrieved TCP Port Number: " + storedTcpPortNumber);
 
@@ -73,9 +73,11 @@ public class StoredFormatDemo extends ConnectivityDemo {
         // this is pulling the ip and port number from connectivity demo
         String tcpAddress = sharedPreferences.getString("tcpAddress", "defaultTcpAddress");
         String tcpPortNumber = sharedPreferences.getString("tcpPortNumber", "defaultTcpPortNumber");
+        String macAddress = sharedPreferences.getString("storedMacAddress", "defaultMacAddress");
         //this is where it's using the old ip and port
         Log.d("IP", tcpAddress);
         Log.d("IP", tcpPortNumber);
+
         Intent intent = new Intent(this, StoredFormatScreen.class);
 
 //
@@ -83,6 +85,7 @@ public class StoredFormatDemo extends ConnectivityDemo {
 //        intent.putExtra("mac address", getMacAddressFieldText());
         intent.putExtra("tcpAddress", tcpAddress);
         intent.putExtra("tcpPortNumber", tcpPortNumber);
+        intent.putExtra("macAddress", macAddress);
 
         Log.d("storedformat", "Received TCP Address: " + tcpAddress);
         Log.d("storedformat", "Received TCP Port Number: " + tcpPortNumber);

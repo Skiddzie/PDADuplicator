@@ -105,6 +105,7 @@ public class StoredFormatScreen extends ListActivity {
         intent = new Intent(this, VariablesScreen.class);
         intent.putExtra("bluetooth selected", bluetoothSelected);
         intent.putExtra("mac address", macAddress);
+        //Log.d("macaddress", macAddress);
         intent.putExtra("tcp address", tcpAddress);
         intent.putExtra("tcp port", tcpPort);
         intent.putExtra("format name", (String) l.getItemAtPosition(position));

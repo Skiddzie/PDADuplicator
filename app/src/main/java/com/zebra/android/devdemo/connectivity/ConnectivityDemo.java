@@ -337,6 +337,13 @@ public class ConnectivityDemo extends Activity {
         editor.putString("tcpPortNumber", tcpPortNumber);
         editor.apply();
     }
+
+    public void saveMacAddress(String macAddress) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("macAddress", macAddress);
+        editor.apply();
+    }
     //make it so the first time it's run it just adds the PIN field value to the CSV
     public void csvInit(Context context, String fileName, String IP, String port, String PIN, String MAC) {
         Log.d("crashlooker", "csvinit");
@@ -429,8 +436,15 @@ public class ConnectivityDemo extends Activity {
                 String[] row = csvContent.get(i);
                 if (row.length >= 3) {
                     Log.d("crashlooker", "if length greater than 2");
-                    // Replace the values in the second row
-                    row[0] = tcpAddress;  // Replace IP address (assuming it's in the first column)
+
+                    //ip being zero will determine whether or not the other screens connect using
+                    //bluetooth or network
+                    if (isBluetoothSelected()){
+                        row[0] = "0";
+                    }
+                    else{
+                        row[0] = tcpAddress;
+                    }
                     row[1] = tcpPortNumber; // Replace port number (assuming it's in the second column)
                     row[2] = macAddress;
                     updated = true;
@@ -467,6 +481,8 @@ public class ConnectivityDemo extends Activity {
         saveTcpPortNumber(tcpPortNumber);
 
         String macAddress = getMacAddress();
+        saveMacAddress(macAddress);
+
         File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
         File file = new File(directory, "csv.txt");
         if (!directory.exists()) {
@@ -495,6 +511,7 @@ public class ConnectivityDemo extends Activity {
         Intent storedFormatIntent = new Intent(this, StoredFormatDemo.class);
         storedFormatIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to StoredFormatDemo
         storedFormatIntent.putExtra("tcpPortNumber", tcpPortNumber);
+        Log.d("IP","mac address: " + macAddress);
         storedFormatIntent.putExtra("macAddress", macAddress);
         Log.d("intentscreen", "switching to storedformatdemo");
         startActivity(storedFormatIntent); // Start the StoredFormatDemo activity
