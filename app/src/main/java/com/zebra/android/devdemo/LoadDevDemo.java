@@ -234,6 +234,7 @@ public class LoadDevDemo extends ListActivity {
                 intent = new Intent(this, DisplayFieldsActivity.class);
                 break;
             case CONNECT_ID:
+                Log.d("intentscreen", "switching to connectivitydemo");
                 intent = new Intent(this, ConnectivityDemo.class);
                 break;
 

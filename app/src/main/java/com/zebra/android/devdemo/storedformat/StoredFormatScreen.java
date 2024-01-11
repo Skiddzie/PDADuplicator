@@ -90,7 +90,9 @@ public class StoredFormatScreen extends ListActivity {
         //this function keeps it from switching to the version that doesn't require a PIN.
         //not sure why that version opens when it's a different method from the one that displays
         //the formats, but it does.
+        Log.d("intentscreen", "switching to storedformatdemo");
         Intent newIntent = new Intent(this, ConnectivityDemo.class);
+        Log.d("intentscreen", "switching to connectivitydemo");
         startActivity(newIntent);
 
         Log.d("switch", "switching from StoredFormatScreen.java");
@@ -165,9 +167,11 @@ public class StoredFormatScreen extends ListActivity {
     private void getFileList() {
         Connection connection = null;
         if (bluetoothSelected == true) {
+            Log.d("connection", "bluetooth");
             connection = new BluetoothConnection(macAddress);
         } else {
             try {
+                Log.d("connection", "IP network");
                 int port = Integer.parseInt(tcpPort);
                 connection = new TcpConnection(tcpAddress, port);
             } catch (NumberFormatException e) {

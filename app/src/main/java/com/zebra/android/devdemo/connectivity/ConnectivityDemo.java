@@ -97,7 +97,7 @@ public class ConnectivityDemo extends Activity {
                 String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
                 File file = new File(filePath);
                 String pinText = ((EditText) findViewById(R.id.pinInput)).getText().toString();
-
+                Log.d("crashlooker", "button click");
 
                 if (!file.exists()) {
                     Log.e("pin", "pin in csv doesn't exist");
@@ -106,7 +106,7 @@ public class ConnectivityDemo extends Activity {
                             public void run() {
                                 // Your existing code to store IP, navigate, connect, and send test label
                                 // ...
-
+                                Log.d("crashlooker", "run");
                                 // Example: Only call the connect method if the pin is correct
                                 navigateToSendFileActivity();
                                 connect();
@@ -236,7 +236,7 @@ public class ConnectivityDemo extends Activity {
 
     public ZebraPrinter connect() {
         Log.d("ConnectivityDemo", "Connecting...");
-
+        Log.d("crashlooker", "connect");
         //based on the comment below i'm pretty sure I accidentally deleted some code here
         //when copying from chatGPT
         // existing code...
@@ -283,6 +283,7 @@ public class ConnectivityDemo extends Activity {
     }
 
     public void disconnect() {
+        Log.d("crashlooker", "disconnect");
         try {
             setStatus("Disconnecting", Color.RED);
             if (printerConnection != null) {
@@ -297,6 +298,7 @@ public class ConnectivityDemo extends Activity {
     }
 
     private void setStatus(final String statusMessage, final int color) {
+        Log.d("crashlooker", "setStatus");
         runOnUiThread(new Runnable() {
             public void run() {
                 statusField.setBackgroundColor(color);
@@ -337,6 +339,7 @@ public class ConnectivityDemo extends Activity {
     }
     //make it so the first time it's run it just adds the PIN field value to the CSV
     public void csvInit(Context context, String fileName, String IP, String port, String PIN, String MAC) {
+        Log.d("crashlooker", "csvinit");
         try {
             // Get the DCIM directory where you can place your app-specific files.
             File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
@@ -410,7 +413,9 @@ public class ConnectivityDemo extends Activity {
     }
 
     private void updateCsvFile(File file, String tcpAddress, String tcpPortNumber, String macAddress) {
+        Log.d("crashlooker", "updateCsvFile");
         try {
+            Log.d("crashlooker", "first try");
             // Read existing content of CSV file
             FileReader fileReader = new FileReader(file);
             CSVReader csvReader = new CSVReader(fileReader);
@@ -420,15 +425,18 @@ public class ConnectivityDemo extends Activity {
             // Update the specific row containing the TCP address (skip the first row)
             boolean updated = false;
             for (int i = 1; i < csvContent.size(); i++) {
+                Log.d("crashlooker", "for loop");
                 String[] row = csvContent.get(i);
-                if (row.length >= 2) {
+                if (row.length >= 3) {
+                    Log.d("crashlooker", "if length greater than 2");
                     // Replace the values in the second row
                     row[0] = tcpAddress;  // Replace IP address (assuming it's in the first column)
                     row[1] = tcpPortNumber; // Replace port number (assuming it's in the second column)
-                    row[3] = macAddress;
+                    row[2] = macAddress;
                     updated = true;
                     break; // Exit loop after updating the row
                 }
+                Log.d("crashlooker", "after if");
             }
 
             // If the row with the TCP address doesn't exist, log a message
@@ -451,6 +459,7 @@ public class ConnectivityDemo extends Activity {
 
 
     private void navigateToSendFileActivity() {
+        Log.d("crashlooker", "navigateToSendFileActivityk");
         String tcpAddress = getTcpAddress(); // Retrieve the TCP address
         saveTcpAddress(tcpAddress); // Save the TCP address to SharedPreferences
 
@@ -482,9 +491,12 @@ public class ConnectivityDemo extends Activity {
 //        writeToFile(tcpAddress, tcpPortNumber);
 
         // Navigate to StoredFormatDemo
+
         Intent storedFormatIntent = new Intent(this, StoredFormatDemo.class);
         storedFormatIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to StoredFormatDemo
         storedFormatIntent.putExtra("tcpPortNumber", tcpPortNumber);
+        storedFormatIntent.putExtra("macAddress", macAddress);
+        Log.d("intentscreen", "switching to storedformatdemo");
         startActivity(storedFormatIntent); // Start the StoredFormatDemo activity
     }
 

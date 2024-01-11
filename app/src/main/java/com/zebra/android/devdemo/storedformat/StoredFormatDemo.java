@@ -34,6 +34,7 @@ public class StoredFormatDemo extends ConnectivityDemo {
         // Retrieve values from SharedPreferences
         String storedTcpAddress = sharedPreferences.getString("tcpAddress", "defaultTcpAddress");
         String storedTcpPortNumber = sharedPreferences.getString("tcpPortNumber", "defaultTcpPortNumber");
+        String storedMacAddress = sharedPreferences.getString("macAddress", "defaultMacAddress");
 
         Log.d("IP", "Retrieved TCP Address: " + storedTcpAddress);
         Log.d("IP", "Retrieved TCP Port Number: " + storedTcpPortNumber);
@@ -76,6 +77,7 @@ public class StoredFormatDemo extends ConnectivityDemo {
         Log.d("IP", tcpAddress);
         Log.d("IP", tcpPortNumber);
         Intent intent = new Intent(this, StoredFormatScreen.class);
+
 //
 //        intent.putExtra("bluetooth selected", isBluetoothSelected());
 //        intent.putExtra("mac address", getMacAddressFieldText());
@@ -84,7 +86,7 @@ public class StoredFormatDemo extends ConnectivityDemo {
 
         Log.d("storedformat", "Received TCP Address: " + tcpAddress);
         Log.d("storedformat", "Received TCP Port Number: " + tcpPortNumber);
-
+        Log.d("intentscreen", "switching to storedformatscreen");
         startActivity(intent);
     }
 
