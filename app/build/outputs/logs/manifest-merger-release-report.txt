@@ -1,0 +1,578 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-234:12
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-234:12
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-234:12
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-234:12
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:17:1-56:12
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\User\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\08a14686884bed5c57e14ea1fec9c766\transformed\support-media-compat-25.3.1\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\User\.gradle\caches\transforms-3\fe7750a2bec20abeea5104742795d698\transformed\support-core-utils-25.3.1\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a72e5d730f5c645315979255805caa27\transformed\support-core-ui-25.3.1\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a11b5cae99ff8eadbd60e1a11d37dfa2\transformed\support-compat-25.3.1\AndroidManifest.xml:17:1-31:12
+	package
+		INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:3:5-51
+	xmlns:android
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:7:5-9:41
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:20:5-44
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\User\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\User\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\08a14686884bed5c57e14ea1fec9c766\transformed\support-media-compat-25.3.1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\08a14686884bed5c57e14ea1fec9c766\transformed\support-media-compat-25.3.1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\User\.gradle\caches\transforms-3\fe7750a2bec20abeea5104742795d698\transformed\support-core-utils-25.3.1\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\User\.gradle\caches\transforms-3\fe7750a2bec20abeea5104742795d698\transformed\support-core-utils-25.3.1\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a72e5d730f5c645315979255805caa27\transformed\support-core-ui-25.3.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a72e5d730f5c645315979255805caa27\transformed\support-core-ui-25.3.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a11b5cae99ff8eadbd60e1a11d37dfa2\transformed\support-compat-25.3.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a11b5cae99ff8eadbd60e1a11d37dfa2\transformed\support-compat-25.3.1\AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:23:9-51
+	android:targetSdkVersion
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:9:9-38
+		INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:8:9-35
+		INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:10:5-81
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:10:22-78
+uses-permission#android.permission.BLUETOOTH
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:12:5-68
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:12:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:13:5-74
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:13:22-71
+uses-permission#android.permission.CHANGE_WIFI_MULTICAST_STATE
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:14:5-86
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:14:22-83
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:15:5-67
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:15:22-64
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:16:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:22:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:22:5-65
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:16:22-62
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:17:5-66
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:17:22-63
+uses-permission#android.permission.FLASHLIGHT
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:18:5-69
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:18:22-66
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:19:2-20:45
+	tools:ignore
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:20:9-42
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:19:19-73
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:22:5-80
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:22:22-77
+uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:23:5-81
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:23:22-79
+uses-feature#android.hardware.usb.host
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:25:2-83
+	android:required
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:25:57-81
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:25:16-56
+uses-feature#android.hardware.camera
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:27:5-60
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:25:5-27:36
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:25:5-27:36
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:27:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:28:5-70
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:33:5-35:36
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:33:5-35:36
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:28:19-67
+application
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:30:5-232:23
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:30:5-232:23
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:46:5-54:19
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:46:5-54:19
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\User\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\User\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\08a14686884bed5c57e14ea1fec9c766\transformed\support-media-compat-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\08a14686884bed5c57e14ea1fec9c766\transformed\support-media-compat-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\User\.gradle\caches\transforms-3\fe7750a2bec20abeea5104742795d698\transformed\support-core-utils-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\User\.gradle\caches\transforms-3\fe7750a2bec20abeea5104742795d698\transformed\support-core-utils-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a72e5d730f5c645315979255805caa27\transformed\support-core-ui-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a72e5d730f5c645315979255805caa27\transformed\support-core-ui-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a11b5cae99ff8eadbd60e1a11d37dfa2\transformed\support-compat-25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a11b5cae99ff8eadbd60e1a11d37dfa2\transformed\support-compat-25.3.1\AndroidManifest.xml:29:5-20
+	android:extractNativeLibs
+		INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:32:9-41
+	android:icon
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:31:9-38
+	android:allowBackup
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:33:9-36
+activity#com.zebra.android.devdemo.LoadDevDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:35:9-45:20
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:38:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:37:13-45
+	android:exported
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:39:13-36
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:36:13-65
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:40:13-44:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:41:17-69
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:41:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:43:17-77
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:43:27-74
+activity#com.zebra.android.devdemo.discovery.DiscoveryDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:46:9-51:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:50:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:49:13-43
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:51:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:48:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:47:13-77
+activity#com.zebra.android.devdemo.discovery.BluetoothDiscovery
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:52:9-57:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:56:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:55:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:57:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:54:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:53:13-82
+activity#com.zebra.android.devdemo.discovery.MulticastDiscoveryResultList
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:58:9-63:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:62:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:61:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:63:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:60:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:59:13-92
+activity#com.zebra.android.devdemo.discovery.DirectedBroadcastResultList
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:64:9-69:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:68:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:67:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:69:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:66:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:65:13-91
+activity#com.zebra.android.devdemo.discovery.DirectedBroadcastParameters
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:70:9-75:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:74:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:73:13-58
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:75:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:72:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:71:13-91
+activity#com.zebra.android.devdemo.discovery.SubnetSearchResultList
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:76:9-81:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:80:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:79:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:81:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:78:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:77:13-86
+activity#com.zebra.android.devdemo.discovery.SubnetSearchParameters
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:82:9-87:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:86:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:85:13-53
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:87:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:84:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:83:13-86
+activity#com.zebra.android.devdemo.discovery.LocalBroadcastDiscoveryResultList
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:88:9-93:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:92:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:91:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:93:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:90:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:89:13-97
+activity#com.zebra.android.devdemo.discovery.FindPrintersDiscoveryResultList
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:94:9-99:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:98:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:97:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:99:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:96:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:95:13-95
+activity#com.zebra.android.devdemo.discovery.MulticastDiscoveryParameters
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:100:9-105:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:104:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:103:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:105:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:102:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:101:13-92
+activity#com.zebra.android.devdemo.imageprint.ImagePrintDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:106:9-111:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:110:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:109:13-45
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:111:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:108:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:107:13-79
+activity#com.zebra.android.devdemo.magcard.MagCardDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:112:9-117:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:116:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:115:13-42
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:117:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:114:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:113:13-73
+activity#com.zebra.android.devdemo.status.PrintStatusDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:118:9-123:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:122:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:121:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:123:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:120:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:119:13-76
+activity#com.zebra.android.devdemo.smartcard.SmartCardDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:124:9-129:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:128:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:127:13-44
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:129:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:126:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:125:13-77
+activity#com.zebra.android.devdemo.sigcapture.SigCaptureDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:130:9-135:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:134:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:133:13-51
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:135:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:132:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:131:13-79
+activity#com.zebra.android.devdemo.storedformat.DisplayFieldsActivity
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:136:9-141:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:140:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:139:13-46
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:141:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:138:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:137:13-88
+activity#com.zebra.android.devdemo.storedformat.StoredFormatScreen
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:142:9-147:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:146:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:145:13-42
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:147:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:144:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:143:13-85
+activity#com.zebra.android.devdemo.storedformat.StoredFormatDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:148:9-152:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:151:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:152:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:150:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:149:13-83
+activity#com.zebra.android.devdemo.storedformat.VariablesScreen
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:153:9-157:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:156:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:157:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:155:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:154:13-82
+activity#com.zebra.android.devdemo.connectivity.ConnectivityDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:158:9-163:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:162:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:161:13-47
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:163:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:160:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:159:13-83
+activity#com.zebra.android.devdemo.status.PrinterStatusScreen
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:164:9-169:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:168:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:167:13-44
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:169:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:166:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:165:13-80
+activity#com.zebra.android.devdemo.listformats.ListFormatsScreen
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:170:9-175:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:174:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:173:13-46
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:175:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:172:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:171:13-83
+activity#com.zebra.android.devdemo.listformats.ListFormatsDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:176:9-180:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:179:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:180:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:178:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:177:13-81
+activity#com.zebra.android.devdemo.statuschannel.StatusChannelDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:181:9-186:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:185:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:184:13-43
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:186:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:183:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:182:13-85
+activity#com.zebra.android.devdemo.statuschannel.StatusChannelScreen
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:187:9-192:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:191:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:190:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:192:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:189:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:188:13-87
+activity#com.zebra.android.devdemo.multichannel.MultiChannelDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:193:9-198:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:197:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:196:13-41
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:198:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:195:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:194:13-83
+activity#com.zebra.android.devdemo.multichannel.MultiChannelScreen
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:199:9-204:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:203:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:202:13-46
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:204:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:201:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:200:13-85
+activity#com.zebra.android.devdemo.connectionbuilder.ConnectionBuilderDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:205:9-210:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:209:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:208:13-52
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:210:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:207:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:206:13-93
+activity#com.zebra.android.devdemo.receipt.ReceiptDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:211:9-216:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:215:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:214:13-41
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:216:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:213:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:212:13-73
+activity#com.zebra.android.devdemo.ChangePIN.ChangePIN
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:217:9-222:55
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:221:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:220:13-39
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:222:13-52
+	android:configChanges
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:219:13-63
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:218:13-73
+activity#com.zebra.android.devdemo.storedformat.CustomScannerActivity
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:223:9-231:20
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:225:13-45
+	android:exported
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:226:13-36
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:224:13-88
+uses-feature#android.hardware.camera.front
+ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:28:5-30:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:30:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:29:9-53
+uses-feature#android.hardware.camera.flash
+ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:36:5-38:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:38:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:37:9-53
+uses-feature#android.hardware.screen.landscape
+ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:39:5-41:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:41:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:40:9-57
+uses-feature#android.hardware.wifi
+ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:42:5-44:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:44:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:43:9-45
+activity#com.journeyapps.barcodescanner.CaptureActivity
+ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
+	android:screenOrientation
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:50:13-56
+	android:clearTaskOnLaunch
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:49:13-45
+	android:stateNotNeeded
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:51:13-42
+	android:windowSoftInputMode
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:53:13-60
+	android:theme
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:52:13-54
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:48:13-74
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\User\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\User\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\08a14686884bed5c57e14ea1fec9c766\transformed\support-media-compat-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\08a14686884bed5c57e14ea1fec9c766\transformed\support-media-compat-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\User\.gradle\caches\transforms-3\fe7750a2bec20abeea5104742795d698\transformed\support-core-utils-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\User\.gradle\caches\transforms-3\fe7750a2bec20abeea5104742795d698\transformed\support-core-utils-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a72e5d730f5c645315979255805caa27\transformed\support-core-ui-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a72e5d730f5c645315979255805caa27\transformed\support-core-ui-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a11b5cae99ff8eadbd60e1a11d37dfa2\transformed\support-compat-25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\User\.gradle\caches\transforms-3\a11b5cae99ff8eadbd60e1a11d37dfa2\transformed\support-compat-25.3.1\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:26:9-47
