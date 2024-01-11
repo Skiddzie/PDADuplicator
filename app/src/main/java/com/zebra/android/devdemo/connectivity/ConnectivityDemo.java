@@ -369,15 +369,12 @@ public class ConnectivityDemo extends Activity {
             writer.writeNext(header);
 
             // Adding data rows to csv
-            String[] data1 = {IP, port, "1"};
+            String[] data1 = {IP, port, "1",MAC};
             writer.writeNext(data1);
 
             // Adding third row
             String[] data3 = {PIN};
             writer.writeNext(data3);
-
-            String[] data4 = {MAC};
-            writer.writeNext(data4);
 
             // Closing writer connection
             writer.close();
@@ -412,7 +409,7 @@ public class ConnectivityDemo extends Activity {
         return port;
     }
 
-    private void updateCsvFile(File file, String tcpAddress, String tcpPortNumber) {
+    private void updateCsvFile(File file, String tcpAddress, String tcpPortNumber, String macAddress) {
         try {
             // Read existing content of CSV file
             FileReader fileReader = new FileReader(file);
@@ -428,6 +425,7 @@ public class ConnectivityDemo extends Activity {
                     // Replace the values in the second row
                     row[0] = tcpAddress;  // Replace IP address (assuming it's in the first column)
                     row[1] = tcpPortNumber; // Replace port number (assuming it's in the second column)
+                    row[3] = macAddress;
                     updated = true;
                     break; // Exit loop after updating the row
                 }
@@ -451,14 +449,7 @@ public class ConnectivityDemo extends Activity {
         }
     }
 
-    //THIS IS CHANGED!!!!
-    //THIS IS CHANGED!!!!
-    //THIS IS CHANGED!!!!
-    //THIS IS CHANGED!!!!
-    //NOT TESTED!!!!
-    //NOT TESTED!!!!
-    //NOT TESTED!!!!
-    //NOT TESTED!!!!
+
     private void navigateToSendFileActivity() {
         String tcpAddress = getTcpAddress(); // Retrieve the TCP address
         saveTcpAddress(tcpAddress); // Save the TCP address to SharedPreferences
@@ -484,7 +475,7 @@ public class ConnectivityDemo extends Activity {
             }
 
         } else {
-            updateCsvFile(file, tcpAddress, tcpPortNumber);
+            updateCsvFile(file, tcpAddress, tcpPortNumber, macAddress);
             Log.d("csv", "CSV already exists "+ file);//////////
         }
 
