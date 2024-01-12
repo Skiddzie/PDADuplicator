@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--go to the strings.xml to edit the buttons that display-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <CheckBox
+        android:id="@+id/hideSetupCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hide Setup"
+        android:checked="false"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+
+    <TextView
+        android:id="@+id/bottomText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="When setup disabled tap the bottom text 7 times to show options. Check this box if you only want IT to have access to printers and formats" />
+</LinearLayout>

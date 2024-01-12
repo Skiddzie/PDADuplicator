@@ -184,14 +184,14 @@ public class DisplayFieldsActivity extends Activity {
         formatName = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2);
 
         // Log the values for debugging
-        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 0));
-        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 1));
-        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2));
-
-
-        Log.d("CSV", "TCP Address: " + tcpAddress);
-        Log.d("CSV", "TCP Port: " + tcpPort);
-        Log.d("CSV", "Format Name: " + formatName);
+//        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 0));
+//        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 1));
+//        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2));
+//
+//
+//        Log.d("CSV", "TCP Address: " + tcpAddress);
+//        Log.d("CSV", "TCP Port: " + tcpPort);
+//        Log.d("CSV", "Format Name: " + formatName);
     }
 
     private void transferFileToComputer() {
@@ -434,7 +434,7 @@ public class DisplayFieldsActivity extends Activity {
                 connection = new TcpConnection(tcpAddress, port);
                 connection.open(); // Open the connection here
             } catch (NumberFormatException e) {
-                helper.showErrorDialogOnGuiThread("Port number is invalid");
+                helper.showErrorDialogOnGuiThread("Port number is invalid, please connect to your printer from the printer setup.");
                 return null;
             } catch (ConnectionException e) {
                 Log.e("ERROR", "Error opening connection: " + e.getMessage(), e);

@@ -497,6 +497,8 @@ public class ConnectivityDemo extends Activity {
             Log.d("csv", "CSV does not exist "+ file);
             if (btRadioButton.isChecked()){
                 csvInit(this, "csv.txt", "0", tcpPortNumber, "1234", macAddress);
+            } else {
+                csvInit(this, "csv.txt", tcpAddress, tcpPortNumber, "1234", "0");
             }
 
         } else {
