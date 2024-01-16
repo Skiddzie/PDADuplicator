@@ -14,21 +14,36 @@
 
 package com.zebra.android.devdemo.storedformat;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
+import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -51,6 +66,7 @@ import au.com.bytecode.opencsv.CSVWriter;
 
 public class StoredFormatScreen extends ListActivity {
 
+    private static final int PICK_FILE_REQUEST_CODE = 1;
     private boolean bluetoothSelected;
     private String macAddress;
     private String tcpAddress;
@@ -62,6 +78,8 @@ public class StoredFormatScreen extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         setContentView(R.layout.stored_format_demo);
         Bundle b = getIntent().getExtras();
@@ -82,7 +100,207 @@ public class StoredFormatScreen extends ListActivity {
                 Looper.myLooper().quit();
             }
         }).start();
+        final Button sendButton = findViewById(R.id.sendFromAppButton);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("*/*"); // You can specify a MIME type here to filter the types of files to display
+                final int yourRequestCode = 1;
 
+                startActivityForResult(intent, yourRequestCode);
+
+            }
+        });
+
+
+    }
+
+    private String getStoredTcpAddress() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("tcpAddress", "default_value_if_not_found");
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_FILE_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            Uri selectedFileUri = data.getData();
+            if (selectedFileUri != null) {
+                String fileData = readFile(selectedFileUri);
+                if (fileData != null) {
+                    // Now you have the file data, send it to the printer
+                    sendFileToPrinter(fileData);
+                } else {
+                    Toast.makeText(this, "Failed to read file data", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Selected file URI is null", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void resetUIAndConnect() {
+        // Clear the current formatsList and update the UI
+        formatsList.clear();
+        updateGuiWithFormats();
+
+        // Establish a new connection
+        new Thread(new Runnable() {
+            public void run() {
+                Looper.prepare();
+                getFileList();
+                Looper.loop();
+                Looper.myLooper().quit();
+            }
+        }).start();
+    }
+    private void sendFileToPrinter(final String fileData) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                helper.showLoadingDialog("Sending file to printer ...");
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                Connection connection = null;
+                try {
+                    int port = Integer.parseInt(tcpPort);
+                    connection = new TcpConnection(getStoredTcpAddress(), port);
+                    connection.open();
+                    ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
+                    sendFileContents(printer, fileData);
+                } catch (NumberFormatException e) {
+                    helper.showErrorDialogOnGuiThread("Port number is invalid");
+                } catch (ConnectionException e) {
+                    helper.showErrorDialogOnGuiThread(e.getMessage());
+                } catch (ZebraPrinterLanguageUnknownException e) {
+                    helper.showErrorDialogOnGuiThread(e.getMessage());
+                } finally {
+                    if (connection != null) {
+                        try {
+                            connection.close();
+                        } catch (ConnectionException ce) {
+                            // Handle the exception if needed
+                        }
+                    }
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                super.onPostExecute(result);
+                helper.dismissLoadingDialog();
+                resetUIAndConnect();
+                Toast.makeText(StoredFormatScreen.this, "File stored to printer. Now available to select.", Toast.LENGTH_LONG).show();
+            }
+        }.execute();
+    }
+
+    private void sendFileContents(ZebraPrinter printer, String fileData) {
+        try {
+            // Create a temporary file with the file data
+            File tempFile = createTempFile(fileData);
+
+            // Send the file contents to the printer
+            printer.sendFileContents(tempFile.getAbsolutePath());
+
+            // Save settings
+            saveSettings();
+        } catch (ConnectionException | IOException e) {
+            helper.showErrorDialogOnGuiThread("Error sending file to printer: " + e.getMessage());
+        }
+    }
+
+    private File createTempFile(String fileData) throws IOException {
+        // Create a temporary file
+        File tempFile = File.createTempFile("temp_file_", ".tmp", getCacheDir());
+
+        // Write file data to the temporary file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+            writer.write(fileData);
+        }
+
+        return tempFile;
+    }
+
+
+    private String getPathFromURI(Uri uri) {
+        String filePath = "";
+
+        try {
+            ContentResolver contentResolver = getContentResolver();
+            InputStream inputStream = contentResolver.openInputStream(uri);
+
+            if (inputStream != null) {
+                File file = createTemporalFileFrom(inputStream);
+
+                if (file != null) {
+                    filePath = file.getAbsolutePath();
+                }
+            }
+        } catch (Exception e) {
+            Log.e("File Path", "Exception: " + e.getMessage());
+        }
+
+        return filePath;
+    }
+
+    private File createTemporalFileFrom(InputStream inputStream) throws IOException {
+        File targetFile = null;
+
+        if (inputStream != null) {
+            int read;
+            byte[] buffer = new byte[8 * 1024];
+            targetFile = createTemporalFile();
+
+            try (OutputStream outputStream = new FileOutputStream(targetFile)) {
+                while ((read = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, read);
+                }
+            }
+        }
+
+        return targetFile;
+    }
+
+    private File createTemporalFile() {
+        String fileName = "temp_file_" + System.currentTimeMillis();
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
+
+        try {
+            return File.createTempFile(fileName, null, storageDir);
+        } catch (IOException e) {
+            Log.e("File Creation", "Error creating temporary file: " + e.getMessage());
+            return null;
+        }
+    }
+
+    private String readFile(Uri uri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(uri);
+            if (inputStream != null) {
+                InputStreamReader reader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                inputStream.close();
+                return stringBuilder.toString();
+            } else {
+                Log.e("Read File", "InputStream is null");
+                return null;
+            }
+        } catch (IOException e) {
+            Log.e("Read File", "Error reading data from file: " + e.getMessage());
+            return null;
+        }
     }
     @Override
     public void onBackPressed() {

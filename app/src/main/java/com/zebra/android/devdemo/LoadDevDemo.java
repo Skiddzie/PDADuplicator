@@ -25,6 +25,7 @@ import com.zebra.android.devdemo.listformats.ListFormatsDemo;
 import com.zebra.android.devdemo.magcard.MagCardDemo;
 import com.zebra.android.devdemo.multichannel.MultiChannelDemo;
 import com.zebra.android.devdemo.receipt.ReceiptDemo;
+import com.zebra.android.devdemo.sendfile.FromPhone;
 import com.zebra.android.devdemo.sendfile.SendFileDemo;
 import com.zebra.android.devdemo.sigcapture.SigCaptureDemo;
 import com.zebra.android.devdemo.smartcard.SmartCardDemo;
@@ -32,9 +33,12 @@ import com.zebra.android.devdemo.status.PrintStatusDemo;
 import com.zebra.android.devdemo.statuschannel.StatusChannelDemo;
 import com.zebra.android.devdemo.storedformat.DisplayFieldsActivity;
 import com.zebra.android.devdemo.storedformat.StoredFormatDemo;
+import com.zebra.android.devdemo.util.Options;
+
 import com.zebra.sdk.printer.FieldDescriptionData;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -56,11 +60,12 @@ import java.util.List;
 import au.com.bytecode.opencsv.CSVReader;
 
 public class LoadDevDemo extends ListActivity {
+
     private static final int SNDFILE_ID = 0;
     private static final int CONNECT_ID = 1;
     private static final int PIN_ID = 2;
-    private static final int IMGPRNT_ID = 3;
-    private static final int LSTFORMATS_ID = 4;
+    private static final int OPTIONS_ID = 3;
+    private static final int PHONE_ID = 4;
     private static final int MAGCARD_ID = 5;
     private static final int PRNTSTATUS_ID = 6;
     private static final int SMRTCARD_ID = 7;
@@ -73,6 +78,8 @@ public class LoadDevDemo extends ListActivity {
     private static final int MULTICHANNEL_ID = 13;
 
     final boolean[] showSysOps = {false};
+    Options options;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,17 +87,23 @@ public class LoadDevDemo extends ListActivity {
         Log.d("LoadDevDemo", "onCreate");
         setContentView(R.layout.main);
 
-        createHistoryCsv();
+        options = Options.getInstance(this.getApplicationContext());
 
+        // Initialize showSysOps based on Options
+        if (options != null) {
+            if (options.isHideSetupChecked()) {
+                showSysOps[0] = false;
+            } else {
+                showSysOps[0] = true;
+            }
+        } else {
+            // Handle the case where getting the Options instance failed
+            showSysOps[0] = false; // or any other default value
+        }
+
+        createHistoryCsv();
         updateUI();
     }
-
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        Log.d("LoadDevDemo", "onResume");
-//        updateUI();
-//    }
 
     @Override
     public void onBackPressed() {
@@ -196,38 +209,13 @@ public class LoadDevDemo extends ListActivity {
         return value;
     }
 
-    public static void main(String[] args) {
-        // Replace "yourFilePath.csv" with the actual path to your CSV file
-        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/csv.txt";
-
-        // Replace columnIndex with the index of the column you want to retrieve
-        int columnIndex = 2;
-
-        String value = readValueFromSecondRow(filePath, columnIndex);
-
-        if (value != null) {
-            System.out.println("Selected value: " + value);
-        } else {
-            System.out.println("Failed to read the value from the second row.");
-        }
-    }
-
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Intent intent;
 
+        // ... (existing code)
 
-        if (position == SNDFILE_ID) {
-            String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
-            File csvFile = new File(filePath);
-
-            if (!csvFile.exists()) {
-                // CSV file doesn't exist, show toast and break
-                Toast.makeText(this, "No printer connected", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        }
         // Proceed with the intent based on the selected item
         switch (position) {
             case SNDFILE_ID:
@@ -237,11 +225,15 @@ public class LoadDevDemo extends ListActivity {
                 Log.d("intentscreen", "switching to connectivitydemo");
                 intent = new Intent(this, ConnectivityDemo.class);
                 break;
-
             case PIN_ID:
                 intent = new Intent(this, ChangePIN.class);
                 break;
-            // ... (remaining cases)
+            case OPTIONS_ID:
+                intent = new Intent(this, Options.class);
+                break;
+            case PHONE_ID:
+                intent = new Intent(this, SendFileDemo.class);
+                break;
             default:
                 return; // not possible
         }
@@ -258,7 +250,9 @@ public class LoadDevDemo extends ListActivity {
             items = new String[] {
                     "Duplicate",
                     "Printer Setup",
-                    "Change PIN"
+                    "Change PIN",
+                    "System Options",
+                    "From Phone"
             };
         } else {
             // Exclude CONNECT_ID and PIN_ID from the items list
@@ -270,5 +264,4 @@ public class LoadDevDemo extends ListActivity {
         // Set the updated adapter
         setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items));
     }
-
 }

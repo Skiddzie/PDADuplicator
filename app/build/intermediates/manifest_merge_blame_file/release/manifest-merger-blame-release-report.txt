@@ -93,7 +93,7 @@
 44-->[com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:27:9-31
 45
 46    <application
-46-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:30:5-232:23
+46-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:30:5-244:23
 47        android:allowBackup="false"
 47-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:33:9-36
 48        android:extractNativeLibs="false"
@@ -478,38 +478,58 @@
 239            android:windowSoftInputMode="adjustPan" />
 239-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:222:13-52
 240        <activity
-240-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:223:9-231:20
-241            android:name="com.zebra.android.devdemo.storedformat.CustomScannerActivity"
-241-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:224:13-88
-242            android:exported="true"
-242-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:226:13-36
-243            android:label="@string/app_name" >
-243-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:225:13-45
-244            <intent-filter>
-244-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:40:13-44:29
-245                <action android:name="android.intent.action.MAIN" />
-245-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:41:17-69
-245-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:41:25-66
-246
-247                <category android:name="android.intent.category.LAUNCHER" />
-247-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:43:17-77
-247-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:43:27-74
-248            </intent-filter>
-249        </activity>
+240-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:223:9-228:45
+241            android:name="com.zebra.android.devdemo.util.Options"
+241-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:224:13-66
+242            android:label="Options"
+242-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:225:13-36
+243            android:screenOrientation="portrait"
+243-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:226:13-49
+244            android:windowSoftInputMode="adjustPan" />
+244-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:227:13-52
+245        <activity
+245-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:229:9-234:45
+246            android:name="com.zebra.android.devdemo.sendfile.SendFileDemo"
+246-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:230:13-75
+247            android:label="From Phone"
+247-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:231:13-39
+248            android:screenOrientation="portrait"
+248-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:232:13-49
+249            android:windowSoftInputMode="adjustPan" />
+249-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:233:13-52
 250        <activity
-250-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
-251            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-251-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:48:13-74
-252            android:clearTaskOnLaunch="true"
-252-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:49:13-45
-253            android:screenOrientation="sensorLandscape"
-253-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:50:13-56
-254            android:stateNotNeeded="true"
-254-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:51:13-42
-255            android:theme="@style/zxing_CaptureTheme"
-255-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:52:13-54
-256            android:windowSoftInputMode="stateAlwaysHidden" />
-256-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:53:13-60
-257    </application>
-258
-259</manifest>
+250-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:235:9-243:20
+251            android:name="com.zebra.android.devdemo.storedformat.CustomScannerActivity"
+251-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:236:13-88
+252            android:exported="true"
+252-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:238:13-36
+253            android:label="@string/app_name" >
+253-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:237:13-45
+254            <intent-filter>
+254-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:40:13-44:29
+255                <action android:name="android.intent.action.MAIN" />
+255-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:41:17-69
+255-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:41:25-66
+256
+257                <category android:name="android.intent.category.LAUNCHER" />
+257-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:43:17-77
+257-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:43:27-74
+258            </intent-filter>
+259        </activity>
+260        <activity
+260-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
+261            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+261-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:48:13-74
+262            android:clearTaskOnLaunch="true"
+262-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:49:13-45
+263            android:screenOrientation="sensorLandscape"
+263-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:50:13-56
+264            android:stateNotNeeded="true"
+264-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:51:13-42
+265            android:theme="@style/zxing_CaptureTheme"
+265-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:52:13-54
+266            android:windowSoftInputMode="stateAlwaysHidden" />
+266-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:53:13-60
+267    </application>
+268
+269</manifest>

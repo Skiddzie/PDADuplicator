@@ -1,14 +1,14 @@
 /***********************************************
- * CONFIDENTIAL AND PROPRIETARY 
- * 
+ * CONFIDENTIAL AND PROPRIETARY
+ *
  * The source code and other information contained herein is the confidential and the exclusive property of
  * ZIH Corp. and is subject to the terms and conditions in your end user license agreement.
- * This source code, and any other information contained herein, shall not be copied, reproduced, published, 
+ * This source code, and any other information contained herein, shall not be copied, reproduced, published,
  * displayed or distributed, in whole or in part, in any medium, by any means, for any purpose except as
  * expressly permitted under such license agreement.
- * 
+ *
  * Copyright ZIH Corp. 2012
- * 
+ *
  * ALL RIGHTS RESERVED
  ***********************************************/
 
@@ -52,6 +52,7 @@ public class SendFileDemo extends ConnectionScreen {
 //        setContentView(R.layout.activity_send_file_demo);
 
         // Retrieve the values from the Intent
+        Log.d("intent", "SendFileDemo.java");
         Intent intent = getIntent();
         if (intent != null) {
             String tcpAddress = intent.getStringExtra("tcpAddress");
@@ -75,26 +76,17 @@ public class SendFileDemo extends ConnectionScreen {
     public void onClick(View v) {
         // Redirect to VariablesScreen activity
         Log.d("lol", "onClick called");
-        Intent variablesScreenIntent = new Intent(SendFileDemo.this, VariablesScreen.class);
-        startActivity(variablesScreenIntent);
+
     }
 
     public void performTest() {
         new Thread(new Runnable() {
             public void run() {
-                // Background thread logic
-
-                // Create an Intent to start VariablesScreen
-                Intent variablesScreenIntent = new Intent(SendFileDemo.this, VariablesScreen.class);
-
-                // You can add extra data to the intent if needed
-                // variablesScreenIntent.putExtra("key", "value");
-
-                // Run UI operations on the main thread
+                sendFile();
                 runOnUiThread(new Runnable() {
                     public void run() {
                         // Start the VariablesScreen activity
-                        startActivity(variablesScreenIntent);
+
                     }
                 });
             }
@@ -142,8 +134,8 @@ public class SendFileDemo extends ConnectionScreen {
 
     private void testSendFile(ZebraPrinter printer) {
         try {
-            File filepath = getFileStreamPath("TEST.LBL");
-            createDemoFile(printer, "TEST.LBL");
+            File filepath = getFileStreamPath("ABC.ZPL");
+            createDemoFile(printer, "ABC.ZPL");
             printer.sendFileContents(filepath.getAbsolutePath());
             SettingsHelper.saveBluetoothAddress(this, getMacAddressFieldText());
             SettingsHelper.saveIp(this, getStoredTcpAddress());
@@ -164,7 +156,23 @@ public class SendFileDemo extends ConnectionScreen {
 
         PrinterLanguage pl = printer.getPrinterControlLanguage();
         if (pl == PrinterLanguage.ZPL) {
-            configLabel = "^XA^FO17,16^GB379,371,8^FS^FT65,255^A0N,135,134^FDFILE^FS^XZ".getBytes();
+            configLabel = ("^XA^DFE:ABC.ZPL^FS\n" +
+                                "\n" +
+                                "~SD20\n" +
+                                "\n" +
+                                "^BY2,3,\n" +
+                                "\n" +
+                                "^FO60,20\n" +
+                                "\n" +
+                                "^BC,140,N,N,N,^FN1^FS\n" +
+                                "^FO85,170\n" +
+                                "^A0N,30,50^FN1^FS\n" +
+                                "^XZ\n" +
+                                "\n" +
+                                "^XA^XFE:ABC.ZPL^FS\n" +
+                                "^FN1^FD34^FS\n" +
+                                "\n" +
+                                "^PQ1^XZ\n").getBytes();
         } else if (pl == PrinterLanguage.CPCL) {
             String cpclConfigLabel = "! 0 200 200 406 1\r\n" + "ON-FEED IGNORE\r\n" + "BOX 20 20 380 380 8\r\n" + "T 0 6 137 177 TEST\r\n" + "PRINT\r\n";
             configLabel = cpclConfigLabel.getBytes();
