@@ -25,6 +25,7 @@ import com.zebra.android.devdemo.listformats.ListFormatsDemo;
 import com.zebra.android.devdemo.magcard.MagCardDemo;
 import com.zebra.android.devdemo.multichannel.MultiChannelDemo;
 import com.zebra.android.devdemo.receipt.ReceiptDemo;
+import com.zebra.android.devdemo.sendfile.FromPhone;
 import com.zebra.android.devdemo.sendfile.SendFileDemo;
 import com.zebra.android.devdemo.sigcapture.SigCaptureDemo;
 import com.zebra.android.devdemo.smartcard.SmartCardDemo;
@@ -64,7 +65,7 @@ public class LoadDevDemo extends ListActivity {
     private static final int CONNECT_ID = 1;
     private static final int PIN_ID = 2;
     private static final int OPTIONS_ID = 3;
-    private static final int LSTFORMATS_ID = 4;
+    private static final int PHONE_ID = 4;
     private static final int MAGCARD_ID = 5;
     private static final int PRNTSTATUS_ID = 6;
     private static final int SMRTCARD_ID = 7;
@@ -230,6 +231,9 @@ public class LoadDevDemo extends ListActivity {
             case OPTIONS_ID:
                 intent = new Intent(this, Options.class);
                 break;
+            case PHONE_ID:
+                intent = new Intent(this, SendFileDemo.class);
+                break;
             default:
                 return; // not possible
         }
@@ -247,7 +251,8 @@ public class LoadDevDemo extends ListActivity {
                     "Duplicate",
                     "Printer Setup",
                     "Change PIN",
-                    "System Options"
+                    "System Options",
+                    "From Phone"
             };
         } else {
             // Exclude CONNECT_ID and PIN_ID from the items list

@@ -257,7 +257,44 @@ public class FromPhone extends Activity {
     private class GetVariablesTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            getVariables("YOUR_ZPL_STRING_HERE"); // Replace with your actual ZPL string
+            try {
+                connection = getPrinterConnection();
+                if (connection != null) {
+                    connection.open();
+                    // Log connection details for debugging
+                    Log.d("CONNECTION", "Connected: " + connection.isConnected());
+                    Log.d("CONNECTION", "Type: " + connection.getClass().getSimpleName());
+
+                    getVariables("^XA^DFE:A.ZPL^FS\n" +
+                            "\n" +
+                            "~SD20\n" +
+                            "\n" +
+                            "^BY2,3,\n" +
+                            "\n" +
+                            "^FO60,20\n" +
+                            "\n" +
+                            "^BC,140,N,N,N,^FN1^FS\n" +
+                            "^FO85,170\n" +
+                            "^A0N,30,50^FN1^FS\n" +
+                            "^XZ\n" +
+                            "\n" +
+                            "^XA^XFE:A.ZPL^FS\n" +
+                            "^FN1^FD1234567890^FS\n" +
+                            "\n" +
+                            "^PQ1^XZ\n");
+                }
+            } catch (ConnectionException e) {
+                Log.e("ERROR", "Error in connection: " + e.getMessage(), e);
+                // Handle ConnectionException (e.g., show an error message)
+            } finally {
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (ConnectionException e) {
+                        Log.e("ERROR", "Error closing connection: " + e.getMessage(), e);
+                    }
+                }
+            }
             return null;
         }
 
@@ -266,6 +303,7 @@ public class FromPhone extends Activity {
             // Update UI if needed after retrieving variables
         }
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_TAB) {

@@ -46,6 +46,7 @@ id fitXY
 id formatName
 id formatsList
 id galleryButton
+id hideSetupCheckbox
 id ipAddressInput
 id ipAddressText
 id ipDnsRadio
@@ -76,6 +77,7 @@ id reenterPinInput
 id reenterPinText
 id scanBarcodeButton
 id secondTestButton
+id sendFromAppButton
 id sigArea
 id sig_capture_demo
 id statusList
@@ -115,6 +117,7 @@ layout mag_card_demo
 layout main
 layout multicast_discovery_parameters
 layout notification
+layout options
 layout password_change
 layout print_status_activity
 layout sig_capture_demo

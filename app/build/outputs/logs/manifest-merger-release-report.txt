@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-234:12
-INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-234:12
-INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-234:12
-INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-234:12
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-246:12
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-246:12
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-246:12
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:2:1-246:12
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:17:1-56:12
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\User\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:17:1-31:12
@@ -116,8 +116,8 @@ MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle
 	android:name
 		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:28:19-67
 application
-ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:30:5-232:23
-INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:30:5-232:23
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:30:5-244:23
+INJECTED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:30:5-244:23
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:46:5-54:19
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:46:5-54:19
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\User\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:29:5-20
@@ -514,14 +514,38 @@ ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManif
 		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:219:13-63
 	android:name
 		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:218:13-73
-activity#com.zebra.android.devdemo.storedformat.CustomScannerActivity
-ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:223:9-231:20
+activity#com.zebra.android.devdemo.util.Options
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:223:9-228:45
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:226:13-49
 	android:label
-		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:225:13-45
-	android:exported
-		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:226:13-36
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:225:13-36
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:227:13-52
+	tools:ignore
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:228:13-42
 	android:name
-		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:224:13-88
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:224:13-66
+activity#com.zebra.android.devdemo.sendfile.SendFileDemo
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:229:9-234:45
+	android:screenOrientation
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:232:13-49
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:231:13-39
+	android:windowSoftInputMode
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:233:13-52
+	tools:ignore
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:234:13-42
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:230:13-75
+activity#com.zebra.android.devdemo.storedformat.CustomScannerActivity
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:235:9-243:20
+	android:label
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:237:13-45
+	android:exported
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:238:13-36
+	android:name
+		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:236:13-88
 uses-feature#android.hardware.camera.front
 ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:28:5-30:36
 	android:required
