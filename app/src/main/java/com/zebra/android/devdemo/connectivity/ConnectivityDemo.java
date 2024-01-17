@@ -446,7 +446,7 @@ public class ConnectivityDemo extends Activity {
                         row[0] = tcpAddress;
                     }
                     row[1] = tcpPortNumber; // Replace port number (assuming it's in the second column)
-                    row[2] = macAddress;
+                    row[3] = macAddress;
                     updated = true;
                     break; // Exit loop after updating the row
                 }

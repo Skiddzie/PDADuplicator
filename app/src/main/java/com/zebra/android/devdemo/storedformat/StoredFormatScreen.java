@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
+import android.bluetooth.BluetoothAdapter;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -406,6 +407,32 @@ public class StoredFormatScreen extends ListActivity {
         // Return a default value or handle the case when the data is not found
         return "DefaultFormatName";
     }
+    private String readMacCsv() {
+        try {
+            String csvFilePath = String.valueOf(new File(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt"));
+
+            Log.e("path", csvFilePath);
+            File csvFile = new File(csvFilePath);
+
+            if (csvFile.exists() && csvFile.length() > 0) {
+                // Read existing data
+                CSVReader reader = new CSVReader(new FileReader(csvFilePath));
+                List<String[]> existingData = reader.readAll();
+                reader.close();
+
+                // Check if the second row exists
+                if (existingData.size() >= 2) {
+
+                    return existingData.get(1)[3];
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Return a default value or handle the case when the data is not found
+        return "DefaultFormatName";
+    }
 
 
     //it's over here lol
@@ -420,12 +447,30 @@ public class StoredFormatScreen extends ListActivity {
     private void getFileList() {
 
         Connection connection = null;
-        Log.d("IP", "readipcsv " + readIpCsv());
+        Log.d("bluetooth", "readipcsv " + readIpCsv());
 
         //figure out why this isn't returning as true
-        if (readIpCsv() == "0") {
-            Log.d("connection", "bluetooth");
-            connection = new BluetoothConnection(macAddress);
+        Log.d("bluetooth", "mac: " + readMacCsv());
+
+        if ("0".equals(readIpCsv())) {
+            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+            if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
+                Log.d("bluetooth", "unavailable");
+                return;
+            } else {
+                try{
+
+                    String BTAddress = readMacCsv();
+                    Log.d("bluetooth", "connecting to mac address " +BTAddress);
+                    connection = new BluetoothConnection(BTAddress);
+                } catch (NumberFormatException e) {
+                    helper.showErrorDialogOnGuiThread("Mac address is invalid");
+                    return;
+                }
+            }
+
+
+
         } else {
             try {
                 Log.d("connection", "IP network");

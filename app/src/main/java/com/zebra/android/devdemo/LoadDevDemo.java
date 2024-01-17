@@ -37,11 +37,15 @@ import com.zebra.android.devdemo.util.Options;
 
 import com.zebra.sdk.printer.FieldDescriptionData;
 
+import android.Manifest;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -76,6 +80,7 @@ public class LoadDevDemo extends ListActivity {
     private static final int CONNECTIONBUILDER_ID = 11;
     private static final int RECEIPT_ID = 12;
     private static final int MULTICHANNEL_ID = 13;
+    private static final int REQUEST_BLUETOOTH_PERMISSION = 0;
 
     final boolean[] showSysOps = {false};
     Options options;
@@ -86,6 +91,13 @@ public class LoadDevDemo extends ListActivity {
         super.onCreate(savedInstanceState);
         Log.d("LoadDevDemo", "onCreate");
         setContentView(R.layout.main);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{
+                    Manifest.permission.BLUETOOTH_CONNECT,
+                    Manifest.permission.BLUETOOTH_SCAN
+            }, REQUEST_BLUETOOTH_PERMISSION);
+        }
 
         options = Options.getInstance(this.getApplicationContext());
 
@@ -109,6 +121,19 @@ public class LoadDevDemo extends ListActivity {
     public void onBackPressed() {
         //nothing here means it's disabled
         //done to prevent accidentally making it back to the setup screen
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_BLUETOOTH_PERMISSION) {
+            // Check if the permission is granted
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, proceed with Bluetooth scanning
+            } else {
+                // Permission denied, handle accordingly
+            }
+        }
+        // Handle other permission requests if needed
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     private void updateUI() {
