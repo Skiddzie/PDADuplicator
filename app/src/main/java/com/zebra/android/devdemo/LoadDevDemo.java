@@ -70,14 +70,14 @@ public class LoadDevDemo extends ListActivity {
     private static final int PIN_ID = 2;
     private static final int OPTIONS_ID = 3;
     private static final int PHONE_ID = 4;
-    private static final int MAGCARD_ID = 5;
+    private static final int MAGCARD_ID = 11;
     private static final int PRNTSTATUS_ID = 6;
     private static final int SMRTCARD_ID = 7;
     private static final int SIGCAP_ID = 8;
 
     private static final int STRDFRMT_ID = 9;
     private static final int STATUSCHANNEL_ID = 10;
-    private static final int CONNECTIONBUILDER_ID = 11;
+    private static final int CONNECTIONBUILDER_ID = 5;
     private static final int RECEIPT_ID = 12;
     private static final int MULTICHANNEL_ID = 13;
     private static final int REQUEST_BLUETOOTH_PERMISSION = 0;
@@ -257,7 +257,10 @@ public class LoadDevDemo extends ListActivity {
                 intent = new Intent(this, Options.class);
                 break;
             case PHONE_ID:
-                intent = new Intent(this, SendFileDemo.class);
+                intent = new Intent(this, FromPhone.class);
+                break;
+            case CONNECTIONBUILDER_ID:
+                intent = new Intent(this, ConnectionBuilderDemo.class);
                 break;
             default:
                 return; // not possible
@@ -277,7 +280,8 @@ public class LoadDevDemo extends ListActivity {
                     "Printer Setup",
                     "Change PIN",
                     "System Options",
-                    "From Phone"
+                    "From Phone",
+                    "discovery"
             };
         } else {
             // Exclude CONNECT_ID and PIN_ID from the items list

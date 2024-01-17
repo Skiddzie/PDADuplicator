@@ -67,7 +67,7 @@ import au.com.bytecode.opencsv.CSVWriter;
 
 public class StoredFormatScreen extends ListActivity {
 
-    private static final int PICK_FILE_REQUEST_CODE = 1;
+    public static final int PICK_FILE_REQUEST_CODE = 1;
     private boolean bluetoothSelected;
     private String macAddress;
     private String tcpAddress;

@@ -69,6 +69,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name="com.zebra.android.devdemo.sendfile.FromPhone"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="Send To Printer"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name="com.zebra.android.devdemo.discovery.DirectedBroadcastParameters"
             android:configChanges="keyboardHidden|orientation"
             android:label="Directed Broadcast Parameters"

@@ -1,16 +1,21 @@
 package com.zebra.android.devdemo.sendfile;
 
 
+import static com.zebra.android.devdemo.storedformat.StoredFormatScreen.PICK_FILE_REQUEST_CODE;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.FileObserver;
 import android.os.Looper;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -28,6 +33,8 @@ import com.zebra.android.devdemo.LoadDevDemo;
 import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
 import com.zebra.android.devdemo.storedformat.CustomScannerActivity;
+import com.zebra.android.devdemo.storedformat.StoredFormatScreen;
+import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.android.devdemo.util.UIHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
 import com.zebra.sdk.comm.Connection;
@@ -38,12 +45,16 @@ import com.zebra.sdk.printer.ZebraPrinter;
 import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.Socket;
@@ -61,6 +72,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 public class FromPhone extends Activity {
 
+    private static final int PICK_FILE_REQUEST_CODE = 1;
     private List<FieldDescriptionData> variablesList = new ArrayList<>();
     private List<EditText> variableValues = new ArrayList<>();
     private boolean bluetoothSelected;
@@ -112,17 +124,17 @@ public class FromPhone extends Activity {
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new com.zebra.android.devdemo.sendfile.FromPhone.PrintFormatTask() {
-                    @Override
-                    protected void onPostExecute(Void result) {
-                        transferFileToComputer();
-                    }
-                }.execute();
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("*/*"); // You can specify a MIME type here to filter the types of files to display
+                final int yourRequestCode = 1;
+
+                startActivityForResult(intent, yourRequestCode);
 
             }
         });
 
-        new com.zebra.android.devdemo.sendfile.FromPhone.GetVariablesTask().execute();
+        //new com.zebra.android.devdemo.sendfile.FromPhone.GetVariablesTask().execute();
 
         // Automatically select the first EditText field and show the keyboard
         if (!variableValues.isEmpty()) {
@@ -153,31 +165,119 @@ public class FromPhone extends Activity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("BarcodeScanner", "onActivityResult called");
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (result != null) {
-            if (result.getContents() != null) {
-                // Handle the scanned barcode result
-                String scannedBarcode = result.getContents();
-                Log.d("BarcodeScanner", "Scanned Barcode: " + scannedBarcode);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-                // Set the scanned barcode to the currently focused EditText field
-                View focusedView = getCurrentFocus();
-                if (focusedView instanceof EditText) {
-                    EditText editText = (EditText) focusedView;
-                    editText.setText(scannedBarcode);
+        if (requestCode == PICK_FILE_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            Uri selectedFileUri = data.getData();
+            if (selectedFileUri != null) {
+                String fileData = readFile(selectedFileUri);
+                if (fileData != null) {
+                    // Now you have the file data, send it to the printer
+                    sendFileToPrinter(fileData);
+                } else {
+                    Toast.makeText(this, "Failed to read file data", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                // Handle when the scanning is canceled or failed
-                Log.d("BarcodeScanner", "Scanning canceled");
-                Toast.makeText(this, "Scanning canceled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Selected file URI is null", Toast.LENGTH_SHORT).show();
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+    private String getStoredTcpAddress() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("tcpAddress", "default_value_if_not_found");
+    }
+    private void sendFileContents(ZebraPrinter printer, String fileData) {
+        try {
+            // Create a temporary file with the file data
+            File tempFile = createTempFile(fileData);
+
+            // Send the file contents to the printer
+            printer.sendFileContents(tempFile.getAbsolutePath());
+
+        } catch (ConnectionException | IOException e) {
+            helper.showErrorDialogOnGuiThread("Error sending file to printer: " + e.getMessage());
         }
     }
 
+    private File createTempFile(String fileData) throws IOException {
+        // Create a temporary file
+        File tempFile = File.createTempFile("temp_file_", ".tmp", getCacheDir());
+
+        // Write file data to the temporary file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+            writer.write(fileData);
+        }
+
+        return tempFile;
+    }
+
+    private void sendFileToPrinter(final String fileData) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                helper.showLoadingDialog("Sending file to printer ...");
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                Connection connection = null;
+                try {
+                    int port = Integer.parseInt(tcpPort);
+                    connection = new TcpConnection(getStoredTcpAddress(), port);
+                    connection.open();
+                    ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
+                    sendFileContents(printer, fileData);
+                } catch (NumberFormatException e) {
+                    helper.showErrorDialogOnGuiThread("Port number is invalid");
+                } catch (ConnectionException e) {
+                    helper.showErrorDialogOnGuiThread(e.getMessage());
+                } catch (ZebraPrinterLanguageUnknownException e) {
+                    helper.showErrorDialogOnGuiThread(e.getMessage());
+                } finally {
+                    if (connection != null) {
+                        try {
+                            connection.close();
+                        } catch (ConnectionException ce) {
+                            // Handle the exception if needed
+                        }
+                    }
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                super.onPostExecute(result);
+                helper.dismissLoadingDialog();
+
+                Toast.makeText(FromPhone.this, "File stored to printer. Now available to select.", Toast.LENGTH_LONG).show();
+            }
+        }.execute();
+    }
+    private String readFile(Uri uri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(uri);
+            if (inputStream != null) {
+                InputStreamReader reader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                inputStream.close();
+                return stringBuilder.toString();
+            } else {
+                Log.e("Read File", "InputStream is null");
+                return null;
+            }
+        } catch (IOException e) {
+            Log.e("Read File", "Error reading data from file: " + e.getMessage());
+            return null;
+        }
+    }
 
     private void initializeCsvValues() {
         // Initialize your CSV values here
@@ -254,55 +354,55 @@ public class FromPhone extends Activity {
     }
 
     // AsyncTask for retrieving variables
-    private class GetVariablesTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-                connection = getPrinterConnection();
-                if (connection != null) {
-                    connection.open();
-                    // Log connection details for debugging
-                    Log.d("CONNECTION", "Connected: " + connection.isConnected());
-                    Log.d("CONNECTION", "Type: " + connection.getClass().getSimpleName());
-
-                    getVariables("^XA^DFE:A.ZPL^FS\n" +
-                            "\n" +
-                            "~SD20\n" +
-                            "\n" +
-                            "^BY2,3,\n" +
-                            "\n" +
-                            "^FO60,20\n" +
-                            "\n" +
-                            "^BC,140,N,N,N,^FN1^FS\n" +
-                            "^FO85,170\n" +
-                            "^A0N,30,50^FN1^FS\n" +
-                            "^XZ\n" +
-                            "\n" +
-                            "^XA^XFE:A.ZPL^FS\n" +
-                            "^FN1^FD1234567890^FS\n" +
-                            "\n" +
-                            "^PQ1^XZ\n");
-                }
-            } catch (ConnectionException e) {
-                Log.e("ERROR", "Error in connection: " + e.getMessage(), e);
-                // Handle ConnectionException (e.g., show an error message)
-            } finally {
-                if (connection != null) {
-                    try {
-                        connection.close();
-                    } catch (ConnectionException e) {
-                        Log.e("ERROR", "Error closing connection: " + e.getMessage(), e);
-                    }
-                }
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            // Update UI if needed after retrieving variables
-        }
-    }
+//    private class GetVariablesTask extends AsyncTask<Void, Void, Void> {
+//        @Override
+//        protected Void doInBackground(Void... voids) {
+//            try {
+//                connection = getPrinterConnection();
+//                if (connection != null) {
+//                    connection.open();
+//                    // Log connection details for debugging
+//                    Log.d("CONNECTION", "Connected: " + connection.isConnected());
+//                    Log.d("CONNECTION", "Type: " + connection.getClass().getSimpleName());
+//
+//                    getVariables("^XA^DFE:A.ZPL^FS\n" +
+//                            "\n" +
+//                            "~SD20\n" +
+//                            "\n" +
+//                            "^BY2,3,\n" +
+//                            "\n" +
+//                            "^FO60,20\n" +
+//                            "\n" +
+//                            "^BC,140,N,N,N,^FN1^FS\n" +
+//                            "^FO85,170\n" +
+//                            "^A0N,30,50^FN1^FS\n" +
+//                            "^XZ\n" +
+//                            "\n" +
+//                            "^XA^XFE:A.ZPL^FS\n" +
+//                            "^FN1^FD1234567890^FS\n" +
+//                            "\n" +
+//                            "^PQ1^XZ\n");
+//                }
+//            } catch (ConnectionException e) {
+//                Log.e("ERROR", "Error in connection: " + e.getMessage(), e);
+//                // Handle ConnectionException (e.g., show an error message)
+//            } finally {
+//                if (connection != null) {
+//                    try {
+//                        connection.close();
+//                    } catch (ConnectionException e) {
+//                        Log.e("ERROR", "Error closing connection: " + e.getMessage(), e);
+//                    }
+//                }
+//            }
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Void aVoid) {
+//            // Update UI if needed after retrieving variables
+//        }
+//    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
