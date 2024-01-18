@@ -150,6 +150,7 @@ public class DisplayFieldsActivity extends Activity {
         integrator.initiateScan();
     }
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d("BarcodeScanner", "onActivityResult called");
@@ -165,6 +166,15 @@ public class DisplayFieldsActivity extends Activity {
                 if (focusedView instanceof EditText) {
                     EditText editText = (EditText) focusedView;
                     editText.setText(scannedBarcode);
+                    if (variableValues.size() == 1 && isPrintOnScanChecked()) {
+                        new PrintFormatTask() {
+                            @SuppressLint("StaticFieldLeak")
+                            @Override
+                            protected void onPostExecute(Void result) {
+                                transferFileToComputer();
+                            }
+                        }.execute();
+                    }
                 }
             } else {
                 // Handle when the scanning is canceled or failed

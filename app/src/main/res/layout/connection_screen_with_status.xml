@@ -107,7 +107,8 @@
 			android:textSize="20.0sp"
 			android:layout_height="wrap_content"
 			android:text="MAC Address:"
-			android:layout_weight="1" />
+			android:layout_weight="1"
+			android:visibility="gone"/>
 		<EditText
 			android:id="@+id/macInput"
 			android:layout_width="fill_parent"
@@ -123,5 +124,19 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_centerHorizontal="true" />
+	<TextView
+		android:id="@+id/bottomText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="To find your printers IP address make sure it's connected to your network. Press and hold the feed and cancel buttons. IP address and base raw port should be listed towards the top of the configuration label." />
+	<TextView
+		android:id="@+id/bottomText2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="Default PIN is 1234" />
 
-</LinearLayout>
+
+
+	</LinearLayout>

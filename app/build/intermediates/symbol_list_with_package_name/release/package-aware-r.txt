@@ -30,6 +30,7 @@ drawable s
 id OKButton
 id bluetoothRadio
 id bottomText
+id bottomText2
 id centerCrop
 id checkBox
 id connectionBuilderLog

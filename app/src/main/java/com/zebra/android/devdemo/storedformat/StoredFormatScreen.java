@@ -153,10 +153,10 @@ public class StoredFormatScreen extends ListActivity {
                             "\n" +
                             "^BY2,3,\n" +
                             "\n" +
-                            "^FO60,20\n" +
+                            "^FO10,20\n" +
                             "\n" +
                             "^BC,140,N,N,N,^FN1^FS\n" +
-                            "^FO85,170\n" +
+                            "^FO25,170\n" +
                             "^A0N,30,50^FN1^FS\n" +
                             "^XZ\n" +
                             "\n" +
