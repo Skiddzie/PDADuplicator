@@ -204,6 +204,7 @@ public class FromPhone extends Activity {
         return tempFile;
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void sendFileToPrinter(final String fileData) {
         new AsyncTask<Void, Void, Void>() {
             @Override
@@ -211,6 +212,7 @@ public class FromPhone extends Activity {
                 super.onPreExecute();
                 helper.showLoadingDialog("Sending file to printer ...");
             }
+
 
             @Override
             protected Void doInBackground(Void... params) {
@@ -227,7 +229,7 @@ public class FromPhone extends Activity {
                         ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
                         sendFileContents(printer, fileData);
                     } catch (NumberFormatException e) {
-                        helper.showErrorDialogOnGuiThread("Port number is invalid");
+                        helper.showErrorDialogOnGuiThread("Please check printer connection.");
                     } catch (ConnectionException e) {
                         helper.showErrorDialogOnGuiThread(e.getMessage());
                     } catch (ZebraPrinterLanguageUnknownException e) {
