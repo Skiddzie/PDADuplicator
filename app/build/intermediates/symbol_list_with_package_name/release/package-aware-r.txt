@@ -41,6 +41,7 @@ id directed_broadcast_ip
 id do_directed_broadcast
 id do_multicast_discovery
 id do_subnet_search
+id editText
 id fitCenter
 id fitXY
 id formatName
@@ -120,6 +121,7 @@ layout notification
 layout options
 layout password_change
 layout print_status_activity
+layout send_format
 layout sig_capture_demo
 layout status_channel_activity
 layout stored_format_demo

@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.os.FileObserver;
 import android.os.Looper;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -101,22 +102,13 @@ public class FromPhone extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.stored_format_variables); // Replace with your actual layout file
-
+        setContentView(R.layout.send_format);
+        Log.d("crashlooker", "FromPhone load");
         // Read CSV values once during onCreate
         readCsvFile();
         // Initialize CSV values
         initializeCsvValues();
 
-//        final EditText barcodeField = findViewById(R.id.barcodeField);
-        Button scanBarcodeButton = findViewById(R.id.scanBarcodeButton);
-
-        scanBarcodeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startBarcodeScanner();
-            }
-        });
 
 
 
@@ -223,27 +215,62 @@ public class FromPhone extends Activity {
             @Override
             protected Void doInBackground(Void... params) {
                 Connection connection = null;
-                try {
-                    int port = Integer.parseInt(tcpPort);
-                    connection = new TcpConnection(getStoredTcpAddress(), port);
-                    connection.open();
-                    ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
-                    sendFileContents(printer, fileData);
-                } catch (NumberFormatException e) {
-                    helper.showErrorDialogOnGuiThread("Port number is invalid");
-                } catch (ConnectionException e) {
-                    helper.showErrorDialogOnGuiThread(e.getMessage());
-                } catch (ZebraPrinterLanguageUnknownException e) {
-                    helper.showErrorDialogOnGuiThread(e.getMessage());
-                } finally {
-                    if (connection != null) {
-                        try {
-                            connection.close();
-                        } catch (ConnectionException ce) {
-                            // Handle the exception if needed
+                EditText ipAddressInput = findViewById(R.id.ipAddressInput);
+                EditText portInput = findViewById(R.id.portInput);
+
+                String ipAddress = ipAddressInput.getText().toString().trim();
+                if (TextUtils.isEmpty(ipAddress)) {
+                    try {
+                        int port = Integer.parseInt(tcpPort);
+                        connection = new TcpConnection(getStoredTcpAddress(), port);
+                        connection.open();
+                        ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
+                        sendFileContents(printer, fileData);
+                    } catch (NumberFormatException e) {
+                        helper.showErrorDialogOnGuiThread("Port number is invalid");
+                    } catch (ConnectionException e) {
+                        helper.showErrorDialogOnGuiThread(e.getMessage());
+                    } catch (ZebraPrinterLanguageUnknownException e) {
+                        helper.showErrorDialogOnGuiThread(e.getMessage());
+                    } finally {
+                        if (connection != null) {
+                            try {
+                                connection.close();
+                            } catch (ConnectionException ce) {
+                                // Handle the exception if needed
+                            }
                         }
                     }
+                } else {
+
+                    try {
+                        int port = Integer.parseInt(portInput.getText().toString().trim());
+
+
+                        connection = new TcpConnection(ipAddress, port);
+                        connection.open();
+
+                        ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
+                        sendFileContents(printer, fileData);
+
+                    } catch (NumberFormatException e) {
+                        helper.showErrorDialogOnGuiThread("Port number is invalid");
+                    } catch (ConnectionException e) {
+                        helper.showErrorDialogOnGuiThread(e.getMessage());
+                    } catch (ZebraPrinterLanguageUnknownException e) {
+                        helper.showErrorDialogOnGuiThread(e.getMessage());
+                    } finally {
+                        if (connection != null) {
+                            try {
+                                connection.close();
+                            } catch (ConnectionException ce) {
+                                // Handle the exception if needed
+                            }
+                        }
+                    }
+
                 }
+
                 return null;
             }
 

@@ -259,9 +259,9 @@ public class LoadDevDemo extends ListActivity {
             case PHONE_ID:
                 intent = new Intent(this, FromPhone.class);
                 break;
-            case CONNECTIONBUILDER_ID:
-                intent = new Intent(this, ConnectionBuilderDemo.class);
-                break;
+//            case CONNECTIONBUILDER_ID:
+//                intent = new Intent(this, ConnectionBuilderDemo.class);
+//                break;
             default:
                 return; // not possible
         }
@@ -280,8 +280,7 @@ public class LoadDevDemo extends ListActivity {
                     "Printer Setup",
                     "Change PIN",
                     "System Options",
-                    "From Phone",
-                    "discovery"
+                    "Send Format to Printer"
             };
         } else {
             // Exclude CONNECT_ID and PIN_ID from the items list

@@ -40,6 +40,7 @@ int id directed_broadcast_ip 0x7f06000a
 int id do_directed_broadcast 0x7f06000b
 int id do_multicast_discovery 0x7f06000c
 int id do_subnet_search 0x7f06000d
+int id editText 0x7f06004e
 int id fitCenter 0x7f06000e
 int id fitXY 0x7f06000f
 int id formatName 0x7f060010
@@ -119,6 +120,7 @@ int layout notification 0x7f07000b
 int layout options 0x7f07000c
 int layout password_change 0x7f07000d
 int layout print_status_activity 0x7f07000e
+int layout send_format 0x7f070016
 int layout sig_capture_demo 0x7f07000f
 int layout status_channel_activity 0x7f070010
 int layout stored_format_demo 0x7f070011
