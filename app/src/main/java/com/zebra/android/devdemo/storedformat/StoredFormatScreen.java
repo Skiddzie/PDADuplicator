@@ -24,9 +24,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ContentResolver;
@@ -41,15 +47,18 @@ import android.os.Environment;
 import android.os.Looper;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.connectivity.ConnectivityDemo;
+import com.zebra.android.devdemo.sendfile.FromPhone;
 import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.android.devdemo.util.UIHelper;
 import com.zebra.sdk.comm.BluetoothConnection;
@@ -57,6 +66,7 @@ import com.zebra.sdk.comm.Connection;
 import com.zebra.sdk.comm.ConnectionException;
 import com.zebra.sdk.comm.TcpConnection;
 import com.zebra.sdk.device.ZebraIllegalArgumentException;
+import com.zebra.sdk.printer.FieldDescriptionData;
 import com.zebra.sdk.printer.PrinterLanguage;
 import com.zebra.sdk.printer.ZebraPrinter;
 import com.zebra.sdk.printer.ZebraPrinterFactory;
@@ -132,7 +142,23 @@ public class StoredFormatScreen extends ListActivity {
                 String fileData = readFile(selectedFileUri);
                 if (fileData != null) {
                     // Now you have the file data, send it to the printer
-                    sendFileToPrinter(fileData);
+                    sendFileToPrinter("^XA^DFE:SEIExampleFormat.ZPL^FS\n" +
+                            "\n" +
+                            "~SD20\n" +
+                            "\n" +
+                            "^BY2,3,\n" +
+                            "\n" +
+                            "^FO60,20\n" +
+                            "\n" +
+                            "^BC,140,N,N,N,^FN1^FS\n" +
+                            "^FO85,170\n" +
+                            "^A0N,30,50^FN1^FS\n" +
+                            "^XZ\n" +
+                            "\n" +
+                            "^XA^XFE:SEIExampleFormat.ZPL^FS\n" +
+                            "^FN1^FD34^FS\n" +
+                            "\n" +
+                            "^PQ1^XZ\n");
                 } else {
                     Toast.makeText(this, "Failed to read file data", Toast.LENGTH_SHORT).show();
                 }
@@ -320,20 +346,58 @@ public class StoredFormatScreen extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Intent intent;
-        intent = new Intent(this, VariablesScreen.class);
-        intent.putExtra("bluetooth selected", bluetoothSelected);
-        intent.putExtra("mac address", macAddress);
-        //Log.d("macaddress", macAddress);
-        intent.putExtra("tcp address", tcpAddress);
-        intent.putExtra("tcp port", tcpPort);
-        intent.putExtra("format name", (String) l.getItemAtPosition(position));
+        String clickedItem = (String) l.getItemAtPosition(position);
 
-        // Add the following lines to write to CSV
-        writeDataToCsv(tcpAddress, tcpPort, (String) l.getItemAtPosition(position));
+        // Check if the clicked item is "SEIExampleFormat.ZPL"
+        if ("SEIExampleFormat.ZPL".equals(clickedItem)) {
 
-        startActivity(intent);
+            sendFileToPrinter("^XA^DFE:SEIEXAMPLEFORMAT.ZPL^FS\n" +
+                    "\n" +
+                    "~SD20\n" +
+                    "\n" +
+                    "^BY2,3,\n" +
+                    "\n" +
+                    "^FO60,20\n" +
+                    "\n" +
+                    "^BC,140,N,N,N,^FN1^FS\n" +
+                    "^FO85,170\n" +
+                    "^A0N,30,50^FN1^FS\n" +
+                    "^XZ\n" +
+                    "\n" +
+                    "^XA^XFE:SEIEXAMPLEFORMAT.ZPL^FS\n" +
+                    "^FN1^FD34^FS\n" +
+                    "\n" +
+                    "^PQ1^XZ\n");
+
+            Toast.makeText(this, "Clicked on SEIExampleFormat.ZPL", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, VariablesScreen.class);
+            intent.putExtra("bluetooth selected", bluetoothSelected);
+            intent.putExtra("mac address", macAddress);
+            intent.putExtra("tcp address", tcpAddress);
+            intent.putExtra("tcp port", tcpPort);
+            intent.putExtra("format name", "E:SEIEXAMPLEFORMAT.ZPL");
+
+            // Add the following lines to write to CSV
+            writeDataToCsv(tcpAddress, tcpPort, "E:SEIEXAMPLEFORMAT.ZPL");
+
+            startActivity(intent);
+        } else {
+            // Handle the click on other items
+            Intent intent = new Intent(this, VariablesScreen.class);
+            intent.putExtra("bluetooth selected", bluetoothSelected);
+            intent.putExtra("mac address", macAddress);
+            intent.putExtra("tcp address", tcpAddress);
+            intent.putExtra("tcp port", tcpPort);
+            intent.putExtra("format name", clickedItem);
+
+            // Add the following lines to write to CSV
+            writeDataToCsv(tcpAddress, tcpPort, clickedItem);
+
+            startActivity(intent);
+        }
     }
+
+
 
     // Add this method to write the selected data to CSV
     private void writeDataToCsv(String tcpAddress, String tcpPort, String formatName) {
@@ -445,12 +509,7 @@ public class StoredFormatScreen extends ListActivity {
     //it's over here lol
     //it's over here lol
     private void getFileList() {
-
         Connection connection = null;
-        Log.d("bluetooth", "readipcsv " + readIpCsv());
-
-        //figure out why this isn't returning as true
-        Log.d("bluetooth", "mac: " + readMacCsv());
 
         if ("0".equals(readIpCsv())) {
             BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -458,19 +517,15 @@ public class StoredFormatScreen extends ListActivity {
                 Log.d("bluetooth", "unavailable");
                 return;
             } else {
-                try{
-
+                try {
                     String BTAddress = readMacCsv();
-                    Log.d("bluetooth", "connecting to mac address " +BTAddress);
+                    Log.d("bluetooth", "connecting to mac address " + BTAddress);
                     connection = new BluetoothConnection(BTAddress);
                 } catch (NumberFormatException e) {
                     helper.showErrorDialogOnGuiThread("Mac address is invalid");
                     return;
                 }
             }
-
-
-
         } else {
             try {
                 Log.d("connection", "IP network");
@@ -480,8 +535,8 @@ public class StoredFormatScreen extends ListActivity {
                 helper.showErrorDialogOnGuiThread("Port number is invalid");
                 return;
             }
-
         }
+
         try {
             helper.showLoadingDialog("Retrieving Formats...");
             connection.open();
@@ -490,15 +545,20 @@ public class StoredFormatScreen extends ListActivity {
             String[] formatExtensions;
 
             if (pl == PrinterLanguage.ZPL) {
-                formatExtensions = new String[] { "ZPL" };
+                formatExtensions = new String[]{"ZPL"};
             } else {
-                formatExtensions = new String[] { "FMT", "LBL" };
+                formatExtensions = new String[]{"FMT", "LBL"};
             }
 
             String[] formats = printer.retrieveFileNames(formatExtensions);
+
+            // Add the default item "SEIExampleFormat.ZPL"
+            formatsList.add("SEIExampleFormat.ZPL");
+
             for (int i = 0; i < formats.length; i++) {
                 formatsList.add(formats[i]);
             }
+
             connection.close();
             saveSettings();
             updateGuiWithFormats();

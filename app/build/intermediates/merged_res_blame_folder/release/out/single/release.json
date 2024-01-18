@@ -20,12 +20,12 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-main-6:\\layout\\subnet_search_discovery_parameters.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-5:\\drawable-ldpi_s.png.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-main-6:\\drawable-ldpi\\s.png"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-5:\\layout_formats_list_activity.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-main-6:\\layout\\formats_list_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-5:\\drawable-ldpi_s.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-main-6:\\drawable-ldpi\\s.png"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-5:\\layout_stored_format_variables.xml.flat",
@@ -46,6 +46,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-5:\\drawable-ldpi_f.png.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-main-6:\\drawable-ldpi\\f.png"
+    },
+    {
+        "merged": "com.zebra.android.devdemo.app-merged_res-5:/layout_stored_format_demo.xml.flat",
+        "source": "com.zebra.android.devdemo.app-main-6:/layout/stored_format_demo.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-5:\\layout_discovery_results.xml.flat",
@@ -82,10 +86,6 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-5:\\drawable-ldpi_icon.png.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-main-6:\\drawable-ldpi\\icon.png"
-    },
-    {
-        "merged": "com.zebra.android.devdemo.app-merged_res-5:/layout_send_format.xml.flat",
-        "source": "com.zebra.android.devdemo.app-main-6:/layout/send_format.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.0\\com.zebra.android.devdemo.app-merged_res-5:\\layout_connection_screen_with_status.xml.flat",

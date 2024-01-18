@@ -13,6 +13,10 @@
 		android:layout_gravity="center_horizontal"
 		android:layout_marginTop="16dp"
 		android:layout_marginBottom="16dp"/>
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Select the format you wish to use for barcode duplication. If you don't have your own formats loaded to your printer select SEIExampleFormat.ZPL\n\nContact Symbology Enterprises for the design of new formats." />
 
 	<View
 		android:layout_width="match_parent"
