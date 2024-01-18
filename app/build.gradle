@@ -12,6 +12,7 @@ android {
         applicationId "com.zebra.android.devdemo"
         minSdkVersion 25
         targetSdkVersion 34
+        resValue "string", "app_name", "Barcode Duplicator"
     }
 
     buildTypes {

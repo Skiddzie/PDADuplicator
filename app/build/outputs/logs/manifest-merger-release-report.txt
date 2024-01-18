@@ -566,6 +566,8 @@ ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManif
 		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:245:13-36
 	android:name
 		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:243:13-88
+intent-filter#action:name:android.intent.action.MAIN
+ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:246:13-249:29
 uses-feature#android.hardware.camera.front
 ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:28:5-30:36
 	android:required

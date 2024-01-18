@@ -118,11 +118,15 @@ public class FromPhone extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("*/*"); // You can specify a MIME type here to filter the types of files to display
+
+                // Set the MIME types to filter only ".ZPL" and ".TXT" files
+                String[] mimeTypes = {"text/plain", "application/vnd.zebra.raw"};
+                intent.setType("*/*");
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+
                 final int yourRequestCode = 1;
 
                 startActivityForResult(intent, yourRequestCode);
-
             }
         });
 

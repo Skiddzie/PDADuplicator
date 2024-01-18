@@ -20,6 +20,12 @@
   </testSourceProviders>
   <testFixturesSourceProviders>
   </testFixturesSourceProviders>
+  <resValues>
+    <resValue
+        type="string"
+        name="app_name"
+        value="Barcode Duplicator" />
+  </resValues>
   <mainArtifact
       classOutputs="build\intermediates\javac\release\classes;build\intermediates\compile_and_runtime_not_namespaced_r_class_jar\release\R.jar"
       applicationId="com.zebra.android.devdemo"
