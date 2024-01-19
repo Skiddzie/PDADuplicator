@@ -1,8 +1,8 @@
-com.zebra.android.devdemo.app-zxing-android-embedded-3.6.0-0 C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\res
-com.zebra.android.devdemo.app-pngs-1 C:\Users\User\StudioProjects\PDADuplicator2\app\build\generated\res\pngs\release
-com.zebra.android.devdemo.app-resValues-2 C:\Users\User\StudioProjects\PDADuplicator2\app\build\generated\res\resValues\release
-com.zebra.android.devdemo.app-mergeReleaseResources-3 C:\Users\User\StudioProjects\PDADuplicator2\app\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
-com.zebra.android.devdemo.app-mergeReleaseResources-4 C:\Users\User\StudioProjects\PDADuplicator2\app\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
-com.zebra.android.devdemo.app-merged_res-5 C:\Users\User\StudioProjects\PDADuplicator2\app\build\intermediates\merged_res\release
-com.zebra.android.devdemo.app-main-6 C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\res
-com.zebra.android.devdemo.app-release-7 C:\Users\User\StudioProjects\PDADuplicator2\app\src\release\res
+com.zebra.android.devdemo.app-zxing-android-embedded-3.6.0-0 C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\res
+com.zebra.android.devdemo.app-pngs-1 C:\Users\19088\StudioProjects\PDADuplicator\app\build\generated\res\pngs\release
+com.zebra.android.devdemo.app-resValues-2 C:\Users\19088\StudioProjects\PDADuplicator\app\build\generated\res\resValues\release
+com.zebra.android.devdemo.app-mergeReleaseResources-3 C:\Users\19088\StudioProjects\PDADuplicator\app\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.zebra.android.devdemo.app-mergeReleaseResources-4 C:\Users\19088\StudioProjects\PDADuplicator\app\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.zebra.android.devdemo.app-merged_res-5 C:\Users\19088\StudioProjects\PDADuplicator\app\build\intermediates\merged_res\release
+com.zebra.android.devdemo.app-main-6 C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\res
+com.zebra.android.devdemo.app-release-7 C:\Users\19088\StudioProjects\PDADuplicator\app\src\release\res

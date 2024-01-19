@@ -240,11 +240,16 @@ public class ConnectivityDemo extends Activity {
         //based on the comment below i'm pretty sure I accidentally deleted some code here
         //when copying from chatGPT
         // existing code...
+        if (btRadioButton.isChecked()){
+            printerConnection = new BluetoothConnection(getMacAddress());
+        } else {
+            int port = Integer.parseInt(getTcpPortNumber());
+            printerConnection = new TcpConnection(getTcpAddress(), port);
+            SettingsHelper.saveIp(this, getTcpAddress());
+            SettingsHelper.savePort(this, getTcpPortNumber());
+        }
 
-        int port = Integer.parseInt(getTcpPortNumber());
-        printerConnection = new TcpConnection(getTcpAddress(), port);
-        SettingsHelper.saveIp(this, getTcpAddress());
-        SettingsHelper.savePort(this, getTcpPortNumber());
+
 
 
         try {

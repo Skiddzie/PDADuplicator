@@ -66,6 +66,7 @@ public class DisplayFieldsActivity extends Activity {
     private String tcpAddress;
     private String tcpPort;
     private String formatName;
+    private String bluetoothAddress;
     private UIHelper helper = new UIHelper(this);
     private Connection connection;
 
@@ -192,8 +193,13 @@ public class DisplayFieldsActivity extends Activity {
         tcpAddress = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 0);
         tcpPort = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 1);
         formatName = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2);
-
-        // Log the values for debugging
+        macAddress = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 3);
+        if (tcpAddress.equals("0")){
+            bluetoothSelected = true;
+        } else {
+            bluetoothSelected = false;
+        }
+        //Log the values for debugging
 //        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 0));
 //        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 1));
 //        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2));
@@ -429,6 +435,8 @@ public class DisplayFieldsActivity extends Activity {
         tcpAddress = readCsvValue(csvFilePath, 1, 0);
         tcpPort = readCsvValue(csvFilePath, 1, 1);
         formatName = readCsvValue(csvFilePath, 1, 2);
+        bluetoothAddress = readCsvValue(csvFilePath, 1, 2);
+
         Log.d("CSV", "TCP Address: " + tcpAddress);
         Log.d("CSV", "TCP Port: " + tcpPort);
         Log.d("CSV", "Format Name: " + formatName);
@@ -440,6 +448,7 @@ public class DisplayFieldsActivity extends Activity {
         Log.d("CONNECTION", "FORMAT: " + formatName);
         if (!bluetoothSelected) {
             try {
+                Log.d("bluetoooth", "bluetooth off");
                 int port = Integer.parseInt(tcpPort);
                 connection = new TcpConnection(tcpAddress, port);
                 connection.open(); // Open the connection here
@@ -452,6 +461,7 @@ public class DisplayFieldsActivity extends Activity {
                 return null;
             }
         } else {
+            Log.d("bluetoooth", "bluetooth selected");
             connection = new BluetoothConnection(macAddress);
             // Handle Bluetooth connection logic here if needed
         }

@@ -129,11 +129,22 @@ public class VariablesScreen extends Activity {
                 if (nextRecord.length >= 2) {
                     // Assuming column 0 contains field names and column 1 contains field numbers (modify as per your CSV structure)
                     String fieldName = nextRecord[0];
-                    int fieldNumber = Integer.parseInt(nextRecord[1]); // Assuming it's an integer
+                    String fieldNumberStr = nextRecord[1];
 
-                    // Create FieldDescriptionData object and add to the list
-                    FieldDescriptionData field = new FieldDescriptionData(fieldNumber, fieldName);
-                    fieldsFromCSV.add(field);
+                    // Check if the fieldNumberStr is not empty before parsing
+                    if (!fieldNumberStr.isEmpty()) {
+                        try {
+                            int fieldNumber = Integer.parseInt(fieldNumberStr); // Assuming it's an integer
+
+                            // Create FieldDescriptionData object and add to the list
+                            FieldDescriptionData field = new FieldDescriptionData(fieldNumber, fieldName);
+                            fieldsFromCSV.add(field);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Invalid field number format: " + fieldNumberStr);
+                        }
+                    } else {
+                        System.out.println("Field number is empty in row: " + Arrays.toString(nextRecord));
+                    }
                 } else {
                     System.out.println("Invalid row format: " + Arrays.toString(nextRecord));
                 }
@@ -145,4 +156,5 @@ public class VariablesScreen extends Activity {
 
         return fieldsFromCSV;
     }
+
 }

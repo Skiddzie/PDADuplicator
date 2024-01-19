@@ -33,8 +33,9 @@
 		    android:layout_height="wrap_content"
 		    android:layout_width="wrap_content"
 			android:id="@+id/bluetoothRadio"
-			android:text="Bluetooth (R)"
-			android:visibility="gone"/>
+			android:text="Bluetooth (R)"/>
+<!--			android:visibility="gone"-->
+
 	</RadioGroup>
 
 	<LinearLayout
@@ -107,8 +108,8 @@
 			android:textSize="20.0sp"
 			android:layout_height="wrap_content"
 			android:text="MAC Address:"
-			android:layout_weight="1"
-			android:visibility="gone"/>
+			android:layout_weight="1"/>
+<!--			android:visibility="gone"-->
 		<EditText
 			android:id="@+id/macInput"
 			android:layout_width="fill_parent"
