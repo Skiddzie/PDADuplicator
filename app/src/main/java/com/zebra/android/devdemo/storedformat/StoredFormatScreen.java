@@ -519,15 +519,16 @@ public class StoredFormatScreen extends ListActivity {
         if ("0".equals(readIpCsv())) {
             BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
             if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
-                Log.d("bluetooth", "unavailable");
+                Log.d("bluetooth", "Bluetooth unavailable");
                 return;
             } else {
                 try {
                     String BTAddress = readMacCsv();
-                    Log.d("bluetooth", "connecting to mac address " + BTAddress);
+                    Log.d("bluetooth", "Connecting to mac address " + BTAddress);
                     connection = new BluetoothConnection(BTAddress);
                 } catch (NumberFormatException e) {
-                    helper.showErrorDialogOnGuiThread("Mac address is invalid");
+                    Log.e("Bluetooth", "Invalid mac address: " + e.getMessage());
+                    runOnUiThread(() -> helper.showErrorDialogOnGuiThread("Mac address is invalid"));
                     return;
                 }
             }
@@ -537,14 +538,19 @@ public class StoredFormatScreen extends ListActivity {
                 int port = Integer.parseInt(tcpPort);
                 connection = new TcpConnection(tcpAddress, port);
             } catch (NumberFormatException e) {
-                helper.showErrorDialogOnGuiThread("Port number is invalid");
+                Log.e("Connection", "Invalid port number: " + e.getMessage());
+                runOnUiThread(() -> helper.showErrorDialogOnGuiThread("Port number is invalid"));
                 return;
             }
         }
 
+        runOnUiThread(() -> helper.showLoadingDialog("Connecting..."));
+
         try {
-            helper.showLoadingDialog("Retrieving Formats...");
+            Log.d("connection", "Connecting...");
             connection.open();
+            Log.d("Connection", "Connection established, retrieving formats...");
+
             ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
             PrinterLanguage pl = printer.getPrinterControlLanguage();
             String[] formatExtensions;
@@ -557,26 +563,43 @@ public class StoredFormatScreen extends ListActivity {
 
             String[] formats = printer.retrieveFileNames(formatExtensions);
 
-            // Add the default item "SEIExampleFormat.ZPL"
-            formatsList.add("SEIExampleFormat.ZPL");
+            runOnUiThread(() -> {
+                // Clear the current formatsList and update the UI
+                formatsList.clear();
+                // Add the default item "SEIExampleFormat.ZPL"
+                formatsList.add("SEIExampleFormat.ZPL");
+                for (int i = 0; i < formats.length; i++) {
+                    formatsList.add(formats[i]);
+                }
+                updateGuiWithFormats();
+                Toast.makeText(StoredFormatScreen.this, "Found " + formatsList.size() + " Formats", Toast.LENGTH_SHORT).show();
+            });
 
-            for (int i = 0; i < formats.length; i++) {
-                formatsList.add(formats[i]);
-            }
-
-            connection.close();
-            saveSettings();
-            updateGuiWithFormats();
         } catch (ConnectionException e) {
-            helper.showErrorDialogOnGuiThread(e.getMessage());
-        } catch (ZebraPrinterLanguageUnknownException e) {
-            helper.showErrorDialogOnGuiThread(e.getMessage());
-        } catch (ZebraIllegalArgumentException e) {
-            helper.showErrorDialogOnGuiThread(e.getMessage());
+            Log.e("Connection", "Error connecting: " + e.getMessage());
+            e.printStackTrace(); // Print the stack trace
+            runOnUiThread(() -> helper.showErrorDialogOnGuiThread("Could not connect to device: " + e.getMessage()));
+        } catch (ZebraPrinterLanguageUnknownException | ZebraIllegalArgumentException e) {
+            Log.e("Connection", "Error getting printer: " + e.getMessage());
+            e.printStackTrace(); // Print the stack trace
+            runOnUiThread(() -> helper.showErrorDialogOnGuiThread(e.getMessage()));
         } finally {
-            helper.dismissLoadingDialog();
+            runOnUiThread(() -> helper.dismissLoadingDialog());
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (ConnectionException ce) {
+                    Log.e("Connection", "Error closing connection: " + ce.getMessage());
+                    ce.printStackTrace(); // Print the stack trace
+                    // Handle the exception if needed
+                }
+            }
         }
     }
+
+
+
+
 
     private void saveSettings() {
         SettingsHelper.saveBluetoothAddress(StoredFormatScreen.this, macAddress);

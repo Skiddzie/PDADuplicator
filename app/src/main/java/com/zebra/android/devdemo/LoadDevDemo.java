@@ -237,27 +237,39 @@ public class LoadDevDemo extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Intent intent;
+        Intent intent = null;
 
         // ... (existing code)
 
         // Proceed with the intent based on the selected item
         switch (position) {
             case SNDFILE_ID:
-                intent = new Intent(this, DisplayFieldsActivity.class);
+                String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
+                String ipDisplay = readValueFromSecondRow(filePath, 0);
+                if (ipDisplay != null) {
+                    intent = new Intent(this, DisplayFieldsActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "No printer connected. Please select Printer Setup", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case CONNECT_ID:
                 Log.d("intentscreen", "switching to connectivitydemo");
+
                 intent = new Intent(this, ConnectivityDemo.class);
+                startActivity(intent);
                 break;
             case PIN_ID:
                 intent = new Intent(this, ChangePIN.class);
+                startActivity(intent);
                 break;
             case OPTIONS_ID:
                 intent = new Intent(this, Options.class);
+                startActivity(intent);
                 break;
             case PHONE_ID:
                 intent = new Intent(this, FromPhone.class);
+                startActivity(intent);
                 break;
 //            case CONNECTIONBUILDER_ID:
 //                intent = new Intent(this, ConnectionBuilderDemo.class);
@@ -266,7 +278,6 @@ public class LoadDevDemo extends ListActivity {
                 return; // not possible
         }
 
-        startActivity(intent);
     }
 
     // Update the adapter to dynamically hide/show items
