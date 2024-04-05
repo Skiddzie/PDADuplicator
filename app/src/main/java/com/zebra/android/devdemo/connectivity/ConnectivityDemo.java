@@ -466,6 +466,9 @@ public class ConnectivityDemo extends Activity {
 
         String macAddress = getMacAddress();
         saveMacAddress(macAddress);
+        Log.d("preferences", "port: " + tcpPortNumber);
+        Log.d("preferences", "ip: " + tcpAddress);
+//        Log.d("preferences", "format: " + formatName);
 
         // Save PIN to SharedPreferences
         String pinText = ((EditText) findViewById(R.id.pinInput)).getText().toString();

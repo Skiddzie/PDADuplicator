@@ -76,6 +76,7 @@ public abstract class ConnectionScreen extends Activity {
         btRadioButton = (RadioButton) this.findViewById(R.id.bluetoothRadio);
 
         testButton = (Button) this.findViewById(R.id.testButton);
+
         testButton.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {

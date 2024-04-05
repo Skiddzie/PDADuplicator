@@ -27,7 +27,7 @@ public class StoredFormatDemo extends ConnectivityDemo {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.d("intent", "storedformatdemo");
         // Use the appropriate context (in this case, 'this' refers to the activity)
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
@@ -39,6 +39,7 @@ public class StoredFormatDemo extends ConnectivityDemo {
         Log.d("IP", "Retrieved TCP Address: " + storedTcpAddress);
         Log.d("IP", "Retrieved TCP Port Number: " + storedTcpPortNumber);
 
+//        Log.d("preferences", "format: " + formatName);
         // Rest of your code
         performTest();
 //        testButton.setText("Retrieve Formats");
