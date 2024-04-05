@@ -72,8 +72,6 @@ import com.zebra.sdk.printer.ZebraPrinter;
 import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
 
-import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
 
 public class StoredFormatScreen extends ListActivity {
 
@@ -235,15 +233,13 @@ public class StoredFormatScreen extends ListActivity {
 
     private void sendFileContents(ZebraPrinter printer, String fileData) {
         try {
-            // Create a temporary file with the file data
-            File tempFile = createTempFile(fileData);
-
-            // Send the file contents to the printer
-            printer.sendFileContents(tempFile.getAbsolutePath());
+            // Send the file contents directly to the printer
+            Log.d("format", fileData);
+            printer.sendCommand(fileData);
 
             // Save settings
             saveSettings();
-        } catch (ConnectionException | IOException e) {
+        } catch (ConnectionException e) {
             helper.showErrorDialogOnGuiThread("Error sending file to printer: " + e.getMessage());
         }
     }
@@ -382,8 +378,7 @@ public class StoredFormatScreen extends ListActivity {
             intent.putExtra("tcp port", tcpPort);
             intent.putExtra("format name", "E:SEIEXAMPLEFORMAT.ZPL");
 
-            // Add the following lines to write to CSV
-            writeDataToCsv(tcpAddress, tcpPort, "E:SEIEXAMPLEFORMAT.ZPL");
+            writeDataToPreferences(tcpAddress, tcpPort, "E:SEIEXAMPLEFORMAT.ZPL");
 
             startActivity(intent);
         } else {
@@ -395,8 +390,8 @@ public class StoredFormatScreen extends ListActivity {
             intent.putExtra("tcp port", tcpPort);
             intent.putExtra("format name", clickedItem);
 
-            // Add the following lines to write to CSV
-            writeDataToCsv(tcpAddress, tcpPort, clickedItem);
+            //save printer data
+            writeDataToPreferences(tcpAddress, tcpPort, clickedItem);
 
             startActivity(intent);
         }
@@ -404,103 +399,24 @@ public class StoredFormatScreen extends ListActivity {
 
 
 
-    // Add this method to write the selected data to CSV
-    private void writeDataToCsv(String tcpAddress, String tcpPort, String formatName) {
-        Log.e("formatwrite", formatName);
-        try {
-            String csvFilePath = String.valueOf(new File(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt"));
 
-            Log.e("path", csvFilePath);
-            File csvFile = new File(csvFilePath);
-
-            // Read existing data
-            List<String[]> existingData;
-            if (csvFile.exists() && csvFile.length() > 0) {
-                CSVReader reader = new CSVReader(new FileReader(csvFilePath));
-                existingData = reader.readAll();
-                reader.close();
-
-                // Check if the second row exists
-                if (existingData.size() >= 2) {
-                    // Modify the format name in the second row
-                    existingData.get(1)[2] = formatName;
-                }
-            } else {
-                // If the file is empty or doesn't exist, create an empty list
-                existingData = new ArrayList<>();
-            }
-
-            // If the second row doesn't exist, add a new row with the format name
-            if (existingData.size() < 2) {
-                // Add a new row with the format name
-                String[] newRow = {tcpAddress, tcpPort, formatName};
-                existingData.add(newRow);
-            }
-
-            // Write the updated data to the CSV file
-            FileWriter fileWriter = new FileWriter(csvFilePath);
-            CSVWriter csvWriter = new CSVWriter(fileWriter);
-            csvWriter.writeAll(existingData);
-
-            // Close the writers
-            csvWriter.close();
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void writeDataToPreferences(String tcpAddress, String tcpPort, String formatName) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("tcpAddress", tcpAddress);
+        editor.putString("tcpPort", tcpPort);
+        editor.putString("formatName", formatName);
+        editor.apply();
     }
 
-    private String readIpCsv() {
-        try {
-            String csvFilePath = String.valueOf(new File(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt"));
-
-            Log.e("path", csvFilePath);
-            File csvFile = new File(csvFilePath);
-
-            if (csvFile.exists() && csvFile.length() > 0) {
-                // Read existing data
-                CSVReader reader = new CSVReader(new FileReader(csvFilePath));
-                List<String[]> existingData = reader.readAll();
-                reader.close();
-
-                // Check if the second row exists
-                if (existingData.size() >= 2) {
-
-                    return existingData.get(1)[0];
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // Return a default value or handle the case when the data is not found
-        return "DefaultFormatName";
+    private String readIP() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("tcpAddress", "DefaultTcpAddress");
     }
-    private String readMacCsv() {
-        try {
-            String csvFilePath = String.valueOf(new File(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt"));
 
-            Log.e("path", csvFilePath);
-            File csvFile = new File(csvFilePath);
-
-            if (csvFile.exists() && csvFile.length() > 0) {
-                // Read existing data
-                CSVReader reader = new CSVReader(new FileReader(csvFilePath));
-                List<String[]> existingData = reader.readAll();
-                reader.close();
-
-                // Check if the second row exists
-                if (existingData.size() >= 2) {
-
-                    return existingData.get(1)[3];
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // Return a default value or handle the case when the data is not found
-        return "DefaultFormatName";
+    private String readMac() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("macAddress", "DefaultMacAddress");
     }
 
 
@@ -516,14 +432,14 @@ public class StoredFormatScreen extends ListActivity {
     private void getFileList() {
         Connection connection = null;
 
-        if ("0".equals(readIpCsv())) {
+        if ("0".equals(readIP())) {
             BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
             if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
                 Log.d("bluetooth", "Bluetooth unavailable");
                 return;
             } else {
                 try {
-                    String BTAddress = readMacCsv();
+                    String BTAddress = readMac();
                     Log.d("bluetooth", "Connecting to mac address " + BTAddress);
                     connection = new BluetoothConnection(BTAddress);
                 } catch (NumberFormatException e) {
