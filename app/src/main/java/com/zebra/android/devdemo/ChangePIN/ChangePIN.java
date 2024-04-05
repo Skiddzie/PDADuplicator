@@ -1,8 +1,9 @@
 package com.zebra.android.devdemo.ChangePIN;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,16 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.zebra.android.devdemo.R;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-
-import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
 
 public class ChangePIN extends Activity {
     private EditText oldPinInput;
@@ -34,10 +25,10 @@ public class ChangePIN extends Activity {
         setContentView(R.layout.password_change);
 
         // Initialize UI elements
-        oldPinInput = (EditText) findViewById(R.id.oldPinInput);
-        reenterPinInput = (EditText) findViewById(R.id.reenterPinInput);
-        newPinInput = (EditText) findViewById(R.id.newPinInput);
-        OKButton = (Button) findViewById(R.id.OKButton);
+        oldPinInput = findViewById(R.id.oldPinInput);
+        reenterPinInput = findViewById(R.id.reenterPinInput);
+        newPinInput = findViewById(R.id.newPinInput);
+        OKButton = findViewById(R.id.OKButton);
 
         // Set onClickListener for the OKButton
         OKButton.setOnClickListener(new OnClickListener() {
@@ -47,10 +38,11 @@ public class ChangePIN extends Activity {
                 String reenterPin = reenterPinInput.getText().toString();
                 String newPin = newPinInput.getText().toString();
 
-                // Check if oldPin and reenterPin match the third row value in the CSV
+                // Check if oldPin and reenterPin match
+                Log.d("pin", oldPin + reenterPin);
                 if (checkPinMatch(oldPin, reenterPin)) {
-                    // If they match, update the third row value with newPin
-                    updatePinInCSV(newPin);
+                    // If they match, update the PIN in SharedPreferences
+                    savePIN(newPin);
                     Toast.makeText(ChangePIN.this, "PIN updated successfully", Toast.LENGTH_SHORT).show();
                 } else {
                     // If they don't match, show an error message
@@ -60,69 +52,25 @@ public class ChangePIN extends Activity {
         });
     }
 
+
+    private void savePIN(String pin) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("PIN", pin);
+        editor.apply();
+    }
+
     private boolean checkPinMatch(String oldPin, String reenterPin) {
-        // Retrieve the third row value from the CSV
-        String csvThirdRowValue = readThirdRowFromCSV(); // Implement this method
-
-        // Check if oldPin and reenterPin match the third row value
-        return oldPin.equals(csvThirdRowValue) && reenterPin.equals(csvThirdRowValue);
+        // Retrieve saved PIN from SharedPreferences
+        String savedPIN = getSavedPIN();
+        // Check if oldPin and reenterPin match the saved PIN
+        Log.d("pin", "saved pin: " + savedPIN);
+        Log.d("pin", String.valueOf(oldPin.equals(savedPIN))+" "+String.valueOf(reenterPin.equals(savedPIN)));
+        return oldPin.equals(savedPIN) && reenterPin.equals(savedPIN);
     }
 
-    private void updatePinInCSV(String newPin) {
-        // Implement the logic to update the third row value in the CSV with newPin
-        // You can use the modifyFormatValue method you provided earlier
-        String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
-        modifyFormatValue(filePath, 2, 0, newPin); // Assuming the third row is at index 2
-    }
-
-    // Implement the logic to read the third row value from the CSV
-    private String readThirdRowFromCSV() {
-
-        String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
-        return readValueFromCSV(filePath, 2, 0);
-    }
-
-    // Implement the logic to read a specific value from the CSV file
-    private String readValueFromCSV(String file, int rowIndex, int columnIndex) {
-        try {
-            FileReader fileReader = new FileReader(file);
-            CSVReader csvReader = new CSVReader(fileReader);
-            List<String[]> csvData = csvReader.readAll();
-
-            if (rowIndex < csvData.size() && columnIndex < csvData.get(rowIndex).length) {
-                return csvData.get(rowIndex)[columnIndex];
-            } else {
-                Log.e("ERROR", "Invalid row or column index provided.");
-                return "";
-            }
-        } catch (IOException e) {
-            Log.e("ERROR", "Error reading value from CSV: " + e.getMessage(), e);
-            return "";
-        }
-    }
-
-    // Implement the logic to modify a specific value in the CSV file
-    private void modifyFormatValue(String file, int rowIndex, int columnIndex, String newValue) {
-        try {
-            FileReader fileReader = new FileReader(file);
-            CSVReader csvReader = new CSVReader(fileReader);
-            List<String[]> csvData = csvReader.readAll();
-
-            if (rowIndex < csvData.size() && columnIndex < csvData.get(rowIndex).length) {
-                csvData.get(rowIndex)[columnIndex] = newValue;
-
-                csvReader.close();
-
-                // Write back the modified content to the CSV file
-                FileWriter fileWriter = new FileWriter(file);
-                CSVWriter csvWriter = new CSVWriter(fileWriter);
-                csvWriter.writeAll(csvData);
-                csvWriter.close();
-            } else {
-                Log.e("ERROR", "Invalid row or column index provided.");
-            }
-        } catch (IOException e) {
-            Log.e("ERROR", "Error modifying value in CSV: " + e.getMessage(), e);
-        }
+    private String getSavedPIN() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("PIN", "1234");
     }
 }
