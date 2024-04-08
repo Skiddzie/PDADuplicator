@@ -1,17 +1,3 @@
-/***********************************************
- * CONFIDENTIAL AND PROPRIETARY
- *
- * The source code and other information contained herein is the confidential and the exclusive property of
- * ZIH Corp. and is subject to the terms and conditions in your end user license agreement.
- * This source code, and any other information contained herein, shall not be copied, reproduced, published,
- * displayed or distributed, in whole or in part, in any medium, by any means, for any purpose except as
- * expressly permitted under such license agreement.
- *
- * Copyright ZIH Corp. 2012
- *
- * ALL RIGHTS RESERVED
- ***********************************************/
-
 package com.zebra.android.devdemo;
 
 import static com.zebra.android.devdemo.storedformat.VariablesScreen.readFieldsFromCSV;
@@ -41,6 +27,7 @@ import android.Manifest;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -53,15 +40,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import au.com.bytecode.opencsv.CSVReader;
 
 public class LoadDevDemo extends ListActivity {
 
@@ -83,6 +65,7 @@ public class LoadDevDemo extends ListActivity {
     private static final int REQUEST_BLUETOOTH_PERMISSION = 0;
 
     final boolean[] showSysOps = {false};
+    private int clickCounter = 0;
     Options options;
 
     /** Called when the activity is first created. */
@@ -113,8 +96,8 @@ public class LoadDevDemo extends ListActivity {
             showSysOps[0] = false; // or any other default value
         }
 
-        createHistoryCsv();
         updateUI();
+        updateListView(showSysOps[0]); // Update list view after updating UI
     }
 
     @Override
@@ -137,101 +120,31 @@ public class LoadDevDemo extends ListActivity {
     }
 
     private void updateUI() {
-        String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
-        Log.e("CSV", filePath);
-        List<FieldDescriptionData> fieldsFromCSV = readFieldsFromCSV(filePath);
-        Log.e("CSV", "updateUI");
-        TextView bottomText = (TextView) findViewById(R.id.bottomText);
-        int[] counter = {0};
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        // Initialize the ListView with the appropriate adapter based on the initial state of showSysOps[0]
-        updateListView(showSysOps[0]);
+        String ipDisplay = sharedPreferences.getString("tcpAddress", "NULL");
+        String portDisplay = sharedPreferences.getString("tcpPortNumber", "NULL");
+        String formatDisplay = sharedPreferences.getString("formatName", "NULL");
 
-        // Set an OnClickListener for bottomText
+        TextView bottomText = findViewById(R.id.bottomText);
+        bottomText.setText("IP: " + ipDisplay + "\n" +"PORT: "+ portDisplay + "\n" + "FORMAT: " +formatDisplay);
         bottomText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counter[0]++;
-                if (counter[0] == 7) {
-                    counter[0] = 0;
+                clickCounter++;
+                if (clickCounter == 7) {
+                    clickCounter = 0;
+                    showSysOps[0] = !showSysOps[0];
+                    updateListView(showSysOps[0]);
                     if (showSysOps[0]) {
-                        showSysOps[0] = false;
-                        updateListView(showSysOps[0]);
-                        Toast.makeText(getApplicationContext(), "System Settings Hidden", Toast.LENGTH_SHORT).show();
-                    } else {
-                        showSysOps[0] = true;
-                        updateListView(showSysOps[0]);
                         Toast.makeText(getApplicationContext(), "System Settings Visible", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "System Settings Hidden", Toast.LENGTH_SHORT).show();
                     }
                 }
-                Log.d("hidden", String.valueOf(showSysOps[0]));
             }
         });
 
-        // Check if there is CSV data available
-        if (!fieldsFromCSV.isEmpty()) {
-            FieldDescriptionData firstRow = fieldsFromCSV.get(0);
-
-            // Read values from the first row
-            String ipDisplay = readValueFromSecondRow(filePath, 0);
-            String portDisplay = readValueFromSecondRow(filePath, 1);
-            String formatDisplay = readValueFromSecondRow(filePath, 2);
-
-            Log.d("CSV", "IP: " + ipDisplay + ", PORT: " + portDisplay + ", FORMAT: " + formatDisplay);
-
-            // Update the TextView with the fetched values
-            bottomText.setText("IP: " + ipDisplay + "\n" +"PORT: "+ portDisplay + "\n" + "FORMAT: " +formatDisplay);
-        } else {
-            Log.d("CSV", "No stored connection data.");
-            bottomText.setText("SEI PDA Duplicator\nNo Format to Display");
-        }
-    }
-
-    private void createHistoryCsv() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String todaysDate = dateFormat.format(new Date());
-        String historyFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history"+todaysDate+".txt";
-        File historyCsvFile = new File(historyFilePath);
-
-        // Check if the "history.txt" file already exists
-        if (!historyCsvFile.exists()) {
-            try {
-                // Create a blank CSV file if it doesn't exist
-                boolean created = historyCsvFile.createNewFile();
-
-                if (created) {
-                    Log.d("CSV", "Blank history.csv created successfully.");
-                } else {
-                    Log.d("CSV", "Failed to create blank history.csv.");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static String readValueFromSecondRow(String filePath, int columnIndex) {
-        String value = null;
-        try {
-            FileReader fileReader = new FileReader(filePath);
-            CSVReader csvReader = new CSVReader(fileReader);
-
-            // Skip the first row
-            csvReader.readNext();
-
-            // Read the second row
-            String[] secondRow = csvReader.readNext();
-
-            // Check if the column index is valid
-            if (secondRow != null && columnIndex >= 0 && columnIndex < secondRow.length) {
-                value = secondRow[columnIndex];
-            }
-
-            csvReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return value;
     }
 
     @Override
@@ -244,9 +157,9 @@ public class LoadDevDemo extends ListActivity {
         // Proceed with the intent based on the selected item
         switch (position) {
             case SNDFILE_ID:
-                String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
-                String ipDisplay = readValueFromSecondRow(filePath, 0);
-                if (ipDisplay != null) {
+                SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                String ipDisplay = sharedPreferences.getString("ip", "");
+                if (!ipDisplay.isEmpty()) {
                     intent = new Intent(this, DisplayFieldsActivity.class);
                     startActivity(intent);
                 } else {
@@ -271,9 +184,6 @@ public class LoadDevDemo extends ListActivity {
                 intent = new Intent(this, FromPhone.class);
                 startActivity(intent);
                 break;
-//            case CONNECTIONBUILDER_ID:
-//                intent = new Intent(this, ConnectionBuilderDemo.class);
-//                break;
             default:
                 return; // not possible
         }
@@ -296,7 +206,8 @@ public class LoadDevDemo extends ListActivity {
         } else {
             // Exclude CONNECT_ID and PIN_ID from the items list
             items = new String[] {
-                    "Duplicate"
+                    "Duplicate",
+                    "Printer Setup"
             };
         }
 
