@@ -18,8 +18,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
+//import java.io.FileReader;
+//import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -244,17 +244,17 @@ public class StoredFormatScreen extends ListActivity {
         }
     }
 
-    private File createTempFile(String fileData) throws IOException {
-        // Create a temporary file
-        File tempFile = File.createTempFile("temp_file_", ".tmp", getCacheDir());
-
-        // Write file data to the temporary file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
-            writer.write(fileData);
-        }
-
-        return tempFile;
-    }
+//    private File createTempFile(String fileData) throws IOException {
+//        // Create a temporary file
+//        File tempFile = File.createTempFile("temp_file_", ".tmp", getCacheDir());
+//
+//        // Write file data to the temporary file
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+//            writer.write(fileData);
+//        }
+//
+//        return tempFile;
+//    }
 
 
     private String getPathFromURI(Uri uri) {
