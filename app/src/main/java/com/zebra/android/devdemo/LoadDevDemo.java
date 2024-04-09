@@ -161,7 +161,7 @@ public class LoadDevDemo extends ListActivity {
         switch (position) {
             case SNDFILE_ID:
                 SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                String ipDisplay = sharedPreferences.getString("ip", "");
+                String ipDisplay = sharedPreferences.getString("tcpAddress", "");
                 if (!ipDisplay.isEmpty()) {
                     intent = new Intent(this, DisplayFieldsActivity.class);
                     startActivity(intent);
