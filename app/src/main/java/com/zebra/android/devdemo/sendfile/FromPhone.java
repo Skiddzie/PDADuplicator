@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.os.FileObserver;
 import android.os.Looper;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -29,6 +30,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 import com.zebra.android.devdemo.LoadDevDemo;
 import com.zebra.android.devdemo.R;
@@ -103,11 +105,17 @@ public class FromPhone extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send_format);
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+        String storedTcpAddress = sharedPreferences.getString("tcpAddress", "defaultTcpAddress");
+        String storedTcpPortNumber = sharedPreferences.getString("tcpPortNumber", "defaultTcpPortNumber");
+        String storedMacAddress = sharedPreferences.getString("macAddress", "defaultMacAddress");
+
         Log.d("crashlooker", "FromPhone load");
         // Read CSV values once during onCreate
-        readCsvFile();
-        // Initialize CSV values
-        initializeCsvValues();
+//        readCsvFile();
+//        // Initialize CSV values
+//        initializeCsvValues();
 
 
 
@@ -318,21 +326,12 @@ public class FromPhone extends Activity {
         tcpPort = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 1);
         formatName = readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2);
 
-        // Log the values for debugging
-//        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 0));
-//        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 1));
-//        Log.d("file", readCsvValue(getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt", 1, 2));
-//
-//
-//        Log.d("CSV", "TCP Address: " + tcpAddress);
-//        Log.d("CSV", "TCP Port: " + tcpPort);
-//        Log.d("CSV", "Format Name: " + formatName);
     }
 
     private void transferFileToComputer() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String todaysDate = dateFormat.format(new Date());
-        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history" + todaysDate + ".txt";
+//        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history" + todaysDate + ".txt";
 
         File sourceFile = new File(csvFilePath);
 
@@ -385,57 +384,6 @@ public class FromPhone extends Activity {
 
         Log.d("switch", "switching from DisplayFieldsActivity.java");
     }
-
-    // AsyncTask for retrieving variables
-//    private class GetVariablesTask extends AsyncTask<Void, Void, Void> {
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            try {
-//                connection = getPrinterConnection();
-//                if (connection != null) {
-//                    connection.open();
-//                    // Log connection details for debugging
-//                    Log.d("CONNECTION", "Connected: " + connection.isConnected());
-//                    Log.d("CONNECTION", "Type: " + connection.getClass().getSimpleName());
-//
-//                    getVariables("^XA^DFE:A.ZPL^FS\n" +
-//                            "\n" +
-//                            "~SD20\n" +
-//                            "\n" +
-//                            "^BY2,3,\n" +
-//                            "\n" +
-//                            "^FO60,20\n" +
-//                            "\n" +
-//                            "^BC,140,N,N,N,^FN1^FS\n" +
-//                            "^FO85,170\n" +
-//                            "^A0N,30,50^FN1^FS\n" +
-//                            "^XZ\n" +
-//                            "\n" +
-//                            "^XA^XFE:A.ZPL^FS\n" +
-//                            "^FN1^FD1234567890^FS\n" +
-//                            "\n" +
-//                            "^PQ1^XZ\n");
-//                }
-//            } catch (ConnectionException e) {
-//                Log.e("ERROR", "Error in connection: " + e.getMessage(), e);
-//                // Handle ConnectionException (e.g., show an error message)
-//            } finally {
-//                if (connection != null) {
-//                    try {
-//                        connection.close();
-//                    } catch (ConnectionException e) {
-//                        Log.e("ERROR", "Error closing connection: " + e.getMessage(), e);
-//                    }
-//                }
-//            }
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void aVoid) {
-//            // Update UI if needed after retrieving variables
-//        }
-//    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
