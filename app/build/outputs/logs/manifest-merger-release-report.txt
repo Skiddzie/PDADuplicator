@@ -101,10 +101,6 @@ uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:23:5-80
 	android:name
 		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:23:22-77
-uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
-ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:24:5-81
-	android:name
-		ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:24:22-79
 uses-permission#android.permission.NFC
 ADDED from C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:25:5-62
 	android:name

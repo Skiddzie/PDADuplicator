@@ -50,9 +50,7 @@
 23    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 23-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:23:5-80
 23-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:23:22-77
-24    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-24-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:24:5-81
-24-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:24:22-79
+24    <!-- <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/> -->
 25    <uses-permission android:name="android.permission.NFC" />
 25-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:25:5-62
 25-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:25:22-59
@@ -114,449 +112,448 @@
 54        android:extractNativeLibs="false"
 55        android:icon="@drawable/icon"
 55-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:34:9-38
-56        android:label="@string/app_name"
+56        android:label="@string/app_name" >
 56-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:35:9-41
-57        android:testOnly="true" >
-58        <activity
-58-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:38:9-48:20
-59            android:name="com.zebra.android.devdemo.LoadDevDemo"
-59-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:39:13-65
-60            android:exported="true"
-60-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:42:13-36
-61            android:label="@string/app_name"
-61-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:40:13-45
-62            android:screenOrientation="portrait" >
-62-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:41:13-49
-63            <intent-filter>
-63-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:43:13-47:29
-64                <action android:name="android.intent.action.MAIN" />
-64-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:44:17-69
-64-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:44:25-66
-65
-66                <category android:name="android.intent.category.LAUNCHER" />
-66-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:46:17-77
-66-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:46:27-74
-67            </intent-filter>
-68        </activity>
-69        <activity
-69-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:49:9-54:55
-70            android:name="com.zebra.android.devdemo.discovery.DiscoveryDemo"
-70-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:50:13-77
-71            android:configChanges="keyboardHidden|orientation"
-71-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:51:13-63
-72            android:label="Discovery Demo"
-72-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:52:13-43
-73            android:screenOrientation="portrait"
-73-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:53:13-49
-74            android:windowSoftInputMode="adjustPan" />
-74-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:54:13-52
-75        <activity
-75-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:55:9-60:55
-76            android:name="com.zebra.android.devdemo.discovery.BluetoothDiscovery"
-76-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:56:13-82
-77            android:configChanges="keyboardHidden|orientation"
-77-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:57:13-63
-78            android:label="Discovered Printers"
-78-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:58:13-48
-79            android:screenOrientation="portrait"
-79-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:59:13-49
-80            android:windowSoftInputMode="adjustPan" />
-80-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:60:13-52
-81        <activity
-81-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:61:9-66:55
-82            android:name="com.zebra.android.devdemo.discovery.MulticastDiscoveryResultList"
-82-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:62:13-92
-83            android:configChanges="keyboardHidden|orientation"
-83-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:63:13-63
-84            android:label="Discovered Printers"
-84-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:64:13-48
-85            android:screenOrientation="portrait"
-85-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:65:13-49
-86            android:windowSoftInputMode="adjustPan" />
-86-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:66:13-52
-87        <activity
-87-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:67:9-72:55
-88            android:name="com.zebra.android.devdemo.discovery.DirectedBroadcastResultList"
-88-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:68:13-91
-89            android:configChanges="keyboardHidden|orientation"
-89-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:69:13-63
-90            android:label="Discovered Printers"
-90-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:70:13-48
-91            android:screenOrientation="portrait"
-91-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:71:13-49
-92            android:windowSoftInputMode="adjustPan" />
-92-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:72:13-52
-93        <activity
-93-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:73:9-78:55
-94            android:name="com.zebra.android.devdemo.sendfile.FromPhone"
-94-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:74:13-72
-95            android:configChanges="keyboardHidden|orientation"
-95-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:75:13-63
-96            android:label="Send To Printer"
-96-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:76:13-44
-97            android:screenOrientation="portrait"
-97-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:77:13-49
-98            android:windowSoftInputMode="adjustPan" />
-98-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:78:13-52
-99        <activity
-99-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:79:9-84:55
-100            android:name="com.zebra.android.devdemo.discovery.DirectedBroadcastParameters"
-100-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:80:13-91
-101            android:configChanges="keyboardHidden|orientation"
-101-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:81:13-63
-102            android:label="Directed Broadcast Parameters"
-102-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:82:13-58
-103            android:screenOrientation="portrait"
-103-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:83:13-49
-104            android:windowSoftInputMode="adjustPan" />
-104-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:84:13-52
-105        <activity
-105-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:85:9-90:55
-106            android:name="com.zebra.android.devdemo.discovery.SubnetSearchResultList"
-106-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:86:13-86
-107            android:configChanges="keyboardHidden|orientation"
-107-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:87:13-63
-108            android:label="Discovered Printers"
-108-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:88:13-48
-109            android:screenOrientation="portrait"
-109-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:89:13-49
-110            android:windowSoftInputMode="adjustPan" />
-110-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:90:13-52
-111        <activity
-111-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:91:9-96:55
-112            android:name="com.zebra.android.devdemo.discovery.SubnetSearchParameters"
-112-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:92:13-86
-113            android:configChanges="keyboardHidden|orientation"
-113-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:93:13-63
-114            android:label="Subnet Search Parameters"
-114-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:94:13-53
-115            android:screenOrientation="portrait"
-115-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:95:13-49
-116            android:windowSoftInputMode="adjustPan" />
-116-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:96:13-52
-117        <activity
-117-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:97:9-102:55
-118            android:name="com.zebra.android.devdemo.discovery.LocalBroadcastDiscoveryResultList"
-118-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:98:13-97
-119            android:configChanges="keyboardHidden|orientation"
-119-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:99:13-63
-120            android:label="Discovered Printers"
-120-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:100:13-48
-121            android:screenOrientation="portrait"
-121-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:101:13-49
-122            android:windowSoftInputMode="adjustPan" />
-122-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:102:13-52
-123        <activity
-123-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:103:9-108:55
-124            android:name="com.zebra.android.devdemo.discovery.FindPrintersDiscoveryResultList"
-124-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:104:13-95
-125            android:configChanges="keyboardHidden|orientation"
-125-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:105:13-63
-126            android:label="Discovered Printers"
-126-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:106:13-48
-127            android:screenOrientation="portrait"
-127-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:107:13-49
-128            android:windowSoftInputMode="adjustPan" />
-128-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:108:13-52
-129        <activity
-129-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:109:9-114:55
-130            android:name="com.zebra.android.devdemo.discovery.MulticastDiscoveryParameters"
-130-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:110:13-92
-131            android:configChanges="keyboardHidden|orientation"
-131-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:111:13-63
-132            android:label="Multicast Parameters"
-132-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:112:13-49
-133            android:screenOrientation="portrait"
-133-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:113:13-49
-134            android:windowSoftInputMode="adjustPan" />
-134-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:114:13-52
-135        <activity
-135-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:115:9-120:55
-136            android:name="com.zebra.android.devdemo.imageprint.ImagePrintDemo"
-136-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:116:13-79
-137            android:configChanges="keyboardHidden|orientation"
-137-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:117:13-63
-138            android:label="Image Print Demo"
-138-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:118:13-45
-139            android:screenOrientation="portrait"
-139-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:119:13-49
-140            android:windowSoftInputMode="adjustPan" />
-140-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:120:13-52
-141        <activity
-141-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:121:9-126:55
-142            android:name="com.zebra.android.devdemo.magcard.MagCardDemo"
-142-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:122:13-73
-143            android:configChanges="keyboardHidden|orientation"
-143-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:123:13-63
-144            android:label="Mag Card Demo"
-144-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:124:13-42
-145            android:screenOrientation="portrait"
-145-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:125:13-49
-146            android:windowSoftInputMode="adjustPan" />
-146-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:126:13-52
-147        <activity
-147-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:127:9-132:55
-148            android:name="com.zebra.android.devdemo.status.PrintStatusDemo"
-148-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:128:13-76
-149            android:configChanges="keyboardHidden|orientation"
-149-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:129:13-63
-150            android:label="Printer Status Demo"
-150-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:130:13-48
-151            android:screenOrientation="portrait"
-151-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:131:13-49
-152            android:windowSoftInputMode="adjustPan" />
-152-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:132:13-52
-153        <activity
-153-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:133:9-138:55
-154            android:name="com.zebra.android.devdemo.smartcard.SmartCardDemo"
-154-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:134:13-77
-155            android:configChanges="keyboardHidden|orientation"
-155-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:135:13-63
-156            android:label="Smart Card Demo"
-156-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:136:13-44
-157            android:screenOrientation="portrait"
-157-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:137:13-49
-158            android:windowSoftInputMode="adjustPan" />
-158-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:138:13-52
-159        <activity
-159-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:139:9-144:55
-160            android:name="com.zebra.android.devdemo.sigcapture.SigCaptureDemo"
-160-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:140:13-79
-161            android:configChanges="keyboardHidden|orientation"
-161-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:141:13-63
-162            android:label="Signature Capture Demo"
-162-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:142:13-51
-163            android:screenOrientation="portrait"
-163-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:143:13-49
-164            android:windowSoftInputMode="adjustPan" />
-164-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:144:13-52
-165        <activity
-165-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:145:9-150:55
-166            android:name="com.zebra.android.devdemo.storedformat.DisplayFieldsActivity"
-166-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:146:13-88
-167            android:configChanges="keyboardHidden|orientation"
-167-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:147:13-63
-168            android:label="Duplicate Barcode"
-168-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:148:13-46
-169            android:screenOrientation="portrait"
-169-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:149:13-49
-170            android:windowSoftInputMode="adjustPan" />
-170-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:150:13-52
-171        <activity
-171-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:151:9-156:55
-172            android:name="com.zebra.android.devdemo.storedformat.StoredFormatScreen"
-172-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:152:13-85
-173            android:configChanges="keyboardHidden|orientation"
-173-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:153:13-63
-174            android:label="Select Format"
-174-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:154:13-42
-175            android:screenOrientation="portrait"
-175-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:155:13-49
-176            android:windowSoftInputMode="adjustPan" />
-176-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:156:13-52
-177        <activity
-177-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:157:9-161:55
-178            android:name="com.zebra.android.devdemo.storedformat.StoredFormatDemo"
-178-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:158:13-83
-179            android:configChanges="keyboardHidden|orientation"
-179-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:159:13-63
-180            android:screenOrientation="portrait"
-180-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:160:13-49
-181            android:windowSoftInputMode="adjustPan" />
-181-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:161:13-52
-182        <activity
-182-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:162:9-166:55
-183            android:name="com.zebra.android.devdemo.storedformat.VariablesScreen"
-183-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:163:13-82
-184            android:configChanges="keyboardHidden|orientation"
-184-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:164:13-63
-185            android:screenOrientation="portrait"
-185-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:165:13-49
-186            android:windowSoftInputMode="adjustPan" />
-186-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:166:13-52
-187        <activity
-187-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:167:9-172:55
-188            android:name="com.zebra.android.devdemo.connectivity.ConnectivityDemo"
-188-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:168:13-83
-189            android:configChanges="keyboardHidden|orientation"
-189-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:169:13-63
-190            android:label="Connect To Printer"
-190-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:170:13-47
-191            android:screenOrientation="portrait"
-191-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:171:13-49
-192            android:windowSoftInputMode="adjustPan" />
-192-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:172:13-52
-193        <activity
-193-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:173:9-178:55
-194            android:name="com.zebra.android.devdemo.status.PrinterStatusScreen"
-194-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:174:13-80
-195            android:configChanges="keyboardHidden|orientation"
-195-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:175:13-63
-196            android:label="Status Messages"
-196-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:176:13-44
-197            android:screenOrientation="portrait"
-197-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:177:13-49
-198            android:windowSoftInputMode="adjustPan" />
-198-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:178:13-52
-199        <activity
-199-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:179:9-184:55
-200            android:name="com.zebra.android.devdemo.listformats.ListFormatsScreen"
-200-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:180:13-83
-201            android:configChanges="keyboardHidden|orientation"
-201-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:181:13-63
-202            android:label="List Formats Demo"
-202-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:182:13-46
-203            android:screenOrientation="portrait"
-203-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:183:13-49
-204            android:windowSoftInputMode="adjustPan" />
-204-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:184:13-52
-205        <activity
-205-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:185:9-189:55
-206            android:name="com.zebra.android.devdemo.listformats.ListFormatsDemo"
-206-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:186:13-81
-207            android:configChanges="keyboardHidden|orientation"
-207-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:187:13-63
-208            android:screenOrientation="portrait"
-208-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:188:13-49
-209            android:windowSoftInputMode="adjustPan" />
-209-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:189:13-52
-210        <activity
-210-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:190:9-195:55
-211            android:name="com.zebra.android.devdemo.statuschannel.StatusChannelDemo"
-211-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:191:13-85
-212            android:configChanges="keyboardHidden|orientation"
-212-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:192:13-63
-213            android:label="Status Channel"
-213-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:193:13-43
-214            android:screenOrientation="portrait"
-214-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:194:13-49
-215            android:windowSoftInputMode="adjustPan" />
-215-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:195:13-52
-216        <activity
-216-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:196:9-201:55
-217            android:name="com.zebra.android.devdemo.statuschannel.StatusChannelScreen"
-217-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:197:13-87
-218            android:configChanges="keyboardHidden|orientation"
-218-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:198:13-63
-219            android:label="Status Channel View"
-219-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:199:13-48
-220            android:screenOrientation="portrait"
-220-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:200:13-49
-221            android:windowSoftInputMode="adjustPan" />
-221-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:201:13-52
-222        <activity
-222-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:202:9-207:55
-223            android:name="com.zebra.android.devdemo.multichannel.MultiChannelDemo"
-223-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:203:13-83
-224            android:configChanges="keyboardHidden|orientation"
-224-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:204:13-63
-225            android:label="Multichannel"
-225-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:205:13-41
-226            android:screenOrientation="portrait"
-226-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:206:13-49
-227            android:windowSoftInputMode="adjustPan" />
-227-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:207:13-52
-228        <activity
-228-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:208:9-213:55
-229            android:name="com.zebra.android.devdemo.multichannel.MultiChannelScreen"
-229-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:209:13-85
-230            android:configChanges="keyboardHidden|orientation"
-230-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:210:13-63
-231            android:label="Multichannel View"
-231-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:211:13-46
-232            android:screenOrientation="portrait"
-232-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:212:13-49
-233            android:windowSoftInputMode="adjustPan" />
-233-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:213:13-52
-234        <activity
-234-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:214:9-219:55
-235            android:name="com.zebra.android.devdemo.connectionbuilder.ConnectionBuilderDemo"
-235-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:215:13-93
-236            android:configChanges="keyboardHidden|orientation"
-236-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:216:13-63
-237            android:label="Connection Builder Demo"
-237-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:217:13-52
-238            android:screenOrientation="portrait"
-238-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:218:13-49
-239            android:windowSoftInputMode="adjustPan" />
-239-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:219:13-52
-240        <activity
-240-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:220:9-225:55
-241            android:name="com.zebra.android.devdemo.receipt.ReceiptDemo"
-241-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:221:13-73
-242            android:configChanges="keyboardHidden|orientation"
-242-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:222:13-63
-243            android:label="Receipt Demo"
-243-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:223:13-41
-244            android:screenOrientation="portrait"
-244-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:224:13-49
-245            android:windowSoftInputMode="adjustPan" />
-245-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:225:13-52
-246        <activity
-246-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:226:9-231:55
-247            android:name="com.zebra.android.devdemo.ChangePIN.ChangePIN"
-247-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:227:13-73
-248            android:configChanges="keyboardHidden|orientation"
-248-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:228:13-63
-249            android:label="Change PIN"
-249-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:229:13-39
-250            android:screenOrientation="portrait"
-250-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:230:13-49
-251            android:windowSoftInputMode="adjustPan" />
-251-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:231:13-52
-252        <activity
-252-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:232:9-237:45
-253            android:name="com.zebra.android.devdemo.util.Options"
-253-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:233:13-66
-254            android:label="Options"
-254-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:234:13-36
-255            android:screenOrientation="portrait"
-255-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:235:13-49
-256            android:windowSoftInputMode="adjustPan" />
-256-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:236:13-52
-257        <activity
-257-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:238:9-243:45
-258            android:name="com.zebra.android.devdemo.sendfile.SendFileDemo"
-258-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:239:13-75
-259            android:label="From Phone"
-259-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:240:13-39
-260            android:screenOrientation="portrait"
-260-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:241:13-49
-261            android:windowSoftInputMode="adjustPan" />
-261-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:242:13-52
-262        <activity
-262-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:244:9-253:20
-263            android:name="com.zebra.android.devdemo.storedformat.CustomScannerActivity"
-263-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:245:13-88
-264            android:exported="true"
-264-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:247:13-36
-265            android:label="@string/app_name" >
-265-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:246:13-45
-266            <intent-filter>
-266-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:248:13-252:29
-267                <action android:name="android.intent.action.MAIN" />
-267-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:44:17-69
-267-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:44:25-66
-268                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-268-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:250:17-77
-268-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:250:25-74
-269                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-270            </intent-filter>
-271        </activity>
-272        <activity
-272-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
-273            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-273-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:48:13-74
-274            android:clearTaskOnLaunch="true"
-274-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:49:13-45
-275            android:screenOrientation="sensorLandscape"
-275-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:50:13-56
-276            android:stateNotNeeded="true"
-276-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:51:13-42
-277            android:theme="@style/zxing_CaptureTheme"
-277-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:52:13-54
-278            android:windowSoftInputMode="stateAlwaysHidden" />
-278-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:53:13-60
-279    </application>
-280
-281</manifest>
+57        <activity
+57-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:38:9-48:20
+58            android:name="com.zebra.android.devdemo.LoadDevDemo"
+58-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:39:13-65
+59            android:exported="true"
+59-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:42:13-36
+60            android:label="@string/app_name"
+60-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:40:13-45
+61            android:screenOrientation="portrait" >
+61-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:41:13-49
+62            <intent-filter>
+62-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:43:13-47:29
+63                <action android:name="android.intent.action.MAIN" />
+63-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:44:17-69
+63-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:44:25-66
+64
+65                <category android:name="android.intent.category.LAUNCHER" />
+65-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:46:17-77
+65-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:46:27-74
+66            </intent-filter>
+67        </activity>
+68        <activity
+68-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:49:9-54:55
+69            android:name="com.zebra.android.devdemo.discovery.DiscoveryDemo"
+69-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:50:13-77
+70            android:configChanges="keyboardHidden|orientation"
+70-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:51:13-63
+71            android:label="Discovery Demo"
+71-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:52:13-43
+72            android:screenOrientation="portrait"
+72-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:53:13-49
+73            android:windowSoftInputMode="adjustPan" />
+73-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:54:13-52
+74        <activity
+74-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:55:9-60:55
+75            android:name="com.zebra.android.devdemo.discovery.BluetoothDiscovery"
+75-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:56:13-82
+76            android:configChanges="keyboardHidden|orientation"
+76-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:57:13-63
+77            android:label="Discovered Printers"
+77-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:58:13-48
+78            android:screenOrientation="portrait"
+78-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:59:13-49
+79            android:windowSoftInputMode="adjustPan" />
+79-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:60:13-52
+80        <activity
+80-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:61:9-66:55
+81            android:name="com.zebra.android.devdemo.discovery.MulticastDiscoveryResultList"
+81-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:62:13-92
+82            android:configChanges="keyboardHidden|orientation"
+82-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:63:13-63
+83            android:label="Discovered Printers"
+83-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:64:13-48
+84            android:screenOrientation="portrait"
+84-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:65:13-49
+85            android:windowSoftInputMode="adjustPan" />
+85-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:66:13-52
+86        <activity
+86-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:67:9-72:55
+87            android:name="com.zebra.android.devdemo.discovery.DirectedBroadcastResultList"
+87-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:68:13-91
+88            android:configChanges="keyboardHidden|orientation"
+88-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:69:13-63
+89            android:label="Discovered Printers"
+89-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:70:13-48
+90            android:screenOrientation="portrait"
+90-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:71:13-49
+91            android:windowSoftInputMode="adjustPan" />
+91-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:72:13-52
+92        <activity
+92-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:73:9-78:55
+93            android:name="com.zebra.android.devdemo.sendfile.FromPhone"
+93-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:74:13-72
+94            android:configChanges="keyboardHidden|orientation"
+94-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:75:13-63
+95            android:label="Send To Printer"
+95-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:76:13-44
+96            android:screenOrientation="portrait"
+96-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:77:13-49
+97            android:windowSoftInputMode="adjustPan" />
+97-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:78:13-52
+98        <activity
+98-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:79:9-84:55
+99            android:name="com.zebra.android.devdemo.discovery.DirectedBroadcastParameters"
+99-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:80:13-91
+100            android:configChanges="keyboardHidden|orientation"
+100-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:81:13-63
+101            android:label="Directed Broadcast Parameters"
+101-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:82:13-58
+102            android:screenOrientation="portrait"
+102-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:83:13-49
+103            android:windowSoftInputMode="adjustPan" />
+103-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:84:13-52
+104        <activity
+104-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:85:9-90:55
+105            android:name="com.zebra.android.devdemo.discovery.SubnetSearchResultList"
+105-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:86:13-86
+106            android:configChanges="keyboardHidden|orientation"
+106-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:87:13-63
+107            android:label="Discovered Printers"
+107-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:88:13-48
+108            android:screenOrientation="portrait"
+108-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:89:13-49
+109            android:windowSoftInputMode="adjustPan" />
+109-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:90:13-52
+110        <activity
+110-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:91:9-96:55
+111            android:name="com.zebra.android.devdemo.discovery.SubnetSearchParameters"
+111-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:92:13-86
+112            android:configChanges="keyboardHidden|orientation"
+112-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:93:13-63
+113            android:label="Subnet Search Parameters"
+113-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:94:13-53
+114            android:screenOrientation="portrait"
+114-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:95:13-49
+115            android:windowSoftInputMode="adjustPan" />
+115-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:96:13-52
+116        <activity
+116-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:97:9-102:55
+117            android:name="com.zebra.android.devdemo.discovery.LocalBroadcastDiscoveryResultList"
+117-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:98:13-97
+118            android:configChanges="keyboardHidden|orientation"
+118-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:99:13-63
+119            android:label="Discovered Printers"
+119-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:100:13-48
+120            android:screenOrientation="portrait"
+120-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:101:13-49
+121            android:windowSoftInputMode="adjustPan" />
+121-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:102:13-52
+122        <activity
+122-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:103:9-108:55
+123            android:name="com.zebra.android.devdemo.discovery.FindPrintersDiscoveryResultList"
+123-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:104:13-95
+124            android:configChanges="keyboardHidden|orientation"
+124-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:105:13-63
+125            android:label="Discovered Printers"
+125-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:106:13-48
+126            android:screenOrientation="portrait"
+126-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:107:13-49
+127            android:windowSoftInputMode="adjustPan" />
+127-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:108:13-52
+128        <activity
+128-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:109:9-114:55
+129            android:name="com.zebra.android.devdemo.discovery.MulticastDiscoveryParameters"
+129-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:110:13-92
+130            android:configChanges="keyboardHidden|orientation"
+130-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:111:13-63
+131            android:label="Multicast Parameters"
+131-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:112:13-49
+132            android:screenOrientation="portrait"
+132-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:113:13-49
+133            android:windowSoftInputMode="adjustPan" />
+133-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:114:13-52
+134        <activity
+134-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:115:9-120:55
+135            android:name="com.zebra.android.devdemo.imageprint.ImagePrintDemo"
+135-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:116:13-79
+136            android:configChanges="keyboardHidden|orientation"
+136-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:117:13-63
+137            android:label="Image Print Demo"
+137-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:118:13-45
+138            android:screenOrientation="portrait"
+138-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:119:13-49
+139            android:windowSoftInputMode="adjustPan" />
+139-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:120:13-52
+140        <activity
+140-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:121:9-126:55
+141            android:name="com.zebra.android.devdemo.magcard.MagCardDemo"
+141-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:122:13-73
+142            android:configChanges="keyboardHidden|orientation"
+142-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:123:13-63
+143            android:label="Mag Card Demo"
+143-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:124:13-42
+144            android:screenOrientation="portrait"
+144-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:125:13-49
+145            android:windowSoftInputMode="adjustPan" />
+145-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:126:13-52
+146        <activity
+146-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:127:9-132:55
+147            android:name="com.zebra.android.devdemo.status.PrintStatusDemo"
+147-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:128:13-76
+148            android:configChanges="keyboardHidden|orientation"
+148-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:129:13-63
+149            android:label="Printer Status Demo"
+149-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:130:13-48
+150            android:screenOrientation="portrait"
+150-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:131:13-49
+151            android:windowSoftInputMode="adjustPan" />
+151-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:132:13-52
+152        <activity
+152-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:133:9-138:55
+153            android:name="com.zebra.android.devdemo.smartcard.SmartCardDemo"
+153-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:134:13-77
+154            android:configChanges="keyboardHidden|orientation"
+154-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:135:13-63
+155            android:label="Smart Card Demo"
+155-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:136:13-44
+156            android:screenOrientation="portrait"
+156-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:137:13-49
+157            android:windowSoftInputMode="adjustPan" />
+157-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:138:13-52
+158        <activity
+158-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:139:9-144:55
+159            android:name="com.zebra.android.devdemo.sigcapture.SigCaptureDemo"
+159-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:140:13-79
+160            android:configChanges="keyboardHidden|orientation"
+160-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:141:13-63
+161            android:label="Signature Capture Demo"
+161-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:142:13-51
+162            android:screenOrientation="portrait"
+162-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:143:13-49
+163            android:windowSoftInputMode="adjustPan" />
+163-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:144:13-52
+164        <activity
+164-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:145:9-150:55
+165            android:name="com.zebra.android.devdemo.storedformat.DisplayFieldsActivity"
+165-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:146:13-88
+166            android:configChanges="keyboardHidden|orientation"
+166-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:147:13-63
+167            android:label="Duplicate Barcode"
+167-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:148:13-46
+168            android:screenOrientation="portrait"
+168-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:149:13-49
+169            android:windowSoftInputMode="adjustPan" />
+169-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:150:13-52
+170        <activity
+170-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:151:9-156:55
+171            android:name="com.zebra.android.devdemo.storedformat.StoredFormatScreen"
+171-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:152:13-85
+172            android:configChanges="keyboardHidden|orientation"
+172-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:153:13-63
+173            android:label="Select Format"
+173-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:154:13-42
+174            android:screenOrientation="portrait"
+174-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:155:13-49
+175            android:windowSoftInputMode="adjustPan" />
+175-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:156:13-52
+176        <activity
+176-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:157:9-161:55
+177            android:name="com.zebra.android.devdemo.storedformat.StoredFormatDemo"
+177-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:158:13-83
+178            android:configChanges="keyboardHidden|orientation"
+178-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:159:13-63
+179            android:screenOrientation="portrait"
+179-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:160:13-49
+180            android:windowSoftInputMode="adjustPan" />
+180-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:161:13-52
+181        <activity
+181-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:162:9-166:55
+182            android:name="com.zebra.android.devdemo.storedformat.VariablesScreen"
+182-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:163:13-82
+183            android:configChanges="keyboardHidden|orientation"
+183-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:164:13-63
+184            android:screenOrientation="portrait"
+184-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:165:13-49
+185            android:windowSoftInputMode="adjustPan" />
+185-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:166:13-52
+186        <activity
+186-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:167:9-172:55
+187            android:name="com.zebra.android.devdemo.connectivity.ConnectivityDemo"
+187-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:168:13-83
+188            android:configChanges="keyboardHidden|orientation"
+188-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:169:13-63
+189            android:label="Connect To Printer"
+189-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:170:13-47
+190            android:screenOrientation="portrait"
+190-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:171:13-49
+191            android:windowSoftInputMode="adjustPan" />
+191-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:172:13-52
+192        <activity
+192-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:173:9-178:55
+193            android:name="com.zebra.android.devdemo.status.PrinterStatusScreen"
+193-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:174:13-80
+194            android:configChanges="keyboardHidden|orientation"
+194-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:175:13-63
+195            android:label="Status Messages"
+195-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:176:13-44
+196            android:screenOrientation="portrait"
+196-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:177:13-49
+197            android:windowSoftInputMode="adjustPan" />
+197-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:178:13-52
+198        <activity
+198-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:179:9-184:55
+199            android:name="com.zebra.android.devdemo.listformats.ListFormatsScreen"
+199-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:180:13-83
+200            android:configChanges="keyboardHidden|orientation"
+200-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:181:13-63
+201            android:label="List Formats Demo"
+201-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:182:13-46
+202            android:screenOrientation="portrait"
+202-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:183:13-49
+203            android:windowSoftInputMode="adjustPan" />
+203-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:184:13-52
+204        <activity
+204-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:185:9-189:55
+205            android:name="com.zebra.android.devdemo.listformats.ListFormatsDemo"
+205-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:186:13-81
+206            android:configChanges="keyboardHidden|orientation"
+206-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:187:13-63
+207            android:screenOrientation="portrait"
+207-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:188:13-49
+208            android:windowSoftInputMode="adjustPan" />
+208-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:189:13-52
+209        <activity
+209-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:190:9-195:55
+210            android:name="com.zebra.android.devdemo.statuschannel.StatusChannelDemo"
+210-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:191:13-85
+211            android:configChanges="keyboardHidden|orientation"
+211-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:192:13-63
+212            android:label="Status Channel"
+212-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:193:13-43
+213            android:screenOrientation="portrait"
+213-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:194:13-49
+214            android:windowSoftInputMode="adjustPan" />
+214-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:195:13-52
+215        <activity
+215-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:196:9-201:55
+216            android:name="com.zebra.android.devdemo.statuschannel.StatusChannelScreen"
+216-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:197:13-87
+217            android:configChanges="keyboardHidden|orientation"
+217-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:198:13-63
+218            android:label="Status Channel View"
+218-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:199:13-48
+219            android:screenOrientation="portrait"
+219-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:200:13-49
+220            android:windowSoftInputMode="adjustPan" />
+220-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:201:13-52
+221        <activity
+221-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:202:9-207:55
+222            android:name="com.zebra.android.devdemo.multichannel.MultiChannelDemo"
+222-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:203:13-83
+223            android:configChanges="keyboardHidden|orientation"
+223-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:204:13-63
+224            android:label="Multichannel"
+224-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:205:13-41
+225            android:screenOrientation="portrait"
+225-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:206:13-49
+226            android:windowSoftInputMode="adjustPan" />
+226-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:207:13-52
+227        <activity
+227-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:208:9-213:55
+228            android:name="com.zebra.android.devdemo.multichannel.MultiChannelScreen"
+228-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:209:13-85
+229            android:configChanges="keyboardHidden|orientation"
+229-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:210:13-63
+230            android:label="Multichannel View"
+230-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:211:13-46
+231            android:screenOrientation="portrait"
+231-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:212:13-49
+232            android:windowSoftInputMode="adjustPan" />
+232-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:213:13-52
+233        <activity
+233-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:214:9-219:55
+234            android:name="com.zebra.android.devdemo.connectionbuilder.ConnectionBuilderDemo"
+234-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:215:13-93
+235            android:configChanges="keyboardHidden|orientation"
+235-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:216:13-63
+236            android:label="Connection Builder Demo"
+236-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:217:13-52
+237            android:screenOrientation="portrait"
+237-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:218:13-49
+238            android:windowSoftInputMode="adjustPan" />
+238-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:219:13-52
+239        <activity
+239-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:220:9-225:55
+240            android:name="com.zebra.android.devdemo.receipt.ReceiptDemo"
+240-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:221:13-73
+241            android:configChanges="keyboardHidden|orientation"
+241-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:222:13-63
+242            android:label="Receipt Demo"
+242-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:223:13-41
+243            android:screenOrientation="portrait"
+243-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:224:13-49
+244            android:windowSoftInputMode="adjustPan" />
+244-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:225:13-52
+245        <activity
+245-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:226:9-231:55
+246            android:name="com.zebra.android.devdemo.ChangePIN.ChangePIN"
+246-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:227:13-73
+247            android:configChanges="keyboardHidden|orientation"
+247-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:228:13-63
+248            android:label="Change PIN"
+248-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:229:13-39
+249            android:screenOrientation="portrait"
+249-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:230:13-49
+250            android:windowSoftInputMode="adjustPan" />
+250-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:231:13-52
+251        <activity
+251-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:232:9-237:45
+252            android:name="com.zebra.android.devdemo.util.Options"
+252-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:233:13-66
+253            android:label="Options"
+253-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:234:13-36
+254            android:screenOrientation="portrait"
+254-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:235:13-49
+255            android:windowSoftInputMode="adjustPan" />
+255-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:236:13-52
+256        <activity
+256-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:238:9-243:45
+257            android:name="com.zebra.android.devdemo.sendfile.SendFileDemo"
+257-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:239:13-75
+258            android:label="From Phone"
+258-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:240:13-39
+259            android:screenOrientation="portrait"
+259-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:241:13-49
+260            android:windowSoftInputMode="adjustPan" />
+260-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:242:13-52
+261        <activity
+261-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:244:9-253:20
+262            android:name="com.zebra.android.devdemo.storedformat.CustomScannerActivity"
+262-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:245:13-88
+263            android:exported="true"
+263-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:247:13-36
+264            android:label="@string/app_name" >
+264-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:246:13-45
+265            <intent-filter>
+265-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:248:13-252:29
+266                <action android:name="android.intent.action.MAIN" />
+266-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:44:17-69
+266-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:44:25-66
+267                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+267-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:250:17-77
+267-->C:\Users\User\StudioProjects\PDADuplicator2\app\src\main\AndroidManifest.xml:250:25-74
+268                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+269            </intent-filter>
+270        </activity>
+271        <activity
+271-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
+272            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+272-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:48:13-74
+273            android:clearTaskOnLaunch="true"
+273-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:49:13-45
+274            android:screenOrientation="sensorLandscape"
+274-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:50:13-56
+275            android:stateNotNeeded="true"
+275-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:51:13-42
+276            android:theme="@style/zxing_CaptureTheme"
+276-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:52:13-54
+277            android:windowSoftInputMode="stateAlwaysHidden" />
+277-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\User\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:53:13-60
+278    </application>
+279
+280</manifest>
