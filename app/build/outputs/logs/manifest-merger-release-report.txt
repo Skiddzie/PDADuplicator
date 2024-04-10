@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:2:1-253:12
-INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:2:1-253:12
-INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:2:1-253:12
-INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:2:1-253:12
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:2:1-258:12
+INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:2:1-258:12
+INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:2:1-258:12
+INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:2:1-258:12
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:17:1-56:12
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\19088\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\19088\.gradle\caches\transforms-3\74fca38f00a4a86f1ea329b7bbe0ccc3\transformed\support-fragment-25.3.1\AndroidManifest.xml:17:1-31:12
@@ -105,27 +105,37 @@ uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
 ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:24:5-81
 	android:name
 		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:24:22-79
+uses-permission#android.permission.NFC
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:25:5-62
+	android:name
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:25:22-59
 uses-feature#android.hardware.usb.host
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:26:2-83
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:27:2-83
 	android:required
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:26:57-81
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:27:57-81
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:26:16-56
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:27:16-56
 uses-feature#android.hardware.camera
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:28:5-60
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:29:5-60
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:25:5-27:36
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:25:5-27:36
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:28:19-57
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:29:19-57
 uses-feature#android.hardware.camera.autofocus
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:29:5-70
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:30:5-70
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:33:5-35:36
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:33:5-35:36
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:29:19-67
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:30:19-67
+uses-feature#android.hardware.nfc
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:31:5-81
+	android:required
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:31:55-78
+	android:name
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:31:19-54
 application
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:31:5-251:23
-INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:31:5-251:23
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:33:5-256:19
+INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:33:5-256:19
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:46:5-54:19
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:46:5-54:19
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\19088\.gradle\caches\transforms-3\eccc2e1c0d928652ccbf5f7ec19ed261\transformed\support-v4-25.3.1\AndroidManifest.xml:29:5-20
@@ -143,431 +153,435 @@ MERGED from [com.android.support:support-compat:25.3.1] C:\Users\19088\.gradle\c
 	android:extractNativeLibs
 		INJECTED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:33:9-41
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:35:9-41
 	android:icon
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:32:9-38
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:34:9-38
 	android:allowBackup
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:34:9-36
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:36:9-36
 activity#com.zebra.android.devdemo.LoadDevDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:36:9-46:20
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:38:9-48:20
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:39:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:41:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:38:13-45
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:40:13-45
 	android:exported
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:40:13-36
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:42:13-36
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:37:13-65
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:39:13-65
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:41:13-45:29
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:43:13-47:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:42:17-69
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:44:17-69
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:42:25-66
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:44:17-77
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:46:17-77
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:44:27-74
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:46:27-74
 activity#com.zebra.android.devdemo.discovery.DiscoveryDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:47:9-52:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:49:9-54:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:51:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:53:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:50:13-43
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:52:13-43
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:52:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:54:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:49:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:51:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:48:13-77
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:50:13-77
 activity#com.zebra.android.devdemo.discovery.BluetoothDiscovery
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:53:9-58:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:55:9-60:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:57:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:59:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:56:13-48
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:58:13-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:58:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:60:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:55:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:57:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:54:13-82
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:56:13-82
 activity#com.zebra.android.devdemo.discovery.MulticastDiscoveryResultList
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:59:9-64:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:61:9-66:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:63:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:65:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:62:13-48
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:64:13-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:64:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:66:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:61:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:63:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:60:13-92
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:62:13-92
 activity#com.zebra.android.devdemo.discovery.DirectedBroadcastResultList
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:65:9-70:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:67:9-72:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:69:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:71:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:68:13-48
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:70:13-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:70:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:72:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:67:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:69:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:66:13-91
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:68:13-91
 activity#com.zebra.android.devdemo.sendfile.FromPhone
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:71:9-76:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:73:9-78:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:75:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:77:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:74:13-44
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:76:13-44
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:76:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:78:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:73:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:75:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:72:13-72
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:74:13-72
 activity#com.zebra.android.devdemo.discovery.DirectedBroadcastParameters
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:77:9-82:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:79:9-84:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:81:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:83:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:80:13-58
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:82:13-58
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:82:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:84:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:79:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:81:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:78:13-91
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:80:13-91
 activity#com.zebra.android.devdemo.discovery.SubnetSearchResultList
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:83:9-88:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:85:9-90:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:87:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:89:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:86:13-48
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:88:13-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:88:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:90:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:85:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:87:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:84:13-86
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:86:13-86
 activity#com.zebra.android.devdemo.discovery.SubnetSearchParameters
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:89:9-94:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:91:9-96:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:93:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:95:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:92:13-53
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:94:13-53
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:94:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:96:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:91:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:93:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:90:13-86
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:92:13-86
 activity#com.zebra.android.devdemo.discovery.LocalBroadcastDiscoveryResultList
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:95:9-100:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:97:9-102:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:99:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:101:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:98:13-48
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:100:13-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:100:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:102:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:97:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:99:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:96:13-97
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:98:13-97
 activity#com.zebra.android.devdemo.discovery.FindPrintersDiscoveryResultList
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:101:9-106:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:103:9-108:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:105:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:107:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:104:13-48
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:106:13-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:106:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:108:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:103:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:105:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:102:13-95
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:104:13-95
 activity#com.zebra.android.devdemo.discovery.MulticastDiscoveryParameters
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:107:9-112:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:109:9-114:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:111:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:113:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:110:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:112:13-49
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:112:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:114:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:109:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:111:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:108:13-92
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:110:13-92
 activity#com.zebra.android.devdemo.imageprint.ImagePrintDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:113:9-118:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:115:9-120:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:117:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:119:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:116:13-45
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:118:13-45
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:118:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:120:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:115:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:117:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:114:13-79
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:116:13-79
 activity#com.zebra.android.devdemo.magcard.MagCardDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:119:9-124:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:121:9-126:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:123:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:125:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:122:13-42
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:124:13-42
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:124:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:126:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:121:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:123:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:120:13-73
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:122:13-73
 activity#com.zebra.android.devdemo.status.PrintStatusDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:125:9-130:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:127:9-132:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:129:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:131:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:128:13-48
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:130:13-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:130:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:132:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:127:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:129:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:126:13-76
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:128:13-76
 activity#com.zebra.android.devdemo.smartcard.SmartCardDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:131:9-136:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:133:9-138:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:135:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:137:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:134:13-44
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:136:13-44
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:136:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:138:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:133:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:135:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:132:13-77
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:134:13-77
 activity#com.zebra.android.devdemo.sigcapture.SigCaptureDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:137:9-142:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:139:9-144:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:141:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:143:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:140:13-51
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:142:13-51
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:142:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:144:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:139:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:141:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:138:13-79
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:140:13-79
 activity#com.zebra.android.devdemo.storedformat.DisplayFieldsActivity
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:143:9-148:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:145:9-150:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:147:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:149:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:146:13-46
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:148:13-46
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:148:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:150:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:145:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:147:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:144:13-88
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:146:13-88
 activity#com.zebra.android.devdemo.storedformat.StoredFormatScreen
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:149:9-154:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:151:9-156:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:153:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:155:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:152:13-42
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:154:13-42
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:154:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:156:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:151:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:153:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:150:13-85
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:152:13-85
 activity#com.zebra.android.devdemo.storedformat.StoredFormatDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:155:9-159:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:157:9-161:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:158:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:160:13-49
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:159:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:161:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:157:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:159:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:156:13-83
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:158:13-83
 activity#com.zebra.android.devdemo.storedformat.VariablesScreen
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:160:9-164:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:162:9-166:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:163:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:165:13-49
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:164:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:166:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:162:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:164:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:161:13-82
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:163:13-82
 activity#com.zebra.android.devdemo.connectivity.ConnectivityDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:165:9-170:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:167:9-172:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:169:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:171:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:168:13-47
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:170:13-47
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:170:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:172:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:167:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:169:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:166:13-83
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:168:13-83
 activity#com.zebra.android.devdemo.status.PrinterStatusScreen
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:171:9-176:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:173:9-178:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:175:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:177:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:174:13-44
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:176:13-44
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:176:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:178:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:173:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:175:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:172:13-80
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:174:13-80
 activity#com.zebra.android.devdemo.listformats.ListFormatsScreen
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:177:9-182:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:179:9-184:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:181:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:183:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:180:13-46
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:182:13-46
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:182:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:184:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:179:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:181:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:178:13-83
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:180:13-83
 activity#com.zebra.android.devdemo.listformats.ListFormatsDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:183:9-187:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:185:9-189:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:186:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:188:13-49
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:187:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:189:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:185:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:187:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:184:13-81
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:186:13-81
 activity#com.zebra.android.devdemo.statuschannel.StatusChannelDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:188:9-193:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:190:9-195:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:192:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:194:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:191:13-43
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:193:13-43
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:193:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:195:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:190:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:192:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:189:13-85
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:191:13-85
 activity#com.zebra.android.devdemo.statuschannel.StatusChannelScreen
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:194:9-199:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:196:9-201:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:198:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:200:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:197:13-48
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:199:13-48
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:199:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:201:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:196:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:198:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:195:13-87
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:197:13-87
 activity#com.zebra.android.devdemo.multichannel.MultiChannelDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:200:9-205:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:202:9-207:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:204:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:206:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:203:13-41
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:205:13-41
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:205:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:207:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:202:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:204:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:201:13-83
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:203:13-83
 activity#com.zebra.android.devdemo.multichannel.MultiChannelScreen
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:206:9-211:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:208:9-213:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:210:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:212:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:209:13-46
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:211:13-46
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:211:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:213:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:208:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:210:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:207:13-85
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:209:13-85
 activity#com.zebra.android.devdemo.connectionbuilder.ConnectionBuilderDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:212:9-217:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:214:9-219:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:216:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:218:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:215:13-52
-	android:windowSoftInputMode
 		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:217:13-52
+	android:windowSoftInputMode
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:219:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:214:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:216:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:213:13-93
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:215:13-93
 activity#com.zebra.android.devdemo.receipt.ReceiptDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:218:9-223:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:220:9-225:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:222:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:224:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:221:13-41
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:223:13-41
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:223:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:225:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:220:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:222:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:219:13-73
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:221:13-73
 activity#com.zebra.android.devdemo.ChangePIN.ChangePIN
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:224:9-229:55
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:226:9-231:55
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:228:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:230:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:227:13-39
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:229:13-39
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:229:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:231:13-52
 	android:configChanges
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:226:13-63
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:228:13-63
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:225:13-73
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:227:13-73
 activity#com.zebra.android.devdemo.util.Options
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:230:9-235:45
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:232:9-237:45
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:233:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:235:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:232:13-36
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:234:13-36
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:234:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:236:13-52
 	tools:ignore
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:235:13-42
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:237:13-42
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:231:13-66
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:233:13-66
 activity#com.zebra.android.devdemo.sendfile.SendFileDemo
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:236:9-241:45
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:238:9-243:45
 	android:screenOrientation
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:239:13-49
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:241:13-49
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:238:13-39
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:240:13-39
 	android:windowSoftInputMode
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:240:13-52
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:242:13-52
 	tools:ignore
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:241:13-42
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:243:13-42
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:237:13-75
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:239:13-75
 activity#com.zebra.android.devdemo.storedformat.CustomScannerActivity
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:242:9-250:20
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:244:9-253:20
 	android:label
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:244:13-45
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:246:13-45
 	android:exported
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:245:13-36
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:247:13-36
 	android:name
-		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:243:13-88
-intent-filter#action:name:android.intent.action.MAIN
-ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:246:13-249:29
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:245:13-88
+intent-filter#action:name:android.intent.action.MAIN+action:name:android.nfc.action.NDEF_DISCOVERED
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:248:13-252:29
+action#android.nfc.action.NDEF_DISCOVERED
+ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:250:17-77
+	android:name
+		ADDED from C:\Users\19088\StudioProjects\PDADuplicator\app\src\main\AndroidManifest.xml:250:25-74
 uses-feature#android.hardware.camera.front
 ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\19088\.gradle\caches\transforms-3\6c3344acf5e14d9092b089b4caeafa6d\transformed\zxing-android-embedded-3.6.0\AndroidManifest.xml:28:5-30:36
 	android:required
