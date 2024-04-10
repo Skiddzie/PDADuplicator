@@ -55,8 +55,8 @@ import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+//import java.io.FileReader;
+//import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
@@ -94,55 +94,25 @@ public class ConnectivityDemo extends Activity {
         testButton = (Button) this.findViewById(R.id.testButton);
         testButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                String filePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
-                File file = new File(filePath);
                 String pinText = ((EditText) findViewById(R.id.pinInput)).getText().toString();
-                Log.d("crashlooker", "button click");
+                String savedPIN = getPIN();
 
-                if (!file.exists()) {
-                    Log.e("pin", "pin in csv doesn't exist");
-                    if ("1234".equals(pinText)) {
-                        new Thread(new Runnable() {
-                            public void run() {
-                                // Your existing code to store IP, navigate, connect, and send test label
-                                // ...
-                                Log.d("crashlooker", "run");
-                                // Example: Only call the connect method if the pin is correct
-                                navigateToSendFileActivity();
-                                connect();
-//                                Looper.prepare();
-                                enableTestButton(false);
-                                doConnectionTest();
-//                                Looper.loop();
-//                                Looper.myLooper().quit();
-                            }
-                        }).start();
-                    } else {
-                        // Pin is incorrect, handle accordingly (e.g., show a message)
-                        setStatus("Incorrect PIN", Color.RED);
-                    }
+                if (pinText.equals(savedPIN)) { // Assuming the default PIN is "1234"
+                    // PIN is correct, proceed with the connection
+                    new Thread(new Runnable() {
+                        public void run() {
+                            navigateToSendFileActivity();
+                            connect();
+                            enableTestButton(false);
+                            doConnectionTest();
+                        }
+                    }).start();
                 } else {
-                    Log.e("pin", "pin in csv exists");
-                    if (getPIN(file).equals(pinText)) {
-                        new Thread(new Runnable() {
-                            public void run() {
-
-                                navigateToSendFileActivity();
-                                connect();
-//                                Looper.prepare();
-                                enableTestButton(false);
-                                doConnectionTest();
-//                                Looper.loop();
-//                                Looper.myLooper().quit();
-                            }
-                        }).start();
-                    } else {
-
-                        setStatus("Incorrect PIN", Color.RED);
-                    }
+                    // PIN is incorrect, show error message
+                    setStatus("Incorrect PIN", Color.RED);
                 }
-
             }
+
         });
         RadioGroup radioGroup = (RadioGroup) this.findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -171,38 +141,48 @@ public class ConnectivityDemo extends Activity {
 
         Log.d("switch", "switching from ConnectivityDemo.java");
     }
-
-    private String getPIN(File file) {
-        try {
-
-            FileReader fileReader = new FileReader(file);
-
-
-            CSVReader csvReader = new CSVReader(fileReader);
-
-
-            List<String[]> allRows = csvReader.readAll();
-
-
-            csvReader.close();
-
-            //check the csv to make sure it has the data we want to reference
-            if (allRows.size() >= 3) {
-
-                String[] thirdRow = allRows.get(2);
-
-
-                if (thirdRow.length > 0) {
-                    return thirdRow[0];
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        return null;
+    private String getPIN() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("PIN", "1234"); // "" is the default value if PIN is not found
     }
+
+    private void savePIN(String pin) {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("PIN", pin);
+        editor.apply();
+    }
+//    private String getPIN(File file) {
+//        try {
+//
+//            FileReader fileReader = new FileReader(file);
+//
+//
+//            CSVReader csvReader = new CSVReader(fileReader);
+//
+//
+//            List<String[]> allRows = csvReader.readAll();
+//
+//
+//            csvReader.close();
+//
+//            //check the csv to make sure it has the data we want to reference
+//            if (allRows.size() >= 3) {
+//
+//                String[] thirdRow = allRows.get(2);
+//
+//
+//                if (thirdRow.length > 0) {
+//                    return thirdRow[0];
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        return null;
+//    }
     private void toggleEditField(EditText editText, boolean set) {
         /*
          * Note: Disabled EditText fields may still get focus by some other means, and allow text input.
@@ -350,70 +330,70 @@ public class ConnectivityDemo extends Activity {
         editor.apply();
     }
     //make it so the first time it's run it just adds the PIN field value to the CSV
-    public void csvInit(Context context, String fileName, String IP, String port, String PIN, String MAC) {
-        Log.d("crashlooker", "csvinit");
-        try {
-            // Get the DCIM directory where you can place your app-specific files.
-            File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
-
-            // Create the file within the DCIM directory directly
-            File file = new File(directory, fileName);
-
-            // Ensure the directory exists, create it if not
-            if (!directory.exists()) {
-                if (!directory.mkdirs()) {
-                    // If directory creation fails, return without creating the file
-                    return;
-                }
-            }
-            if (file.exists()) {
-                Log.d("CSV", "CSV file already exists " + file.getAbsolutePath());
-            } else {
-                Log.d("CSV", "CSV file does not exist, creating...");
-                // Code to create the CSV file goes here
-            }
-            // Create FileWriter object with file as a parameter
-            FileWriter outputFile = new FileWriter(file);
-
-            // Create CSVWriter object filewriter object as a parameter
-            CSVWriter writer = new CSVWriter(outputFile);
-
-            // Adding header to csv
-            String[] header = {"IP", "PORT", "FORMAT", "MAC"};
-
-            writer.writeNext(header);
-
-            // Adding data rows to csv
-            String[] data1 = {IP, port, "1",MAC};
-            writer.writeNext(data1);
-
-            // Adding third row
-            String[] data3 = {PIN};
-            writer.writeNext(data3);
-
-            // Closing writer connection
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void csvInit(Context context, String fileName, String IP, String port, String PIN, String MAC) {
+//        Log.d("crashlooker", "csvinit");
+//        try {
+//            // Get the DCIM directory where you can place your app-specific files.
+//            File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
+//
+//            // Create the file within the DCIM directory directly
+//            File file = new File(directory, fileName);
+//
+//            // Ensure the directory exists, create it if not
+//            if (!directory.exists()) {
+//                if (!directory.mkdirs()) {
+//                    // If directory creation fails, return without creating the file
+//                    return;
+//                }
+//            }
+//            if (file.exists()) {
+//                Log.d("CSV", "CSV file already exists " + file.getAbsolutePath());
+//            } else {
+//                Log.d("CSV", "CSV file does not exist, creating...");
+//                // Code to create the CSV file goes here
+//            }
+//            // Create FileWriter object with file as a parameter
+//            FileWriter outputFile = new FileWriter(file);
+//
+//            // Create CSVWriter object filewriter object as a parameter
+//            CSVWriter writer = new CSVWriter(outputFile);
+//
+//            // Adding header to csv
+//            String[] header = {"IP", "PORT", "FORMAT", "MAC"};
+//
+//            writer.writeNext(header);
+//
+//            // Adding data rows to csv
+//            String[] data1 = {IP, port, "1",MAC};
+//            writer.writeNext(data1);
+//
+//            // Adding third row
+//            String[] data3 = {PIN};
+//            writer.writeNext(data3);
+//
+//            // Closing writer connection
+//            writer.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
 
 
     //this is unnecessary now, but I figure i'd keep it around
-    public void writeToFile(String tcpAddress, String port) {
-        File fileDirectory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv.txt");
-
-        try{
-            FileWriter writer = new FileWriter(fileDirectory + "/settings.txt");
-            writer.write(tcpAddress + "," + port);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    public void writeToFile(String tcpAddress, String port) {
+//        File fileDirectory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv.txt");
+//
+//        try{
+//            FileWriter writer = new FileWriter(fileDirectory + "/settings.txt");
+//            writer.write(tcpAddress + "," + port);
+//            writer.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
     protected String connectIP() {
         String IP = getTcpAddress();
@@ -424,104 +404,81 @@ public class ConnectivityDemo extends Activity {
         return port;
     }
 
-    private void updateCsvFile(File file, String tcpAddress, String tcpPortNumber, String macAddress) {
-        Log.d("crashlooker", "updateCsvFile");
-        try {
-            Log.d("crashlooker", "first try");
-            // Read existing content of CSV file
-            FileReader fileReader = new FileReader(file);
-            CSVReader csvReader = new CSVReader(fileReader);
-            List<String[]> csvContent = csvReader.readAll();
-            csvReader.close();
-
-            // Update the specific row containing the TCP address (skip the first row)
-            boolean updated = false;
-            for (int i = 1; i < csvContent.size(); i++) {
-                Log.d("crashlooker", "for loop");
-                String[] row = csvContent.get(i);
-                if (row.length >= 3) {
-                    Log.d("crashlooker", "if length greater than 2");
-
-                    //ip being zero will determine whether or not the other screens connect using
-                    //bluetooth or network
-                    if (isBluetoothSelected()){
-                        row[0] = "0";
-                    }
-                    else{
-                        row[0] = tcpAddress;
-                    }
-                    row[1] = tcpPortNumber; // Replace port number (assuming it's in the second column)
-                    row[3] = macAddress;
-                    updated = true;
-                    break; // Exit loop after updating the row
-                }
-                Log.d("crashlooker", "after if");
-            }
-
-            // If the row with the TCP address doesn't exist, log a message
-            if (!updated) {
-                Log.d("CSV", "Row with IP address not found for update");
-            } else {
-                Log.d("CSV", "Updated the second row");
-            }
-
-            // Write the updated content back to the CSV file
-            FileWriter fileWriter = new FileWriter(file);
-            CSVWriter csvWriter = new CSVWriter(fileWriter);
-            csvWriter.writeAll(csvContent);
-            csvWriter.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void updateCsvFile(File file, String tcpAddress, String tcpPortNumber, String macAddress) {
+//        Log.d("crashlooker", "updateCsvFile");
+//        try {
+//            Log.d("crashlooker", "first try");
+//            // Read existing content of CSV file
+//            FileReader fileReader = new FileReader(file);
+//            CSVReader csvReader = new CSVReader(fileReader);
+//            List<String[]> csvContent = csvReader.readAll();
+//            csvReader.close();
+//
+//            // Update the specific row containing the TCP address (skip the first row)
+//            boolean updated = false;
+//            for (int i = 1; i < csvContent.size(); i++) {
+//                Log.d("crashlooker", "for loop");
+//                String[] row = csvContent.get(i);
+//                if (row.length >= 3) {
+//                    Log.d("crashlooker", "if length greater than 2");
+//
+//                    //ip being zero will determine whether or not the other screens connect using
+//                    //bluetooth or network
+//                    if (isBluetoothSelected()){
+//                        row[0] = "0";
+//                    }
+//                    else{
+//                        row[0] = tcpAddress;
+//                    }
+//                    row[1] = tcpPortNumber; // Replace port number (assuming it's in the second column)
+//                    row[3] = macAddress;
+//                    updated = true;
+//                    break; // Exit loop after updating the row
+//                }
+//                Log.d("crashlooker", "after if");
+//            }
+//
+//            // If the row with the TCP address doesn't exist, log a message
+//            if (!updated) {
+//                Log.d("CSV", "Row with IP address not found for update");
+//            } else {
+//                Log.d("CSV", "Updated the second row");
+//            }
+//
+//            // Write the updated content back to the CSV file
+//            FileWriter fileWriter = new FileWriter(file);
+//            CSVWriter csvWriter = new CSVWriter(fileWriter);
+//            csvWriter.writeAll(csvContent);
+//            csvWriter.close();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
     private void navigateToSendFileActivity() {
-        Log.d("crashlooker", "navigateToSendFileActivityk");
-        String tcpAddress = getTcpAddress(); // Retrieve the TCP address
-        saveTcpAddress(tcpAddress); // Save the TCP address to SharedPreferences
+        String tcpAddress = getTcpAddress();
+        saveTcpAddress(tcpAddress);
 
         String tcpPortNumber = getTcpPortNumber();
         saveTcpPortNumber(tcpPortNumber);
 
         String macAddress = getMacAddress();
         saveMacAddress(macAddress);
+        Log.d("preferences", "port: " + tcpPortNumber);
+        Log.d("preferences", "ip: " + tcpAddress);
+//        Log.d("preferences", "format: " + formatName);
 
-        File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
-        File file = new File(directory, "csv.txt");
-        if (!directory.exists()) {
-            directory.mkdirs(); // Create the directory if it doesn't exist
-        }
-
-//        String filePath = new File(directory, "csv.txt").getAbsolutePath();
-//
-//        File file = new File(filePath);
-
-        if (!file.exists()) {
-            Log.d("csv", "CSV does not exist "+ file);
-            if (btRadioButton.isChecked()){
-                csvInit(this, "csv.txt", "0", tcpPortNumber, "1234", macAddress);
-            } else {
-                csvInit(this, "csv.txt", tcpAddress, tcpPortNumber, "1234", "0");
-            }
-
-        } else {
-            updateCsvFile(file, tcpAddress, tcpPortNumber, macAddress);
-            Log.d("csv", "CSV already exists "+ file);//////////
-        }
-
-//        writeToFile(tcpAddress, tcpPortNumber);
-
-        // Navigate to StoredFormatDemo
+        // Save PIN to SharedPreferences
+        String pinText = ((EditText) findViewById(R.id.pinInput)).getText().toString();
+//        savePINToPreferences(pinText);
 
         Intent storedFormatIntent = new Intent(this, StoredFormatDemo.class);
-        storedFormatIntent.putExtra("tcpAddress", tcpAddress); // Pass the TCP address to StoredFormatDemo
+        storedFormatIntent.putExtra("tcpAddress", tcpAddress);
         storedFormatIntent.putExtra("tcpPortNumber", tcpPortNumber);
-        Log.d("IP","mac address: " + macAddress);
         storedFormatIntent.putExtra("macAddress", macAddress);
-        Log.d("intentscreen", "switching to storedformatdemo");
-        startActivity(storedFormatIntent); // Start the StoredFormatDemo activity
+        startActivity(storedFormatIntent);
     }
 
     private void doConnectionTest() {

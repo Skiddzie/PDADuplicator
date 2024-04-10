@@ -33,8 +33,9 @@
 		    android:layout_height="wrap_content"
 		    android:layout_width="wrap_content"
 			android:id="@+id/bluetoothRadio"
-			android:text="Bluetooth (R)"/>
-<!--			android:visibility="gone"-->
+			android:text="Bluetooth (R)"
+			android:visibility="gone"/>
+
 
 	</RadioGroup>
 
@@ -108,7 +109,8 @@
 			android:textSize="20.0sp"
 			android:layout_height="wrap_content"
 			android:text="MAC Address:"
-			android:layout_weight="1"/>
+			android:layout_weight="1"
+			android:visibility="gone"/>
 <!--			android:visibility="gone"-->
 		<EditText
 			android:id="@+id/macInput"
@@ -137,6 +139,12 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="center"
 		android:text="Default PIN is 1234" />
+	<TextView
+		android:id="@+id/bottomText3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="Port usually 9100" />
 
 
 

@@ -4,13 +4,13 @@
             "outputFile": "com.zebra.android.devdemo.test.app-merged_res-3:/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\generated\\res\\resValues\\androidTest\\debug\\values\\gradleResValues.xml",
+                    "source": "/Users/craigmcinerney/StudioProjects/PDADuplicator/app/build/generated/res/resValues/androidTest/debug/values/gradleResValues.xml",
                     "from": {
                         "startLines": "6",
                         "startColumns": "4",
-                        "startOffsets": "159",
+                        "startOffsets": "154",
                         "endColumns": "76",
-                        "endOffsets": "231"
+                        "endOffsets": "226"
                     },
                     "to": {
                         "startLines": "2",
