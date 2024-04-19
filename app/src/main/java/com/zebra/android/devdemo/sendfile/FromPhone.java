@@ -68,8 +68,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -112,10 +110,6 @@ public class FromPhone extends Activity {
         String storedMacAddress = sharedPreferences.getString("macAddress", "defaultMacAddress");
 
         Log.d("crashlooker", "FromPhone load");
-        // Read CSV values once during onCreate
-//        readCsvFile();
-//        // Initialize CSV values
-//        initializeCsvValues();
 
 
 
@@ -312,49 +306,6 @@ public class FromPhone extends Activity {
     }
 
 
-//    private void transferFileToComputer() {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        String todaysDate = dateFormat.format(new Date());
-////        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history" + todaysDate + ".txt";
-//
-//        File sourceFile = new File(csvFilePath);
-//
-//        // Specify the destination directory on the computer (can be modified based on your needs)
-//        File destinationFile = new File(getFilesDir(), "history" + todaysDate + ".txt");
-//        Log.d("filetransfer", "Source File: " + sourceFile.getAbsolutePath());
-//        Log.d("filetransfer", "Destination File: " + destinationFile.getAbsolutePath());
-//        Toast.makeText(this, "File transfer called", Toast.LENGTH_SHORT).show();
-//        try {
-//            // Create FileInputStream for the source file
-//            FileInputStream inputStream = new FileInputStream(sourceFile);
-//
-//            // Create OutputStream for the destination file on the computer
-//            FileOutputStream outputStream = new FileOutputStream(destinationFile);
-//
-//            // Transfer bytes from the source file to the destination file
-//            byte[] buffer = new byte[1024];
-//            int length;
-//            while ((length = inputStream.read(buffer)) > 0) {
-//                outputStream.write(buffer, 0, length);
-//            }
-//
-//            // Close streams
-//            inputStream.close();
-//            outputStream.close();
-//
-//            // Optionally, you can delete the source file after transfer
-//            // sourceFile.delete();
-//
-//            // Log success or perform additional actions as needed
-//            Toast.makeText(this, "File transfer successful", Toast.LENGTH_SHORT).show();
-//            Log.d("filetransfer", "File transfer successful. Destination File: " + destinationFile.getAbsolutePath());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            // Handle the exception (e.g., show an error message)
-//            Toast.makeText(this, "File transfer unsuccessful: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-//            Log.e("filetransfer", "File transfer unsuccessful: " + e.getMessage());
-//        }
-//    }
 
     //dumbass, this is the duplicator section
     @Override
@@ -417,27 +368,6 @@ public class FromPhone extends Activity {
         }
     }
 
-//    private void addToHistoryCsv(List<String> values) {
-//        Log.d("history", "add history called");
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        String todaysDate = dateFormat.format(new Date());
-//        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history"+todaysDate+".txt";
-//        try {
-//
-//            // Open CSV file in append mode
-//            FileWriter fileWriter = new FileWriter(csvFilePath, true);
-//            CSVWriter csvWriter = new CSVWriter(fileWriter);
-//
-//            // Write a new row to the CSV file
-//            csvWriter.writeNext(values.toArray(new String[0]));
-//
-//            // Close CSV writer
-//            csvWriter.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            Log.e("history", "Error writing to history.csv: " + e.getMessage());
-//        }
-//    }
 
     private class PrintFormatTask extends AsyncTask<Void, Void, Void> {
         @SuppressLint("WrongThread")
@@ -459,7 +389,7 @@ public class FromPhone extends Activity {
 
                         printer.printStoredFormat(formatName, vars, "utf8");
                     } else {
-                        Log.e("print", "format name from csv is empty");
+                        Log.e("print", "format name from preferences is empty");
                     }
 
                     connection.close();
@@ -473,8 +403,7 @@ public class FromPhone extends Activity {
                 String currentTime = dateFormat.format(new Date());
                 fieldValues.add(currentTime);
                 Log.d("history", "field values: " + fieldValues);
-                // Create a new row in the CSV file with the values and timestamp
-//                addToHistoryCsv(fieldValues);
+
             } catch (ConnectionException e) {
                 Log.e("print", "Error printing: " + e.getMessage(), e);
                 helper.showErrorDialogOnGuiThread(e.getMessage());
@@ -498,36 +427,7 @@ public class FromPhone extends Activity {
             // You can perform any UI updates here if needed.
         }
     }
-//    private void openConnection() {
-//        connection = getPrinterConnection();
-//        if (connection != null) {
-//            try {
-//                connection.open();
-//            } catch (ConnectionException e) {
-//                Log.e("ERROR", "Error opening connection: " + e.getMessage(), e);
-//            }
-//        }
-//    }
-//
-//    private void closeConnection() {
-//        if (connection != null) {
-//            try {
-//                connection.close();
-//            } catch (ConnectionException e) {
-//                Log.e("ERROR", "Error closing connection: " + e.getMessage(), e);
-//            }
-//        }
-//    }
 
-//    private void readCsvFile() {
-//        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/csv.txt";
-//        tcpAddress = readCsvValue(csvFilePath, 1, 0);
-//        tcpPort = readCsvValue(csvFilePath, 1, 1);
-//        formatName = readCsvValue(csvFilePath, 1, 2);
-//        Log.d("CSV", "TCP Address: " + tcpAddress);
-//        Log.d("CSV", "TCP Port: " + tcpPort);
-//        Log.d("CSV", "Format Name: " + formatName);
-//    }
 
     private Connection getPrinterConnection() {
         Log.d("CONNECTION", "ADDRESS: " + tcpAddress);

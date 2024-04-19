@@ -168,19 +168,6 @@ public class DisplayFieldsActivity extends Activity {
         }
     }
 
-//    private void addToHistoryCsv(List<String> values) {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        String todaysDate = dateFormat.format(new Date());
-//        String csvFilePath = getExternalFilesDir(Environment.DIRECTORY_DCIM) + "/csv/history" + todaysDate + ".txt";
-//        try {
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.putString("history" + todaysDate, values.toString());
-//            editor.apply();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            Log.e("history", "Error writing to SharedPreferences: " + e.getMessage());
-//        }
-//    }
 
     private void readStoredValues() {
         // Read stored values from SharedPreferences
@@ -225,7 +212,6 @@ public class DisplayFieldsActivity extends Activity {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String currentTime = dateFormat.format(new Date());
                 fieldValues.add(currentTime);
-//                addToHistoryCsv(fieldValues);
             } catch (ConnectionException e) {
                 Log.e("print", "Error printing: " + e.getMessage(), e);
                 helper.showErrorDialogOnGuiThread(e.getMessage());

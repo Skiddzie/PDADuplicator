@@ -60,8 +60,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
 
 public class ConnectivityDemo extends Activity {
 
@@ -152,37 +150,7 @@ public class ConnectivityDemo extends Activity {
         editor.putString("PIN", pin);
         editor.apply();
     }
-//    private String getPIN(File file) {
-//        try {
-//
-//            FileReader fileReader = new FileReader(file);
-//
-//
-//            CSVReader csvReader = new CSVReader(fileReader);
-//
-//
-//            List<String[]> allRows = csvReader.readAll();
-//
-//
-//            csvReader.close();
-//
-//            //check the csv to make sure it has the data we want to reference
-//            if (allRows.size() >= 3) {
-//
-//                String[] thirdRow = allRows.get(2);
-//
-//
-//                if (thirdRow.length > 0) {
-//                    return thirdRow[0];
-//                }
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        return null;
-//    }
+
     private void toggleEditField(EditText editText, boolean set) {
         /*
          * Note: Disabled EditText fields may still get focus by some other means, and allow text input.
@@ -329,71 +297,6 @@ public class ConnectivityDemo extends Activity {
         editor.putString("macAddress", macAddress);
         editor.apply();
     }
-    //make it so the first time it's run it just adds the PIN field value to the CSV
-//    public void csvInit(Context context, String fileName, String IP, String port, String PIN, String MAC) {
-//        Log.d("crashlooker", "csvinit");
-//        try {
-//            // Get the DCIM directory where you can place your app-specific files.
-//            File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv");
-//
-//            // Create the file within the DCIM directory directly
-//            File file = new File(directory, fileName);
-//
-//            // Ensure the directory exists, create it if not
-//            if (!directory.exists()) {
-//                if (!directory.mkdirs()) {
-//                    // If directory creation fails, return without creating the file
-//                    return;
-//                }
-//            }
-//            if (file.exists()) {
-//                Log.d("CSV", "CSV file already exists " + file.getAbsolutePath());
-//            } else {
-//                Log.d("CSV", "CSV file does not exist, creating...");
-//                // Code to create the CSV file goes here
-//            }
-//            // Create FileWriter object with file as a parameter
-//            FileWriter outputFile = new FileWriter(file);
-//
-//            // Create CSVWriter object filewriter object as a parameter
-//            CSVWriter writer = new CSVWriter(outputFile);
-//
-//            // Adding header to csv
-//            String[] header = {"IP", "PORT", "FORMAT", "MAC"};
-//
-//            writer.writeNext(header);
-//
-//            // Adding data rows to csv
-//            String[] data1 = {IP, port, "1",MAC};
-//            writer.writeNext(data1);
-//
-//            // Adding third row
-//            String[] data3 = {PIN};
-//            writer.writeNext(data3);
-//
-//            // Closing writer connection
-//            writer.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
-
-
-    //this is unnecessary now, but I figure i'd keep it around
-//    public void writeToFile(String tcpAddress, String port) {
-//        File fileDirectory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "csv.txt");
-//
-//        try{
-//            FileWriter writer = new FileWriter(fileDirectory + "/settings.txt");
-//            writer.write(tcpAddress + "," + port);
-//            writer.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
 
     protected String connectIP() {
         String IP = getTcpAddress();
@@ -404,57 +307,6 @@ public class ConnectivityDemo extends Activity {
         return port;
     }
 
-//    private void updateCsvFile(File file, String tcpAddress, String tcpPortNumber, String macAddress) {
-//        Log.d("crashlooker", "updateCsvFile");
-//        try {
-//            Log.d("crashlooker", "first try");
-//            // Read existing content of CSV file
-//            FileReader fileReader = new FileReader(file);
-//            CSVReader csvReader = new CSVReader(fileReader);
-//            List<String[]> csvContent = csvReader.readAll();
-//            csvReader.close();
-//
-//            // Update the specific row containing the TCP address (skip the first row)
-//            boolean updated = false;
-//            for (int i = 1; i < csvContent.size(); i++) {
-//                Log.d("crashlooker", "for loop");
-//                String[] row = csvContent.get(i);
-//                if (row.length >= 3) {
-//                    Log.d("crashlooker", "if length greater than 2");
-//
-//                    //ip being zero will determine whether or not the other screens connect using
-//                    //bluetooth or network
-//                    if (isBluetoothSelected()){
-//                        row[0] = "0";
-//                    }
-//                    else{
-//                        row[0] = tcpAddress;
-//                    }
-//                    row[1] = tcpPortNumber; // Replace port number (assuming it's in the second column)
-//                    row[3] = macAddress;
-//                    updated = true;
-//                    break; // Exit loop after updating the row
-//                }
-//                Log.d("crashlooker", "after if");
-//            }
-//
-//            // If the row with the TCP address doesn't exist, log a message
-//            if (!updated) {
-//                Log.d("CSV", "Row with IP address not found for update");
-//            } else {
-//                Log.d("CSV", "Updated the second row");
-//            }
-//
-//            // Write the updated content back to the CSV file
-//            FileWriter fileWriter = new FileWriter(file);
-//            CSVWriter csvWriter = new CSVWriter(fileWriter);
-//            csvWriter.writeAll(csvContent);
-//            csvWriter.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 
     private void navigateToSendFileActivity() {

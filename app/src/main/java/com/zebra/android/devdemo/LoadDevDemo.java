@@ -1,6 +1,6 @@
 package com.zebra.android.devdemo;
 
-import static com.zebra.android.devdemo.storedformat.VariablesScreen.readFieldsFromCSV;
+
 
 import com.zebra.android.devdemo.ChangePIN.ChangePIN;
 import com.zebra.android.devdemo.connectionbuilder.ConnectionBuilderDemo;

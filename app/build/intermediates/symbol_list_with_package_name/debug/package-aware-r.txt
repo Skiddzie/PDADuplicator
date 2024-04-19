@@ -94,6 +94,7 @@ id t1Result
 id t2Result
 id t3Result
 id testButton
+id tutorialText
 id variablesTable
 id zxing_back_button
 id zxing_barcode_scanner

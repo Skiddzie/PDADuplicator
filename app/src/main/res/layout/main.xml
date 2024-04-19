@@ -19,4 +19,11 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="center"
 		android:text="Your Text Here" />
+	<TextView
+		android:id="@+id/tutorialText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="To begin duplicating please select Printer Setup and enter your printers
+		 connection info, then select your desired format. Afterwards select Duplicate and begin scanning." />
 </LinearLayout>

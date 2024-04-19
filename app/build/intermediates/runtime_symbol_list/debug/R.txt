@@ -93,6 +93,7 @@ int id t1Result 0x7f06003f
 int id t2Result 0x7f060040
 int id t3Result 0x7f060041
 int id testButton 0x7f060042
+int id tutorialText 0x7f060051
 int id variablesTable 0x7f060043
 int id zxing_back_button 0x7f060044
 int id zxing_barcode_scanner 0x7f060045

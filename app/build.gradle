@@ -9,7 +9,7 @@ android {
     compileSdkVersion 34
 
     defaultConfig {
-        applicationId "com.zebra.android.duplicator"
+        applicationId "com.zebra.android.barcode.duplicator"
         minSdkVersion 25
         targetSdkVersion 34
         resValue "string", "app_name", "Barcode Duplicator"

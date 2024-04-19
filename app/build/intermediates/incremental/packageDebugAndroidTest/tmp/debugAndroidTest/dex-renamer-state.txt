@@ -1,6 +1,6 @@
-#Fri Apr 05 14:14:23 EDT 2024
-base.0=/Users/craigmcinerney/StudioProjects/PDADuplicator/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/0/classes.dex
-base.1=/Users/craigmcinerney/StudioProjects/PDADuplicator/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/12/classes.dex
+#Wed Apr 10 13:29:21 EDT 2024
+base.0=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
+base.1=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\12\\classes.dex
 path.0=0/classes.dex
 path.1=12/classes.dex
 renamed.0=classes.dex

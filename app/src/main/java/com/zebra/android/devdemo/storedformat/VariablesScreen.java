@@ -40,8 +40,6 @@ import com.zebra.sdk.printer.ZebraPrinter;
 import com.zebra.sdk.printer.ZebraPrinterFactory;
 import com.zebra.sdk.printer.ZebraPrinterLanguageUnknownException;
 
-import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
 
 public class VariablesScreen extends Activity {
 
@@ -81,29 +79,6 @@ public class VariablesScreen extends Activity {
         });
     }
 
-//    public static void modifyFormatValue(String file, int rowIndex, int columnIndex, String newValue) {
-//        try {
-//            FileReader fileReader = new FileReader(file);
-//            CSVReader csvReader = new CSVReader(fileReader);
-//            List<String[]> csvData = csvReader.readAll();
-//
-//            if (rowIndex < csvData.size() && columnIndex < csvData.get(rowIndex).length) {
-//                csvData.get(rowIndex)[columnIndex] = newValue;
-//
-//                csvReader.close();
-//
-//                // Write back the modified content to the CSV file
-//                FileWriter fileWriter = new FileWriter(file);
-//                CSVWriter csvWriter = new CSVWriter(fileWriter);
-//                csvWriter.writeAll(csvData);
-//                csvWriter.close();
-//            } else {
-//                System.out.println("Invalid row or column index provided.");
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     @Override
     public void onBackPressed() {
@@ -112,49 +87,5 @@ public class VariablesScreen extends Activity {
         Log.d("switch", "switching from VariablesScreen.java");
     }
 
-    public static List<FieldDescriptionData> readFieldsFromCSV(String file) {
-        List<FieldDescriptionData> fieldsFromCSV = new ArrayList<>();
-
-        try {
-            FileReader fileReader = new FileReader(file);
-            CSVReader csvReader = new CSVReader(fileReader);
-            String[] nextRecord;
-
-            // Skip header if it exists
-            csvReader.readNext(); // Skip the header row if it exists
-
-            // Read each row and assume specific columns contain field data
-            while ((nextRecord = csvReader.readNext()) != null) {
-                // Check if there are enough elements in the array
-                if (nextRecord.length >= 2) {
-                    // Assuming column 0 contains field names and column 1 contains field numbers (modify as per your CSV structure)
-                    String fieldName = nextRecord[0];
-                    String fieldNumberStr = nextRecord[1];
-
-                    // Check if the fieldNumberStr is not empty before parsing
-                    if (!fieldNumberStr.isEmpty()) {
-                        try {
-                            int fieldNumber = Integer.parseInt(fieldNumberStr); // Assuming it's an integer
-
-                            // Create FieldDescriptionData object and add to the list
-                            FieldDescriptionData field = new FieldDescriptionData(fieldNumber, fieldName);
-                            fieldsFromCSV.add(field);
-                        } catch (NumberFormatException e) {
-                            System.out.println("Invalid field number format: " + fieldNumberStr);
-                        }
-                    } else {
-                        System.out.println("Field number is empty in row: " + Arrays.toString(nextRecord));
-                    }
-                } else {
-                    System.out.println("Invalid row format: " + Arrays.toString(nextRecord));
-                }
-            }
-            csvReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return fieldsFromCSV;
-    }
 
 }
