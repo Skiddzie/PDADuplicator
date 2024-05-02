@@ -4,7 +4,7 @@
     "type": "BUNDLE",
     "kind": "RegularFile"
   },
-  "applicationId": "com.zebra.android.duplicator",
+  "applicationId": "com.zebra.android.barcode.duplicator",
   "variantName": "release",
   "elements": [
     {

@@ -4,14 +4,14 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.zebra.android.duplicator",
+  "applicationId": "com.zebra.android.barcode.duplicator",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 2,
+      "versionCode": 3,
       "versionName": "1.1",
       "outputFile": "AndroidManifest.xml"
     }

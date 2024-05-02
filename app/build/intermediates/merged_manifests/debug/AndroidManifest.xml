@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zebra.android.duplicator"
+    package="com.zebra.android.barcode.duplicator"
     android:versionCode="2"
     android:versionName="1.1" >
 
@@ -53,8 +53,7 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
-        android:testOnly="true" >
+        android:label="@string/app_name" >
         <activity
             android:name="com.zebra.android.devdemo.LoadDevDemo"
             android:exported="true"
