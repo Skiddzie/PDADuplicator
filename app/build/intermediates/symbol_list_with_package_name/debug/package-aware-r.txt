@@ -94,6 +94,7 @@ id t1Result
 id t2Result
 id t3Result
 id testButton
+id text_view_id
 id tutorialText
 id variablesTable
 id xSizeBox
