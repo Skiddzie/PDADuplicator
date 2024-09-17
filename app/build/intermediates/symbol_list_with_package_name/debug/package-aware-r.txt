@@ -96,6 +96,10 @@ id t3Result
 id testButton
 id tutorialText
 id variablesTable
+id xSizeBox
+id xStartBox
+id ySizeBox
+id yStartBox
 id zxing_back_button
 id zxing_barcode_scanner
 id zxing_barcode_surface
@@ -144,3 +148,4 @@ style zxing_CaptureTheme
 styleable zxing_camera_preview zxing_framing_rect_height zxing_framing_rect_width zxing_preview_scaling_strategy zxing_use_texture_view
 styleable zxing_finder zxing_possible_result_points zxing_result_view zxing_viewfinder_laser zxing_viewfinder_mask
 styleable zxing_view zxing_scanner_layout
+xml file_paths

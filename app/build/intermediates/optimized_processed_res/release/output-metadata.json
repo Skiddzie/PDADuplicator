@@ -4,15 +4,15 @@
     "type": "OPTIMIZED_PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "com.zebra.android.duplicator",
+  "applicationId": "com.zebra.android.barcode.duplicator",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 1,
-      "versionName": "1.0",
+      "versionCode": 2,
+      "versionName": "1.1",
       "outputFile": "resources-release-optimize.ap_"
     }
   ],

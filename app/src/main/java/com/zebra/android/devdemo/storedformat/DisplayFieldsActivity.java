@@ -19,6 +19,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.os.Handler;
+
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -55,6 +57,7 @@ public class DisplayFieldsActivity extends Activity {
     private UIHelper helper = new UIHelper(this);
     private Connection connection;
     private SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,23 +143,26 @@ public class DisplayFieldsActivity extends Activity {
             if (focusedView instanceof EditText) {
                 if (variableValues.size() == 1 && isPrintOnScanChecked()) {
                     new PrintFormatTask().execute();
+                    // Delay the clearing of the EditText only for the Tab key event
+                    final EditText editTextToClear = variableValues.get(0);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            clearEditText(editTextToClear);
+                        }
+                    }, 500); // Delay of 500 milliseconds
                     return true;
                 }
             }
         }
 
-        if (variableValues.size() == 1 && isPrintOnScanChecked()) {
-            EditText editTextToClear = variableValues.get(0);
-            clearEditText(editTextToClear);
-        }
-        if (variableValues.size() == 1){
+        if (variableValues.size() == 1) {
             EditText firstBox = variableValues.get(0);
             firstBox.requestFocus();
         }
 
         return super.onKeyDown(keyCode, event);
     }
-
     private boolean isPrintOnScanChecked() {
         CheckBox printOnScanCheckBox = findViewById(R.id.printOnScan);
         return printOnScanCheckBox.isChecked();

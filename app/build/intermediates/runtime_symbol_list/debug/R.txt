@@ -95,6 +95,10 @@ int id t3Result 0x7f060041
 int id testButton 0x7f060042
 int id tutorialText 0x7f060043
 int id variablesTable 0x7f060044
+int id xSizeBox 0x7f060052
+int id xStartBox 0x7f060053
+int id ySizeBox 0x7f060054
+int id yStartBox 0x7f060055
 int id zxing_back_button 0x7f060045
 int id zxing_barcode_scanner 0x7f060046
 int id zxing_barcode_surface 0x7f060047
@@ -152,3 +156,4 @@ int styleable zxing_finder_zxing_viewfinder_laser 2
 int styleable zxing_finder_zxing_viewfinder_mask 3
 int[] styleable zxing_view { 0x7f020005 }
 int styleable zxing_view_zxing_scanner_layout 0
+int xml file_paths 0x7f0c0000

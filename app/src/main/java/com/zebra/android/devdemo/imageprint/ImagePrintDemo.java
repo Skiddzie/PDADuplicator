@@ -23,12 +23,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
+import android.support.v4.content.FileProvider;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -39,6 +42,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
+import com.zebra.android.devdemo.BuildConfig;
 import com.zebra.android.devdemo.R;
 import com.zebra.android.devdemo.util.SettingsHelper;
 import com.zebra.android.devdemo.util.UIHelper;
@@ -59,6 +63,12 @@ public class ImagePrintDemo extends Activity {
     private EditText ipAddressEditText;
     private EditText portNumberEditText;
     private EditText printStoragePath;
+
+    private EditText xStartBoxText;
+    private EditText yStartBoxText;
+    private EditText xSizeBoxText;
+    private EditText ySizeBoxText;
+
     private static final String bluetoothAddressKey = "ZEBRA_DEMO_BLUETOOTH_ADDRESS";
     private static final String tcpAddressKey = "ZEBRA_DEMO_TCP_ADDRESS";
     private static final String tcpPortKey = "ZEBRA_DEMO_TCP_PORT";
@@ -87,7 +97,17 @@ public class ImagePrintDemo extends Activity {
         String mac = settings.getString(bluetoothAddressKey, "");
         macAddressEditText.setText(mac);
 
+        xStartBoxText = (EditText) this.findViewById(R.id.xStartBox);
+
+        yStartBoxText = (EditText) this.findViewById(R.id.yStartBox);
+
+        xSizeBoxText = (EditText) this.findViewById(R.id.xSizeBox);
+
+        ySizeBoxText = (EditText) this.findViewById(R.id.ySizeBox);
+
         printStoragePath = (EditText) findViewById(R.id.printerStorePath);
+
+
 
         CheckBox cb = (CheckBox) findViewById(R.id.checkBox);
         cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -107,6 +127,8 @@ public class ImagePrintDemo extends Activity {
         cameraButton.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
+                Log.d("CAMERABUTTON", "CAMERA BUTTON CLICKED");
+
                 getPhotoFromCamera();
             }
         });
@@ -170,9 +192,22 @@ public class ImagePrintDemo extends Activity {
 
     private void getPhotoFromCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        file = new File(Environment.getExternalStorageDirectory(), "tempPic.jpg");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-        startActivityForResult(intent, TAKE_PICTURE);
+
+        try {
+            // Log that we're about to create the file
+            file = new File(getExternalFilesDir(null), "tempPic.jpg");
+            Log.d("ImagePrintDemo", "File path: " + file.getAbsolutePath());
+
+            // Log the attempt to use FileProvider
+            Uri photoURI = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", file);
+            Log.d("ImagePrintDemo", "Generated photo URI: " + photoURI.toString());
+
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+            startActivityForResult(intent, TAKE_PICTURE);
+        } catch (Exception e) {
+            // Log any exceptions that occur
+            Log.e("ImagePrintDemo", "Error while trying to open the camera", e);
+        }
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -196,6 +231,26 @@ public class ImagePrintDemo extends Activity {
         }
     }
 
+    private Bitmap rotateBitmap(Bitmap source, float angle) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
+    }
+
+    private int getIntFromEditText(EditText editText, int defaultValue) {
+        String text = editText.getText().toString();
+        if (text.isEmpty()) {
+            return defaultValue;
+        }
+        try {
+            return Integer.parseInt(text);
+        } catch (NumberFormatException e) {
+            Log.e("ImagePrintDemo", "Invalid number format", e);
+            return defaultValue; // Return the default value if the input is invalid
+        }
+    }
+
+
     private void printPhotoFromExternal(final Bitmap bitmap) {
         new Thread(new Runnable() {
             public void run() {
@@ -204,14 +259,24 @@ public class ImagePrintDemo extends Activity {
 
                     Looper.prepare();
                     helper.showLoadingDialog("Sending image to printer");
+
+                    // Rotate the bitmap 90 degrees
+                    Bitmap rotatedBitmap = rotateBitmap(bitmap, 90);
+
                     Connection connection = getZebraPrinterConn();
                     connection.open();
                     ZebraPrinter printer = ZebraPrinterFactory.getInstance(connection);
 
                     if (((CheckBox) findViewById(R.id.checkBox)).isChecked()) {
-                        printer.storeImage(printStoragePath.getText().toString(), new ZebraImageAndroid(bitmap), 550, 412);
+                        printer.storeImage(printStoragePath.getText().toString(), new ZebraImageAndroid(rotatedBitmap), 550, 412);
                     } else {
-                        printer.printImage(new ZebraImageAndroid(bitmap), 0, 0, 550, 412, false);
+                        int xStart = getIntFromEditText(xStartBoxText, 0);
+                        int yStart = getIntFromEditText(yStartBoxText, 0);
+                        int xSize = getIntFromEditText(xSizeBoxText, 1000);
+                        int ySize = getIntFromEditText(ySizeBoxText, 1000);
+
+                        printer.printImage(new ZebraImageAndroid(rotatedBitmap), xStart, yStart, xSize, ySize, false);
+
                     }
                     connection.close();
 
@@ -226,13 +291,13 @@ public class ImagePrintDemo extends Activity {
                 } catch (ZebraIllegalArgumentException e) {
                     helper.showErrorDialogOnGuiThread(e.getMessage());
                 } finally {
+                    // Recycle the bitmaps
                     bitmap.recycle();
                     helper.dismissLoadingDialog();
                     Looper.myLooper().quit();
                 }
             }
         }).start();
-
     }
 
     private Connection getZebraPrinterConn() {

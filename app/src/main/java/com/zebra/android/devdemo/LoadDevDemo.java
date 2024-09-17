@@ -53,7 +53,7 @@ public class LoadDevDemo extends ListActivity {
     private static final int PIN_ID = 2;
     private static final int OPTIONS_ID = 3;
     private static final int PHONE_ID = 4;
-    private static final int MAGCARD_ID = 11;
+    private static final int IMGCAP_ID = 5;
     private static final int PRNTSTATUS_ID = 6;
     private static final int SMRTCARD_ID = 7;
     private static final int SIGCAP_ID = 8;
@@ -76,11 +76,13 @@ public class LoadDevDemo extends ListActivity {
         Log.d("LoadDevDemo", "onCreate");
         setContentView(R.layout.main);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+                ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(new String[]{
                         Manifest.permission.BLUETOOTH_CONNECT,
-                        Manifest.permission.BLUETOOTH_SCAN
+                        Manifest.permission.BLUETOOTH_SCAN,
+                        Manifest.permission.CAMERA
                 }, REQUEST_BLUETOOTH_PERMISSION);
             }
         }
@@ -187,6 +189,11 @@ public class LoadDevDemo extends ListActivity {
                 intent = new Intent(this, FromPhone.class);
                 startActivity(intent);
                 break;
+            case IMGCAP_ID:
+                intent = new Intent(this, ImagePrintDemo.class);
+                startActivity(intent);
+                break;
+
             default:
                 return; // not possible
         }
@@ -204,7 +211,8 @@ public class LoadDevDemo extends ListActivity {
                     "Printer Setup",
                     "Change PIN",
                     "System Options",
-                    "Send Format to Printer"
+                    "Send Format to Printer",
+                    "Send Image to Printer"
             };
         } else {
             // Exclude CONNECT_ID and PIN_ID from the items list

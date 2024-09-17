@@ -4,7 +4,7 @@
             "outputFile": "com.zebra.android.devdemo.app-mergeReleaseResources-3:/values-ru/values-ru.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\19088\\.gradle\\caches\\transforms-3\\6c3344acf5e14d9092b089b4caeafa6d\\transformed\\zxing-android-embedded-3.6.0\\res\\values-ru\\values-ru.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-3\\6c3344acf5e14d9092b089b4caeafa6d\\transformed\\zxing-android-embedded-3.6.0\\res\\values-ru\\values-ru.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

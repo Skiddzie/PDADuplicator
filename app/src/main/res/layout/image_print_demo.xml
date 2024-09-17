@@ -13,14 +13,14 @@
 		android:layout_height="wrap_content"
 		android:orientation="horizontal">
 		<RadioButton
-		    android:layout_height="wrap_content"
-		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
 			android:id="@+id/ipDnsRadio"
 			android:text="IP/DNS"
 			android:checked="true" />
 		<RadioButton
-		    android:layout_height="wrap_content"
-		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
 			android:id="@+id/bluetoothRadio"
 			android:text="Bluetooth (R)" />
 	</RadioGroup>
@@ -82,7 +82,34 @@
 			android:inputType="textNoSuggestions|text"
 			android:layout_weight="1" />
 	</LinearLayout>
+	<TextView
+		android:id="@+id/text_view_id"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="IMAGE ADJUSTMENT:" />
+	<EditText
+		android:id="@+id/xStartBox"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="X Starting Position" />
 
+	<EditText
+		android:id="@+id/yStartBox"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="Y Starting Position" />
+
+	<EditText
+		android:id="@+id/xSizeBox"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="X Size" />
+
+	<EditText
+		android:id="@+id/ySizeBox"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="Y Size" />
 	<Button
 		android:id="@+id/testButton"
 		android:text="Camera"
@@ -109,6 +136,5 @@
 		android:layout_width="fill_parent"
 		android:inputType="textNoSuggestions|text"
 		android:visibility="invisible" />
-
 
 </LinearLayout>

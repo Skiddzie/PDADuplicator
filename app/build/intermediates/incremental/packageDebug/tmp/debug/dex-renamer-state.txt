@@ -1,15 +1,15 @@
-#Fri Apr 19 15:56:05 EDT 2024
-base.0=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.10=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
-base.2=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
-base.3=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
-base.4=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.5=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
-base.6=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
-base.7=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
-base.8=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
-base.9=C\:\\Users\\19088\\StudioProjects\\PDADuplicator\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+#Tue Sep 17 11:08:25 EDT 2024
+base.0=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.10=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
+base.2=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
+base.4=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.5=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
+base.6=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
+base.7=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
+base.8=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
+base.9=C\:\\Users\\User\\StudioProjects\\PDADuplicator2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.10=8/classes.dex
